@@ -85,7 +85,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/04/从零开始搭建简单的hexo博客/index.html">
 <meta property="og:site_name" content="Lyn&#39;s Blog">
 <meta property="og:description" content="回想了以下，刚对前端这个行业有所了解应该是在17年的10月份，那时是公司的程序猿小哥提到的，后来在知乎里查了一下，才逐渐有所了解。刚开始的自学是在freecodecamp里边闯关边查资料。但是到后面挑战越来越难，才知道自己的知识面真的很窄，仅靠html、css和js这点知识不足以充当一名合格的前端程序员。-&amp;gt;来到饥人谷，才发现，程序员的世界很广阔，额。前路漫漫.. 以下，这是一个全新手的从零">
-<meta property="og:updated_time" content="2018-03-04T11:54:16.214Z">
+<meta property="og:updated_time" content="2018-03-04T12:57:38.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始搭建简单的hexo博客">
 <meta name="twitter:description" content="回想了以下，刚对前端这个行业有所了解应该是在17年的10月份，那时是公司的程序猿小哥提到的，后来在知乎里查了一下，才逐渐有所了解。刚开始的自学是在freecodecamp里边闯关边查资料。但是到后面挑战越来越难，才知道自己的知识面真的很窄，仅靠html、css和js这点知识不足以充当一名合格的前端程序员。-&amp;gt;来到饥人谷，才发现，程序员的世界很广阔，额。前路漫漫.. 以下，这是一个全新手的从零">
@@ -300,69 +300,63 @@
       
         <p>回想了以下，刚对前端这个行业有所了解应该是在17年的10月份，那时是公司的程序猿小哥提到的，后来在知乎里查了一下，才逐渐有所了解。刚开始的自学是在freecodecamp里边闯关边查资料。但是到后面挑战越来越难，才知道自己的知识面真的很窄，仅靠html、css和js这点知识不足以充当一名合格的前端程序员。-&gt;<br>来到饥人谷，才发现，程序员的世界很广阔，额。前路漫漫..</p>
 <p>以下，这是一个全新手的从零开始搭建hexo博客的总结。新手小白可参考，如有不对的地方，烦请大佬交流指正，谢谢！</p>
-<h1 id="1-搭建博客需要的背景知识"><a href="#1-搭建博客需要的背景知识" class="headerlink" title="1. 搭建博客需要的背景知识"></a>1. 搭建博客需要的背景知识</h1><h2 id="1-1-命令行"><a href="#1-1-命令行" class="headerlink" title="1.1 命令行"></a>1.1 命令行</h2><p>我是在windows环境下使用git bash的，首先需区分git bash与git的区别：-&gt;<br>Git bash是一个给我们提供虚拟的linux环境的软件，而git只是其中的一个命令。一般git bash已内置了git命令，无需另外安装下载，但是在使用git命令前需配置。-&gt;<br>//配置命令<br>    $ git config –global user.name xxx<br>    $ git config –global user.email yyy<br>    $ git config –global push.default simple<br>    $ git config –global core.quotepath false<br>    $ git config –global core.editor “vim” </p>
+<ol>
+<li>搭建博客需要的背景知识<br>1.1 命令行<br>我是在windows环境下使用git bash的，首先需区分git bash与git的区别：-&gt;<br>Git bash是一个给我们提供虚拟的linux环境的软件，而git只是其中的一个命令。一般git bash已内置了git命令，无需另外安装下载，但是在使用git命令前需配置。-&gt;<br>配置命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name xxx </span><br><span class="line">$ git config --global user.email yyy </span><br><span class="line">$ git config --global push.default simple </span><br><span class="line">$ git config --global core.quotepath false</span><br><span class="line">$ git config --global core.editor &quot;vim&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <p><strong>基本的命令行操作</strong></p>
-<h3 id="1-1-1-创建命令"><a href="#1-1-1-创建命令" class="headerlink" title="1.1.1 创建命令"></a>1.1.1 创建命令</h3><pre><code>$ mkdir xxx //新建目录
-$ mkdir -p  //新建目录路径
-$ touch xxx.xxx  //新建文件（若文件已存在，使用可改变文件更新时间）
-$ echo &quot;内容&quot;&gt;文件路径   //新建文件
-</code></pre><p>延伸<br>    $ echo “内容”&gt;!文件路径  //强制创建文件（将原文件的内容全部更改）<br>    $ echo “内容 “&gt;&gt;文件路径 //追加文件内容</p>
-<h3 id="1-1-2-进入-打开命令"><a href="#1-1-2-进入-打开命令" class="headerlink" title="1.1.2 进入/打开命令"></a>1.1.2 进入/打开命令</h3><pre><code>$ cd 文件路径  //进入某个目录
-$ start 文件路径 //打开某个文件
-$ vim 文件路径 //使用编辑器vim打开某个文件
-</code></pre><h3 id="1-1-3-复制命令"><a href="#1-1-3-复制命令" class="headerlink" title="1.1.3 复制命令"></a>1.1.3 复制命令</h3><pre><code>$ cp 源路径 目标路径  //复制文件
-$ cp -p  源路径 目标路径  //复制目录
-</code></pre><h3 id="1-1-4-删除命令"><a href="#1-1-4-删除命令" class="headerlink" title="1.1.4 删除命令"></a>1.1.4 删除命令</h3><pre><code>$ rm -rf  文件路径/目录路径 //-r 递归地删除 -f 无需经过同意删除文件
-</code></pre><h3 id="1-1-5-查看信息"><a href="#1-1-5-查看信息" class="headerlink" title="1.1.5 查看信息"></a>1.1.5 查看信息</h3><pre><code>$ pwd   //显示当前目录
-$ whoami  //查看用户名
-$ ls (-al)  路径  //查看路径 （-a：所有文件，包括隐藏文件 -l：使用列表展示文件信息）
-$ tree  //查看目录结构
-</code></pre><h2 id="1-2-GitHub的基础使用"><a href="#1-2-GitHub的基础使用" class="headerlink" title="1.2 GitHub的基础使用"></a>1.2 GitHub的基础使用</h2><p>使用github前最好先翻下下下墙，在墙内github的反应真的贼慢。</p>
-<p>如何在本地使用命令行操作github：</p>
-<h3 id="1-2-1-配置GitHub，添加SSH钥匙"><a href="#1-2-1-配置GitHub，添加SSH钥匙" class="headerlink" title="1.2.1 配置GitHub，添加SSH钥匙"></a>1.2.1 配置GitHub，添加SSH钥匙</h3><p>Step 1<br>  打开Git Bash，运行命令<code>$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code>,记得填写自己的邮箱地址。<br>Step 2<br>  依次按回车3次。<br>Step 3<br>  获取公钥：运行命令<code>cat ~/.ssh/id_rsa.pub</code>.此处不要忘记后缀.pub，有后缀才是公钥文件。<br>Step 4<br>  在GitHub上添加钥匙，路径：Settingss→SSH and GPG keys→New SSH key。填写title和key（将step3获取的信息copy下来）。</p>
-<h3 id="1-2-2-关联远程仓库和本地仓库"><a href="#1-2-2-关联远程仓库和本地仓库" class="headerlink" title="1.2.2 关联远程仓库和本地仓库"></a>1.2.2 关联远程仓库和本地仓库</h3><p>在github上新建一个空的仓库后，<strong>地址选取SSH</strong>。接下来在本地操作。-&gt;<br>新建目录后，在该目录下运行Git Bash</p>
+<p>1.1.1 创建命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir xxx //新建目录</span><br><span class="line">$ mkdir -p  //新建目录路径</span><br><span class="line">$ touch xxx.xxx  //新建文件（若文件已存在，使用可改变文件更新时间）</span><br><span class="line">$ echo &quot;内容&quot;&gt;文件路径   //新建文件</span><br></pre></td></tr></table></figure></p>
+<p>延伸<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;内容&quot;&gt;!文件路径  //强制创建文件（将原文件的内容全部更改）</span><br><span class="line">$ echo &quot;内容 &quot;&gt;&gt;文件路径 //追加文件内容</span><br></pre></td></tr></table></figure></p>
+<p>1.1.2 进入/打开命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd 文件路径  //进入某个目录</span><br><span class="line">$ start 文件路径 //打开某个文件</span><br><span class="line">$ vim 文件路径 //使用编辑器vim打开某个文件</span><br></pre></td></tr></table></figure></p>
+<p>1.1.3 复制命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cp 源路径 目标路径  //复制文件</span><br><span class="line">$ cp -p  源路径 目标路径  //复制目录</span><br></pre></td></tr></table></figure></p>
+<p>1.1.4 删除命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf  文件路径/目录路径 //-r 递归地删除 -f 无需经过同意删除文件</span><br></pre></td></tr></table></figure></p>
+<p>1.1.5 查看信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ pwd   //显示当前目录</span><br><span class="line">$ whoami  //查看用户名</span><br><span class="line">$ ls (-al)  路径  //查看路径 （-a：所有文件，包括隐藏文件 -l：使用列表展示文件信息）</span><br><span class="line">$ tree  //查看目录结构</span><br></pre></td></tr></table></figure></p>
+<p>1.2 GitHub的基础使用<br>使用github前最好先翻下下下墙，在墙内github的反应真的贼慢。</p>
+<p>如何在本地使用命令行操作github：<br>1.2.1 配置GitHub，添加SSH钥匙<br>Step 1<br>  打开Git Bash，运行命令<code>$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code>,记得填写自己的邮箱地址。<br>Step 2<br>  依次按回车3次。<br>Step 3<br>  获取公钥：运行命令<code>cat ~/.ssh/id_rsa.pub</code>.此处不要忘记后缀.pub，有后缀才是公钥文件。<br>Step 4<br>  在GitHub上添加钥匙，路径：Settingss→SSH and GPG keys→New SSH key。填写title和key（将step3获取的信息copy下来）。</p>
+<p>1.2.2 关联远程仓库和本地仓库<br>在github上新建一个空的仓库后，<strong>地址选取SSH</strong>。接下来在本地操作。-&gt;<br>新建目录后，在该目录下运行Git Bash</p>
 <ul>
-<li>本地为空仓库<br> 复制空仓库下..or create a new repository on the command line 下的命令。<br> eg：<pre><code>$ echo &quot;# xxx&quot; &gt;&gt; README.md
-$ git init
-$ git add README.md
-$ git commit -m &quot;first commit&quot;
-$ git remote add origin git@github.com:用户名/xxx.git
-$ git push -u origin master
-</code></pre></li>
-<li>本地仓库已有文件<br> 复制空仓库下 ..or push an existing repository from the command line 下的命令<br>  eg：<pre><code>$ git remote add origin git@github.com:用户名/xxx.git
-$ git push -u origin master
-</code></pre></li>
+<li><p>本地为空仓库<br> 复制空仓库下..or create a new repository on the command line 下的命令。<br> eg：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;# xxx&quot; &gt;&gt; README.md</span><br><span class="line">$ git init</span><br><span class="line">$ git add README.md</span><br><span class="line">$ git commit -m &quot;first commit&quot;</span><br><span class="line">$ git remote add origin git@github.com:用户名/xxx.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本地仓库已有文件<br> 复制空仓库下 ..or push an existing repository from the command line 下的命令<br>  eg：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:用户名/xxx.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="1-2-3-本地文件变动后上传更新到GitHub"><a href="#1-2-3-本地文件变动后上传更新到GitHub" class="headerlink" title="1.2.3 本地文件变动后上传更新到GitHub"></a>1.2.3 本地文件变动后上传更新到GitHub</h3><p>在本地仓库运行git bash ，某些文件进行编辑后，信息已变动，若要上传github，则在该目录下运行以下命令：<br>    $ git add . //将当前目录所有文件添加到暂存区<br>    $ git commit -m “信息” //将暂存区的文件正式提交到本地仓库（.git）<br>    $ git pull<br>    $ git push</p>
+<p>1.2.3 本地文件变动后上传更新到GitHub<br>在本地仓库运行git bash ，某些文件进行编辑后，信息已变动，若要上传github，则在该目录下运行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git add . //将当前目录所有文件添加到暂存区</span><br><span class="line">$ git commit -m &quot;信息&quot; //将暂存区的文件正式提交到本地仓库（.git）</span><br><span class="line">$ git pull </span><br><span class="line">$ git push</span><br></pre></td></tr></table></figure></p>
 <hr>
 <p>在这里，关于git的使用，个人理解在本地应该有三个区-&gt;<br>本地目录：你新建的文件都在这个目录里。-&gt;<br>暂存区：本地目录的文件改动后需要add到暂存区。-&gt;<br>本地仓库：将暂存区的文件提交到仓库需commit。只有本地仓库的内容才可以push到远程仓库。</p>
 <hr>
-<p>另外：<br>    $ git status -sb  //显示当前所有文件的状态<br>    $ git log  //查看变更历史</p>
-<h3 id="1-2-4-下载github上的仓库到本地"><a href="#1-2-4-下载github上的仓库到本地" class="headerlink" title="1.2.4 下载github上的仓库到本地"></a>1.2.4 下载github上的仓库到本地</h3><p>打开要下载的仓库，复制该仓库的SSH地址，在需要下载的目录内运行以下命令：<br>    $ git clone  仓库的SSH地址</p>
-<h2 id="1-3-markdown语法"><a href="#1-3-markdown语法" class="headerlink" title="1.3 markdown语法"></a>1.3 markdown语法</h2><p>之前我并没有接触过markdown书法，因此我是先搭建好了博客，然后google了解了基本语法后再写文章的。</p>
-<h1 id="2-搭建博客的环境准备"><a href="#2-搭建博客的环境准备" class="headerlink" title="2. 搭建博客的环境准备"></a>2. 搭建博客的环境准备</h1><h2 id="2-1-git"><a href="#2-1-git" class="headerlink" title="2.1 git"></a>2.1 git</h2><p>有了git命令才可以将博客部署到github上。 记得部署git，步骤查看1.1</p>
-<h2 id="2-2-node-js"><a href="#2-2-node-js" class="headerlink" title="2.2  node.js"></a>2.2  node.js</h2><p>hexo基于node.js，下载hexo前需安装Node.js.安装结束后直接在Git Bash中配置npm(不要打开node.js)</p>
-<h2 id="2-3-Hexo"><a href="#2-3-Hexo" class="headerlink" title="2.3 Hexo"></a>2.3 Hexo</h2><p>hexo是我们个人博客网站的框架，安装hexo框架需与博客放在同一个文件夹内。（安装命令在3.2）</p>
-<h1 id="3-使用hexo-github搭建一个个人博客"><a href="#3-使用hexo-github搭建一个个人博客" class="headerlink" title="3. 使用hexo+github搭建一个个人博客"></a>3. 使用hexo+github搭建一个个人博客</h1><h2 id="3-1-建立远程仓库"><a href="#3-1-建立远程仓库" class="headerlink" title="3.1 建立远程仓库"></a>3.1 建立远程仓库</h2><p>打开github，新建一个空的仓库（repository），名字为【用户名.github.io】,<em>注：用户名是github上的username</em></p>
-<h2 id="3-2-建立本地仓库目录，安装博客框架"><a href="#3-2-建立本地仓库目录，安装博客框架" class="headerlink" title="3.2 建立本地仓库目录，安装博客框架"></a>3.2 建立本地仓库目录，安装博客框架</h2><pre><code>$ cd 路径 //不要选取系统根目录为本地仓库目录 
-$ npm install -g hexo-cli   //安装hexo
-$ Hexo init  blog  //初始化博客
-$ npm i    //我也不懂
-</code></pre><h2 id="3-3-本地修改博客配置"><a href="#3-3-本地修改博客配置" class="headerlink" title="3.3 本地修改博客配置"></a>3.3 本地修改博客配置</h2><p>在blog的根目录有一个文件_config.yml，这是站点配置文件。运行命令<code>start _config.yml</code>打开文件，修改配置：</p>
+<p>另外：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git status -sb  //显示当前所有文件的状态</span><br><span class="line">$ git log  //查看变更历史</span><br></pre></td></tr></table></figure></p>
+<p>1.2.4 下载github上的仓库到本地<br>打开要下载的仓库，复制该仓库的SSH地址，在需要下载的目录内运行以下命令：<code>$ git clone  仓库的SSH地址</code></p>
+<p>1.3 markdown语法<br>之前我并没有接触过markdown书法，因此我是先搭建好了博客，然后google了解了基本语法后再写文章的。</p>
+<ol>
+<li>搭建博客的环境准备<br>2.1 git<br>有了git命令才可以将博客部署到github上。 记得部署git，步骤查看1.1<br>2.2  node.js<br>hexo基于node.js，下载hexo前需安装Node.js.安装结束后直接在Git Bash中配置npm(不要打开node.js)<br>2.3 Hexo<br>hexo是我们个人博客网站的框架，安装hexo框架需与博客放在同一个文件夹内。（安装命令在3.2）</li>
+</ol>
+<ol>
+<li>使用hexo+github搭建一个个人博客<br>3.1 建立远程仓库<br>打开github，新建一个空的仓库（repository），名字为【用户名.github.io】,<em>注：用户名是github上的username</em><br>3.2 建立本地仓库目录，安装博客框架<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd 路径 //不要选取系统根目录为本地仓库目录 </span><br><span class="line">$ npm install -g hexo-cli   //安装hexo</span><br><span class="line">$ Hexo init  blog  //初始化博客</span><br><span class="line">$ npm i    //我也不懂</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>3.3 本地修改博客配置<br>在blog的根目录有一个文件_config.yml，这是站点配置文件。运行命令<code>start _config.yml</code>打开文件，修改配置：</p>
 <ul>
 <li>title —- 网站标题</li>
 <li>subtitle —- 网站副标题</li>
 <li>description —- 网站描述</li>
 <li>author —- 网站作者</li>
-<li>Repo —- 远程仓库地址（复制3.1里建立的远程仓库的SSH地址后粘贴）<br><strong>需要注意的是 在配置的时候需要在冒号后面加一个英文空格</strong><h2 id="3-4-部署到GitHub"><a href="#3-4-部署到GitHub" class="headerlink" title="3.4 部署到GitHub"></a>3.4 部署到GitHub</h2>$ npm install hexo-deployer-git –save //安装git部署插件<br>$ hexo deploy //部署到GitHub</li>
+<li>Repo —- 远程仓库地址（复制3.1里建立的远程仓库的SSH地址后粘贴）<br><strong>需要注意的是 在配置的时候需要在冒号后面加一个英文空格</strong><br>3.4 部署到GitHub<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save //安装git部署插件</span><br><span class="line">$ hexo deploy //部署到GitHub</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <p><strong>到此博客已经基本部署完成。打开github上的远程仓库【用户名.github.io】的setting上 Github  pages，可以查看到博客预览链接。</strong></p>
-<h2 id="3-5-主题修改"><a href="#3-5-主题修改" class="headerlink" title="3.5 主题修改"></a>3.5 主题修改</h2><p>小白想自己做一个主题还是别妄想了，在github上有<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">hexo主题的合集</a></p>
+<p>3.5 主题修改<br>小白想自己做一个主题还是别妄想了，在github上有<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">hexo主题的合集</a></p>
 <ul>
 <li>找到合适的主题后，进入该主题的github仓库，复制它的SSH地址</li>
-<li>下载该主题仓库到本地：<br>  进入到blog的themes目录，运行命令<code>git clone 主题SSH地址</code>,下载喜欢的主题库到本地。-&gt;运行命令<code>cd ..</code>返回blog目录，再运行<code>start _config.yml</code>打开站点配置文件，修改配置内的themes属性。<br>$ theme（第75行）：主题名字 //不知道的可以打开文件目录的themes里查看<br>$ hexo  generate //生成静态文件<br>$ hexo  deploy    //部署到github<h2 id="3-6-发表博客文章"><a href="#3-6-发表博客文章" class="headerlink" title="3.6 发表博客文章"></a>3.6 发表博客文章</h2>$ hexo new  博客题目<br>$ start  文件路径 //打开文件后使用markdown语法编辑内容。<br>$ hexo generate<br>$ hexo deploy<br>我的文件路径是：myblog/source/_posts/xxx.md</li>
+<li>下载该主题仓库到本地：<br>  进入到blog的themes目录，运行命令<code>git clone 主题SSH地址</code>,下载喜欢的主题库到本地。-&gt;运行命令<code>cd ..</code>返回blog目录，再运行<code>start _config.yml</code>打开站点配置文件，修改配置内的themes属性。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ theme（第75行）：主题名字 //不知道的可以打开文件目录的themes里查看</span><br><span class="line">$ hexo  generate //生成静态文件</span><br><span class="line">$ hexo  deploy    //部署到github</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h1 id="4-上传博客源码到github仓库上"><a href="#4-上传博客源码到github仓库上" class="headerlink" title="4. 上传博客源码到github仓库上"></a>4. 上传博客源码到github仓库上</h1><p>3.1中建立的仓库【用户名.github.io】保存的只是博客，并没有保存博客的源代码，再建立一个仓库【blog-generator】用于保存源代码可防止因为巫山blog而丢失所有数据。-&gt;<br>注意，每次部署（hexo deploy）完后记得更新源码仓库(add→commit→pull→push)-&gt;<br>具体步骤查看1.2</p>
+<p>3.6 发表博客文章<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new  博客题目</span><br><span class="line">$ start  文件路径 //打开文件后使用markdown语法编辑内容。</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>我的文件路径是：myblog/source/_posts/xxx.md</p>
+<ol>
+<li>上传博客源码到github仓库上<br>在3.1中建立的仓库【用户名.github.io】保存的只是博客，并没有保存博客的源代码，再建立一个仓库【blog-generator】用于保存源代码可防止因为巫山blog而丢失所有数据。-&gt;<br>注意，每次部署（hexo deploy）完后记得更新源码仓库(add→commit→pull→push)-&gt;<br>具体步骤查看1.2</li>
+</ol>
 
       
     </div>
@@ -447,17 +441,8 @@ $ npm i    //我也不懂
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -499,22 +484,6 @@ $ npm i    //我也不懂
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-搭建博客需要的背景知识"><span class="nav-number">1.</span> <span class="nav-text">1. 搭建博客需要的背景知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-命令行"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 命令行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-创建命令"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 创建命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-进入-打开命令"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 进入/打开命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-复制命令"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3 复制命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-4-删除命令"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.1.4 删除命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-5-查看信息"><span class="nav-number">1.1.5.</span> <span class="nav-text">1.1.5 查看信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-GitHub的基础使用"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 GitHub的基础使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-配置GitHub，添加SSH钥匙"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 配置GitHub，添加SSH钥匙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-关联远程仓库和本地仓库"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 关联远程仓库和本地仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-本地文件变动后上传更新到GitHub"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3 本地文件变动后上传更新到GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-4-下载github上的仓库到本地"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.2.4 下载github上的仓库到本地</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-markdown语法"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 markdown语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-搭建博客的环境准备"><span class="nav-number">2.</span> <span class="nav-text">2. 搭建博客的环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-git"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-node-js"><span class="nav-number">2.2.</span> <span class="nav-text">2.2  node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Hexo"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 Hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-使用hexo-github搭建一个个人博客"><span class="nav-number">3.</span> <span class="nav-text">3. 使用hexo+github搭建一个个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-建立远程仓库"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 建立远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-建立本地仓库目录，安装博客框架"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 建立本地仓库目录，安装博客框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-本地修改博客配置"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 本地修改博客配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-部署到GitHub"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 部署到GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-主题修改"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 主题修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-发表博客文章"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 发表博客文章</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-上传博客源码到github仓库上"><span class="nav-number">4.</span> <span class="nav-text">4. 上传博客源码到github仓库上</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
