@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在了解html之前，我们需要知道什么是html。 html是超文本标记语言，全称为HyperText Markup Language。它是一种纯文本语言，只用于定义一个网页的结构和内容，而html定义的内容的样式是由css决定的。  W3C  世界上第一个网页是Tim Berners-Lee（李爵士）写出来的，后来也是他建立W3C——万维网的主要国家标准组织，全称World Wide Web C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于html的一些事">
+<meta property="og:url" content="http://yoursite.com/2018/03/10/关于html的一些事/index.html">
+<meta property="og:site_name" content="Lyn&#39;s Blog">
+<meta property="og:description" content="在了解html之前，我们需要知道什么是html。 html是超文本标记语言，全称为HyperText Markup Language。它是一种纯文本语言，只用于定义一个网页的结构和内容，而html定义的内容的样式是由css决定的。  W3C  世界上第一个网页是Tim Berners-Lee（李爵士）写出来的，后来也是他建立W3C——万维网的主要国家标准组织，全称World Wide Web C">
+<meta property="og:updated_time" content="2018-03-10T05:37:32.611Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于html的一些事">
+<meta name="twitter:description" content="在了解html之前，我们需要知道什么是html。 html是超文本标记语言，全称为HyperText Markup Language。它是一种纯文本语言，只用于定义一个网页的结构和内容，而html定义的内容的样式是由css决定的。  W3C  世界上第一个网页是Tim Berners-Lee（李爵士）写出来的，后来也是他建立W3C——万维网的主要国家标准组织，全称World Wide Web C">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/10/关于html的一些事/"/>
+
+
+
+
+
+  <title>关于html的一些事 | Lyn's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lyn's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/关于html的一些事/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于html的一些事</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-10T13:35:27+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> 在了解html之前，我们需要知道什么是html。</p>
+<p>html是<strong>超文本标记语言</strong>，全称为<strong>HyperText Markup Language</strong>。<br>它是一种纯文本语言，只用于定义一个网页的结构和内容，而html定义的内容的样式是由css决定的。</p>
+<ul>
+<li>W3C</li>
+</ul>
+<p>世界上第一个网页是Tim Berners-Lee（李爵士）写出来的，后来也是他建立W3C——万维网的主要国家标准组织，全称<strong>World Wide Web Consortium</strong>。<br>W3C只是给国际提出了一个推荐的网络标准（并不是强制要求），但它的出现还是给市场大部分网络技术解决了一些不兼容的问题，也保障了网络信息的顺利和完整流通。</p>
+<ul>
+<li>MDN</li>
+</ul>
+<p>而对于前端开发者来说，MDN是一个相比较友好的学习网站。MDN的全称是MDN Web Docs（旧称Mozilla Developer Network），它是一个汇集众多Mozilla基金会产品和网络技术开发文档的免费网站。</p>
+<ul>
+<li>最基本的HTML代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">   &lt;meta&gt;</span><br><span class="line">   &lt;title&gt;标题出现在浏览器头部&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">       &lt;!--  css外部样式  --&gt; </span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">   &lt;h&gt;######&lt;/h&gt;</span><br><span class="line">   &lt;p&gt;#####&lt;a href=&quot;#&quot; &gt;#&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">   &lt;img href=&quot;#&quot;&gt;</span><br><span class="line">   &lt;ul&gt;</span><br><span class="line">     &lt;li&gt;#####&lt;/li&gt;</span><br><span class="line">     &lt;li&gt;#####&lt;/li&gt;</span><br><span class="line">   &lt;/ul&gt;</span><br><span class="line">   &lt;ol&gt;</span><br><span class="line">     &lt;li&gt;#####&lt;/li&gt;</span><br><span class="line">   &lt;/ol&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关于html的元素（标签）</li>
+</ul>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element" target="_blank" rel="noopener"><strong>html元素 查看</strong></a></p>
+<p>在html的世界有一个词叫语义化，在程序中, 语义 指的是一段代码的含义，我的理解就是什么样的内容/结构就使用什么样的标签（元素），比较有意思的就是<code>&lt;i&gt;</code>、<code>&lt;em&gt;</code>、<code>&lt;b&gt;</code>、<code>&lt;strong&gt;</code>这几个标签。<code>&lt;i&gt;</code>、<code>&lt;em&gt;</code>这两个标签经浏览器解析出来表现的都是<em>斜体</em>的样式，而<code>&lt;b&gt;</code>、<code>&lt;strong&gt;</code>这两个标签表现出来的是<strong>加粗</strong>的样式。但是两个蕴含的语义确实截然不同。像<code>&lt;em&gt;</code>为压力强调文字，<code>&lt;strong&gt;</code>为重要文字,而<code>&lt;i&gt;</code>、<code>&lt;b&gt;</code>表示的更多是单纯样式，有更详细的解析在<a href="http://www.zhangxinxu.com/wordpress/2011/11/i-b-em-strong-html5-%E8%AF%AD%E4%B9%89/" target="_blank" rel="noopener">张鑫旭老师</a>的博客里。</p>
+<p>最后，关于html元素的学习，我觉得老师说的真的很有道理，要从实战中去学习。要带着做某一个页面或者项目的目的去学一个标签会让自己的印象来得更深刻，也会理解得更透彻。</p>
+<ul>
+<li>关于空元素</li>
+</ul>
+<p>空元素指的是html中不带内容的元素，这类元素通常不带闭合标签，也就是 不成双成对出现的，他们是自闭合标签（单身狗）。</p>
+<p><strong>在html中有以下空元素：</strong></p>
+<blockquote>
+<ol>
+<li><code>&lt;img&gt;</code>：表示文档中的一个图像。常用的属性有<code>src</code>—图片的URL，<code>alt</code>描述图像的替换文本，即是文本没加载出来时，会看到的文本提示。</li>
+<li><code>&lt;base&gt;</code>：指定用于一个文档中包含的所有相对URL的基本URL。一份中只能有一个<code>&lt;base&gt;</code>元素。</li>
+<li><code>&lt;br&gt;</code>：在文本中产生一个换行（回车键）</li>
+<li><code>&lt;col&gt;</code>：定义表格中的列，并用于定义所有公共单元格上的公共语义。它通常位于<code>&lt;colgroup&gt;</code>元素内</li>
+<li><code>&lt;colgroup&gt;</code>：HTML 中的 表格列组（Column Group <code>&lt;colgroup&gt;</code>） 标签用来定义表中的一组列表</li>
+<li><code>&lt;command&gt;</code>：已经被废弃的标签。</li>
+<li><code>&lt;embed&gt;</code>：将外部内容嵌入文档中的指定位置。此内容由外部应用程序或其他交互式内容源（如浏览器插件）提供。</li>
+<li><code>&lt;hr&gt;</code>：段落级元素之间的主题转换。在可视化浏览器中表现为水平线。但目前被定义为语义上的，而不是表现层面上。</li>
+<li><code>&lt;area&gt;</code>： 在图片上定义一个热点区域，可以关联一个超链接。<code>&lt;area&gt;</code>元素仅在<code>&lt;map&gt;</code>元素内部使用。</li>
+<li><code>&lt;input&gt;</code>：用于为基于Web的表单创建交互式控件，以便接受来自用户的数据。</li>
+<li><code>&lt;keygen&gt;</code> ：已经被废弃的标签。</li>
+<li><code>&lt;link&gt;</code>： 指定了外部资源与当前文档的关系. 这个元素的使用方法包括为导航定义关系框架.这个元素经常用来链接css文件。</li>
+<li><code>&lt;meta&gt;</code>：表示那些不能由其它HTML元相关元素（<code>&lt;base&gt;</code>,<code>&lt;link&gt;</code>,<code>&lt;script&gt;</code>,<code>&lt;style&gt;</code>,<code>&lt;title&gt;</code>）之一表示的任何元数据信息</li>
+<li><code>&lt;param&gt;</code>：定义了 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/object" title="HTML &lt;object&gt; 元素（或者称作 HTML 嵌入对象元素）表示引入一个外部资源，这个资源可能是一张图片，一个嵌入的浏览上下文，亦或是一个插件所使用的资源。" target="_blank" rel="noopener"><code>&lt;object&gt;</code></a>的参数</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/source" title="The HTML &lt;source&gt; element specifies multiple media resources for either the &lt;picture&gt;, the &lt;audio&gt; or the &lt;video&gt; element. It is an empty element. It is commonly used to serve the same media content in multiple formats supported by different browsers." target="_blank" rel="noopener"><code>&lt;source&gt;</code></a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/track" target="_blank" rel="noopener"><code>&lt;track&gt;</code></a>：被当作媒体元素—<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/audio" title="HTML &lt;audio&gt; 元素用于在文档中表示音频内容。 &lt;audio&gt;元素可以包含多个音频资源， 这些音频资源可以使用 src 属性或者&lt;source&gt; 元素来进行描述； 浏览器将会选择最合适的一个来使用。对于不支持&lt;audio&gt;元素的浏览器，&lt;audio&gt;元素也可以作为浏览器不识别的内容加入到文档中。" target="_blank" rel="noopener"><code>&lt;audio&gt;</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video" title="HTML &lt;video&gt; 元素 用于在HTML或者XHTML文档中嵌入视频内容。" target="_blank" rel="noopener"><code>&lt;video&gt;</code></a>的子元素来使用。</li>
+<li><code>&lt;wbr&gt;</code>：一个文本中的位置，其中浏览器可以选择来换行，虽然它的换行规则可能不会在这里换行。</li>
+</ol>
+</blockquote>
+<ul>
+<li>什么是可替换元素<br>可替换元素就是<em>浏览器根据元素的标签和属性，来决定元素的具体显示内容。</em><br>也就是可替换元素没有实际内容，他的内容是由属性决定的。因此可替换元素也属于空元素。<br>典型的可替换元素有 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/img" title="HTML Image 元素（ &lt;img&gt; ）代表文档中的一个图像。" target="_blank" rel="noopener"><code>&lt;img&gt;</code></a>、 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/object" title="HTML &lt;object&gt; 元素（或者称作 HTML 嵌入对象元素）表示引入一个外部资源，这个资源可能是一张图片，一个嵌入的浏览上下文，亦或是一个插件所使用的资源。" target="_blank" rel="noopener"><code>&lt;object&gt;</code></a>、 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video" title="HTML &lt;video&gt; 元素 用于在HTML或者XHTML文档中嵌入视频内容。" target="_blank" rel="noopener"><code>&lt;video&gt;</code></a> 和 表单元素，如<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/textarea" title="HTML &lt;textarea&gt; 元素表示一个多行纯文本编辑控件。" target="_blank" rel="noopener"><code>&lt;textarea&gt;</code></a>、 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input" title="HTML &lt;input&gt; 元素用于为基于Web的表单创建交互式控件，以便接受来自用户的数据。" target="_blank" rel="noopener"><code>&lt;input&gt;</code></a> 。<br>另外，某些元素只在一些特殊情况下表现为可替换元素，例如 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/audio" title="HTML &lt;audio&gt; 元素用于在文档中表示音频内容。 &lt;audio&gt; 元素可以包含多个音频资源， 这些音频资源可以使用 src 属性或者&lt;source&gt; 元素来进行描述； 浏览器将会选择最合适的一个来使用。对于不支持&lt;audio&gt;元素的浏览器，&lt;audio&gt;元素也可以作为浏览器不识别的内容加入到文档中。" target="_blank" rel="noopener"><code>&lt;audio&gt;</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/canvas" title="&lt;canvas&gt;元素可被用来通过脚本（通常是JavaScript）绘制图形。比如,它可以被用来绘制图形,制作图片集合,甚至用来实现动画效果。你可以(也应该)在元素标签内写入可提供替代的的代码内容，这些内容将会在在旧的、不支持&lt;canvas&gt;元素的浏览器或是禁用了JavaScript的浏览器内渲染并展现。" target="_blank" rel="noopener"><code>&lt;canvas&gt;</code></a> 。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/04/从零开始搭建简单的hexo博客/" rel="next" title="从零开始搭建简单的hexo博客">
+                <i class="fa fa-chevron-left"></i> 从零开始搭建简单的hexo博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lynchuh</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lynchuh</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
