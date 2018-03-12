@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="首先明确一点，为什么要学习编程基础？  操作系统运行于 硬件 之上浏览器运行于 操作系统 之上html/css/JS运行于 浏览器 之上html/css/JS和 数据 都来自于 服务器  硬件与软件：计算机的运行原理，推荐阅读 编码 学习编程基础可以把我们的知识面扩大，防止自己成为井底之蛙。  在计算机内部，只能存储存储与读取0和1，所有信息都是用二进制数串的形式表示的。 ####第一步：（内存）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机基础---计算机是如何存储数据的">
+<meta property="og:url" content="http://yoursite.com/2018/03/12/计算机基础-计算机是如何存储数据的/index.html">
+<meta property="og:site_name" content="Lyn&#39;s Blog">
+<meta property="og:description" content="首先明确一点，为什么要学习编程基础？  操作系统运行于 硬件 之上浏览器运行于 操作系统 之上html/css/JS运行于 浏览器 之上html/css/JS和 数据 都来自于 服务器  硬件与软件：计算机的运行原理，推荐阅读 编码 学习编程基础可以把我们的知识面扩大，防止自己成为井底之蛙。  在计算机内部，只能存储存储与读取0和1，所有信息都是用二进制数串的形式表示的。 ####第一步：（内存）">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-73c24a32905e159a.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-ea46f532b68a9486.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-542bc55a15514267.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-03-12T09:11:26.743Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机基础---计算机是如何存储数据的">
+<meta name="twitter:description" content="首先明确一点，为什么要学习编程基础？  操作系统运行于 硬件 之上浏览器运行于 操作系统 之上html/css/JS运行于 浏览器 之上html/css/JS和 数据 都来自于 服务器  硬件与软件：计算机的运行原理，推荐阅读 编码 学习编程基础可以把我们的知识面扩大，防止自己成为井底之蛙。  在计算机内部，只能存储存储与读取0和1，所有信息都是用二进制数串的形式表示的。 ####第一步：（内存）">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9929263-73c24a32905e159a.gif?imageMogr2/auto-orient/strip">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/12/计算机基础-计算机是如何存储数据的/"/>
+
+
+
+
+
+  <title>计算机基础---计算机是如何存储数据的 | Lyn's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lyn's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/12/计算机基础-计算机是如何存储数据的/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机基础---计算机是如何存储数据的</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T17:01:51+08:00">
+                2018-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>首先明确一点，为什么要学习编程基础？</p>
+<blockquote>
+<p>操作系统运行于 <strong>硬件</strong> 之上<br>浏览器运行于 <strong>操作系统</strong> 之上<br>html/css/JS运行于 <strong>浏览器</strong> 之上<br>html/css/JS和 <strong>数据</strong> 都来自于 <strong>服务器</strong></p>
+</blockquote>
+<p>硬件与软件：计算机的运行原理，推荐阅读 <a href="https://book.douban.com/subject/4822685/" target="_blank" rel="noopener">编码</a></p>
+<p>学习编程基础可以把我们的知识面扩大，防止自己成为井底之蛙。</p>
+<hr>
+<p>在计算机内部，只能存储存储与读取0和1，所有信息都是用二进制数串的形式表示的。</p>
+<p>####第一步：（内存）如何存储0和1？<img src="https://upload-images.jianshu.io/upload_images/9929263-73c24a32905e159a.gif?imageMogr2/auto-orient/strip" alt="计算机存储原理"></p>
+<ul>
+<li>存储/读取<br>1—-高电平<br>0—-低电平</li>
+</ul>
+<p>####第二步：如何存储数字<br>计算机所有信息都是以二进制数串的形式存储。因此数字1 2 3 4 5 6 7 8 9 0都是经转化为二进制存储在计算机内。<br>   负数会以 <a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%A3%9C%E6%95%B8" target="_blank" rel="noopener"><strong>补码</strong></a> 的形式存储。<br>   小数会以 <a href="https://zh.wikipedia.org/wiki/%E6%B5%AE%E7%82%B9%E6%95%B0" target="_blank" rel="noopener"><strong>浮点数</strong></a> 的形式存储</p>
+<p>####第三步：如何存储字符<br>为每个字符编号，使用<strong>ASCII美国信息交换标准代码</strong>。<br>如果你想存储 <code>a</code>，那么就存储 <code>97</code> 对应的二进制：<code>a -&gt; 0110 0001</code><br><img src="https://upload-images.jianshu.io/upload_images/9929263-ea46f532b68a9486.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ASCII美国信息交换标准代码.png"></p>
+<p>####第四步：如何存储中文<br>在<strong>ASCII美国信息交换标准代码</strong>中只有数字与字母的字符，并没有中文。因此，我们国家推出了<a href="https://zh.wikipedia.org/wiki/GB_2312" target="_blank" rel="noopener"><strong>GB2312中国国家标准简体中文字符集</strong></a>。</p>
+<p><strong>GB2312</strong>共收录 <strong>6763</strong> 个汉字，同时收录了包括拉丁字母，希腊字母，日文平假名及片假名字母，俄语西里尔字母在内的 <strong>682</strong> 个字符。</p>
+<p>但在计算机的快速发展下，GB2312收录的字符已经不满足日常需要了，因此微软推出了 <a href="https://zh.wikipedia.org/wiki/%E6%B1%89%E5%AD%97%E5%86%85%E7%A0%81%E6%89%A9%E5%B1%95%E8%A7%84%E8%8C%83" target="_blank" rel="noopener"><strong>GBK 字符集</strong></a></p>
+<p>####第五步：存储所有字符<br><a href="https://zh.wikipedia.org/wiki/Unicode" target="_blank" rel="noopener"><strong>Unicode 字符集</strong></a> 将全球字符编号都收录了，包括中日韩文字、藏文、盲文、楔形文字、 <a href="https://zh.wikipedia.org/wiki/%E8%A1%A8%E6%83%85%E7%AC%A6%E8%99%9F%E5%88%97%E8%A1%A8#ref_U1F600_as_of_Unicode_version" target="_blank" rel="noopener">颜文字</a><code>:-)</code>、 绘文字😂<br>2016年6月时，Unicode 总共有 128237 个字符。在存储这么多字符的情况下，因此Unicode 使用了 4 个字节（32位）来存储一个字符。<br>如此一来，电脑的负荷就变大了，为了选取一种高性价比的方式来存储数据，于是出现了 <a href="https://zh.wikipedia.org/wiki/UTF-8#UTF-8.E7.9A.84.E7.B7.A8.E7.A2.BC.E6.96.B9.E5.BC.8F" target="_blank" rel="noopener"><strong>UTF-8</strong></a></p>
+<blockquote>
+<p>同一个字符  <strong><code>a</code></strong>在普通unicode的方式下，它的转换如下：<br><code>a -&gt; 00000000 00000000 00000000 011000012 = 006116</code><br>而经过UTF-8算法转化后：<br><code>a -&gt; 01100001</code></p>
+</blockquote>
+<p>####总结：</p>
+<ul>
+<li>计算机只能存储0 和1 ，其他所有信息都是以二进制数串的形式存储。</li>
+<li>目前计算机字符集有 <strong>ASCII美国信息交换标准代码</strong> 、<strong>GB2312</strong> 、<strong>GBK 字符集</strong> 、<strong>Unicode</strong>。</li>
+<li><strong>UTF-8</strong> 是一种编码方式，不是字符集！</li>
+<li><strong>字符集历史</strong></li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/9929263-542bc55a15514267.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="字符集历史.png"></p>
+<ul>
+<li><strong>历史问题</strong><br>JavaScript 使用了 Unicode 字符集，但是没有使用 UTF-8 编码<blockquote>
+<p>JavaScript 用了 UCS-2 编码！<br>因为 1995 年 UTF-16 还没被发明出来， JavaScript 也不想使用 UTF-32。<br><a href="http://www.ruanyifeng.com/blog/2014/12/unicode.html" target="_blank" rel="noopener">具体看这里</a></p>
+</blockquote>
+</li>
+</ul>
+<p>后果</p>
+<blockquote>
+<p>ES5 无法表示 \uFFFF 之后的字符（如 \u1D306），某些情况下会出 bug</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/10/关于html的一些事/" rel="next" title="关于html的一些事">
+                <i class="fa fa-chevron-left"></i> 关于html的一些事
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lynchuh</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lynchuh</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
