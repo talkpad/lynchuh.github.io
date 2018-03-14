@@ -228,6 +228,163 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/关于html标签的一些总结2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/14/关于html标签的一些总结2/" itemprop="url">关于html标签的一些总结2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posté le</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T09:19:58+08:00">
+                2018-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h6 id="1-lt-iframe-gt-标签"><a href="#1-lt-iframe-gt-标签" class="headerlink" title="1. &lt;iframe&gt;标签"></a>1. <code>&lt;iframe&gt;</code>标签</h6><p><code>&lt;iframe&gt;</code>表示嵌套页面，默认大小为50*100。可以修改属性height和width.但是iframe的宽度可以设置百分比，高度却不可以。</p>
+<p>下面是 <code>&lt;iframe&gt;</code>的一些属性的使用。<br><code>src</code>  ,表示嵌套页面的URL地址。记得不要写成href。<br><code>name</code> ,表示嵌套页面的名字，可以用于<code>&lt;a&gt;`</code><form><code>的target属性，或者</code><input><code></code><button><code>的formtarget属性。</code>frameborder<code>,</code><iframe><code>标签默认在浏览器表现出的样式会有一个边框，使用这个属性可以消除这个丑丑的边框：</code>frameborder=”0”`</iframe></button></form></p>
+<h6 id="2-lt-a-gt-标签"><a href="#2-lt-a-gt-标签" class="headerlink" title="2. &lt;a&gt;标签"></a>2. <code>&lt;a&gt;</code>标签</h6><p><code>&lt;a&gt;</code>是一个锚元素，创建一个超链接。</p>
+<p>下面是 <code>&lt;a&gt;</code>的一些属性的使用。<br><strong><code>target</code></strong>表示在哪里显示超链接的内容。这个跟 <code>&lt;iframe&gt;</code>结合使用理解。</p>
+<blockquote>
+<p>①_blank //在空白页打开超链接<br>②_self //在当前页面打开<br>③_parent //在爸爸身上打开<br>④_top //在祖先身上打开<br>⑤name // <code>&lt;iframe&gt;</code>的name，在该<code>&lt;iframe&gt;</code>身上打开。</p>
+</blockquote>
+<p>③④的使用还是结合 <code>&lt;iframe&gt;</code>理解，在一个html页面嵌入了 <code>&lt;iframe&gt;</code>（假设叫a），则html页面是a的爸爸，类推，在a身上再嵌入一个新的 <code>&lt;iframe&gt;</code>（假设叫b），则html页面就是b的祖先。</p>
+<hr>
+<p><strong><code>download</code></strong>  建立一个下载的超链接。例如：<code>&lt;a href=&quot;#&quot; download=&quot;下载名字&quot;&gt;下载&lt;/a&gt;</code> </p>
+<h2 id="另外还有一种下载方法，用http响应决定-content-Type-application-ocet-stream"><a href="#另外还有一种下载方法，用http响应决定-content-Type-application-ocet-stream" class="headerlink" title="另外还有一种下载方法，用http响应决定    content-Type:application/ocet-stream"></a>另外还有一种下载方法，用http响应决定    content-Type:application/ocet-stream</h2><p><code>href</code> 表示a的超链接地址URL，他支持多种协议。以下是href的集中情况：</p>
+<p>①http协议或https协议。这个很容易理解：<br><code>&lt;a href=&quot;http://www.qq.com&quot;&gt;打开腾讯首页&lt;/a&gt;</code><br>所以呢，前面的”http://“不可以缺少！！！！</p>
+<p>②无协议相对地址。例如：<code>&lt;a href=&quot;//qq.com&quot;&gt;打不开腾讯首页&lt;/a&gt;</code>这种情况下是打不开腾讯首页的。因为此时他自动继承了当前页面的协议（一般是文件协议file://xxx），此时可以在当前目录搭建一个http-server，那么当前页面的协议会变成http协议，在这个环境下才可以打开腾讯首页。<br>所以！！使用这个路径的话，访问腾讯首页时，不能关闭了http-server。</p>
+<blockquote>
+<p>下载并打开http-server：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;sudo npm i -g http-server</span><br><span class="line">&gt;cd  xxxx(当前网页的目录)</span><br><span class="line">&gt;http-server -c-1</span><br><span class="line">&gt;``</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>然后复制给出的路径，在浏览器中打开。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-e78cc971633c7d1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="123.png"></p>
+</blockquote>
+<p>③特殊字符路径<br> <code>&lt;a href=&quot;?name=qqq&quot;&gt;qq&lt;/a&gt;</code> 这种情况在点击之后会在当前页面发起?name=qqq的请求<br><code>&lt;a href=&quot;#xxx&quot;&gt;qq&lt;/a&gt;</code>这个点击之后不会发起请求，锚点在当前页面进行跳转<br><code>&lt;a href=&quot;/xxx.html &quot;&gt;link&lt;/a&gt;</code>  点击后会浏览器会发起GET / HTTP/1.1的请求，路径还是/，因为/已经是根目录，无法再往上走一个。</p>
+<p>④伪协议<br>使用伪协议可以满足一种需求：点击了<code>&lt;a&gt;</code>标签不会发生任何跳转。<br><code>&lt;a href=&quot;javascript:;&quot;&gt;我就不动&lt;/a&gt;</code></p>
+<hr>
+<h6 id="3-lt-form-gt-标签"><a href="#3-lt-form-gt-标签" class="headerlink" title="3. &lt;form&gt;标签"></a>3. <code>&lt;form&gt;</code>标签</h6><p><code>&lt;form&gt;</code>和<code>&lt;a&gt;</code>的区别是，<code>&lt;form&gt;</code>发起的HTTP请求是 POST （file协议不支持POST请求），而<code>&lt;a&gt;</code>发起的是一个HTTP GET请求。<br>关于GET请求与POST请求的区别有一点：</p>
+<ul>
+<li>GET请求会将参数放在查询参数里面，也就是说当用户输入了参数之后，网页得到响应后，所有参数值都会显示在URL上。//GET是获取内容的请求。</li>
+<li>POST请求会默认将参数放在请求的第四部分。//POST是上传内容的请求。</li>
+</ul>
+<p>关于请求修改，可以使用属性<code>method</code>。而action属性指定了参数POST传送的地方。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;users?name=xxx&quot; method=&quot;post&quot;&gt;</span><br><span class="line">    &lt;label&gt;用户名&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;/label&gt; </span><br><span class="line">    &lt;label&gt;密码&lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;/label&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure></p>
+<p><code>&lt;form&gt;</code>标签的子标签有交互式控件，接受来自用户的数据。有<code>&lt;input&gt;`</code><textarea><code></code></textarea><button><code>等
+注意！！，</code><form>`标签内一定要有提交按钮。</form></button></p>
+<h6 id="4-lt-input-gt-标签"><a href="#4-lt-input-gt-标签" class="headerlink" title="4. &lt;input&gt;标签"></a>4. <code>&lt;input&gt;</code>标签</h6><p><code>&lt;input&gt;</code>的<code>type</code>属性：如果不指定<code>type</code>属性，则默认为 text 。<br>①text：表文本。//password：表密码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//建立一个用户登录的界面</span><br><span class="line">&lt;form&gt;</span><br><span class="line">   &lt;label&gt;&lt;input type=&quot;text&quot; name=&quot;username&quot; &gt;username&lt;/label&gt;</span><br><span class="line">   &lt;br&gt;//换行</span><br><span class="line">   &lt;label&gt;&lt;input type=&quot;password&quot; name=&quot;password&quot; &gt;password&lt;/label&gt;</span><br><span class="line">   &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong><code>&lt;label&gt;</code>标签可以将文本信息跟交互控件关联在一起。如下图，是以上代码显示出来的。点击username焦点会自动到输入框中。</strong><br><img src="https://upload-images.jianshu.io/upload_images/9929263-e8c11aa1f63ab86a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>② button：表示普通按钮。//submit：表示提交按钮。<br><em>ps 有一个标签是<code>&lt;button&gt;</code>，它也有<code>type</code>属性，不同的是，这个标签如果不指定<code>type</code>属性，则它会默认为提交按钮。</em> 注意<code>&lt;button&gt;</code>不是空元素。</p>
+<p>③ checkbox：表复选框。//radio：表单选框</p>
+<p>在实际场景，通常会有某一个命题，需要用户做选择。此时单选框的name属性需一致，这样同一组的单选按钮才可以起到单选的作用。而value为提交数据到服务器的值。如下面，可以设置一致的value，以便后端区分。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;save.php&quot; method=&quot;post&quot; &gt;</span><br><span class="line">    &lt;label&gt;性别:&lt;/label&gt;</span><br><span class="line">    &lt;label&gt;男</span><br><span class="line">    &lt;input type=&quot;radio&quot; value=&quot;man&quot;  name=&quot;gender&quot; &gt;&lt;/label&gt;</span><br><span class="line">    &lt;label&gt;女</span><br><span class="line">    &lt;input type=&quot;radio&quot; value=&quot;woman&quot;  name=&quot;gender&quot; &gt;&lt;/label&gt;</span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure></p>
+<h6 id="5-lt-select-gt-标签与-lt-option-gt-标签。"><a href="#5-lt-select-gt-标签与-lt-option-gt-标签。" class="headerlink" title="5. &lt;select&gt;标签与&lt;option&gt;标签。"></a>5. <code>&lt;select&gt;</code>标签与<code>&lt;option&gt;</code>标签。</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=&quot;#&quot; method=&quot;post&quot; &gt;</span><br><span class="line">    &lt;pl&gt;爱好:&lt;/p&gt;</span><br><span class="line">    &lt;select&gt;</span><br><span class="line">      &lt;option value=&quot;reading&quot;&gt;看书&lt;/option&gt;</span><br><span class="line">      &lt;option value=&quot;travel&quot;&gt;旅游&lt;/option&gt;</span><br><span class="line">      &lt;option value=&quot;sport&quot;&gt;运动&lt;/option&gt;</span><br><span class="line">      &lt;option value=&quot;shopping&quot;&gt;购物&lt;/option&gt;</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>另外，<code>&lt;option&gt;</code>标签属性中，<code>disable</code>表示不可选，<code>selected</code>表示默认选项。<br>在<code>&lt;select&gt;</code>中加入<code>multiple</code>属性可以进行多选，进行多选时按下<kbd>Ctrl</kbd>同时进行单击。</p>
+<h6 id="6-lt-textarea-gt-标签"><a href="#6-lt-textarea-gt-标签" class="headerlink" title="6. &lt;textarea&gt;标签"></a>6. <code>&lt;textarea&gt;</code>标签</h6><p><code>&lt;textarea&gt;</code>标签默认样式大小是可以经用户在浏览器上自行调整的，这样带来的坑是 页面布局会受到影响，要用CSS 来固定宽高样式。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/关于html标签的一些总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,9 +457,11 @@
         
           
             <p>以写简历为目的，开始了第一次写网页的实战。之前虽然有看过关于css和html的相关文档，但是纸上得来终觉浅。写的时候关于标签的语义或css的属性还是不懂。写完还是有必要总结一下目前认识的标签。</p>
-<h2 id="1-什么是标签"><a href="#1-什么是标签" class="headerlink" title="####1. 什么是标签"></a>####1. 什么是标签</h2><p>在总结前，我们要理清楚一个概念：html只管内容，也就是说不同标签的内容呈现出来的样式都不关html的事，管这个事情的另有他人，也就是CSS。那么我们，可以大胆地认为，html的标签没有块级元素或内联元素之分，因为这个是可以用属性<code>display</code>来修改的。</p>
+<h4 id="1-什么是标签"><a href="#1-什么是标签" class="headerlink" title="1. 什么是标签"></a>1. 什么是标签</h4><hr>
+<p>在总结前，我们要理清楚一个概念：html只管内容，也就是说不同标签的内容呈现出来的样式都不关html的事，管这个事情的另有他人，也就是CSS。那么我们，可以大胆地认为，html的标签没有块级元素或内联元素之分，因为这个是可以用属性<code>display</code>来修改的。</p>
 <p>标签，也就是元素。它是<a href="https://zh.wikipedia.org/wiki/HTML" title="HTML" target="_blank" rel="noopener">HTML</a>文件的基本组成单位。不同的标签代表着不同的含义，我们需要根据场景/内容选用适当的标签。</p>
-<h2 id="2-目前接触到的标签"><a href="#2-目前接触到的标签" class="headerlink" title="####2. 目前接触到的标签"></a>####2. 目前接触到的标签</h2><ul>
+<h4 id="2-目前接触到的标签"><a href="#2-目前接触到的标签" class="headerlink" title="2. 目前接触到的标签"></a>2. 目前接触到的标签</h4><hr>
+<ul>
 <li>html大纲标签<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;&lt;/head&gt; //规定文档相关的通用信息（元数据），包括文档的标题，文档的样式和脚本的链接（定义）等</span><br><span class="line">&lt;body&gt;&lt;/body&gt; //表示的是HTML文档的主体内容</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -321,7 +480,6 @@
 <li>容器<br>这两个标签没有任何语义。<br><code>&lt;div&gt;</code> 一般用来充当流内容容器。他默认是块级元素。<br><code>&lt;span&gt;</code>一般用来充当行内容器。默认内联元素。</li>
 </ul>
 <p>另外，关于空元素、可替换元素 在另一篇博客<a href="https://lynchuh.github.io/2018/03/10/%E5%85%B3%E4%BA%8Ehtml%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/" target="_blank" rel="noopener">&lt;关于html的一些事&gt;</a>有提及。</p>
-<h2 id="3-个别标签细节"><a href="#3-个别标签细节" class="headerlink" title="####3. 个别标签细节"></a>####3. 个别标签细节</h2><p>待续</p>
 
           
         
@@ -901,7 +1059,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">articles</span>
                 </a>
               </div>
