@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -214,6 +214,172 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/18/入门css总结1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/18/入门css总结1/" itemprop="url">入门css总结1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-18T14:22:45+08:00">
+                2018-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="#什么是盒模型"></a>#什么是盒模型</h2><p>在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CSS盒模型科普.jpg"></p>
+<ul>
+<li>一个元素的width默认是content-width。</li>
+<li>但是一个盒子的width一般是<strong>content-width</strong>+<strong>padding-width</strong>+<strong>border-width</strong></li>
+<li>当<code>box-sizing:border-box</code>时，一个元素的width则是<strong>content+padding+border</strong></li>
+</ul>
+<p>在写页面的时候，遇到比较多的问题就是，什么时候使用margin，什么时候使用padding。<br>margin定义为外边距，即是盒子与盒子的距离。padding为内边距，它是盒子与盒子里的内容的距离。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">div.text1&#123;</span><br><span class="line">width:200px;</span><br><span class="line">padding:50px; &#125;</span><br><span class="line">//盒子宽度是200px+50px*2</span><br><span class="line"></span><br><span class="line">div.text2&#123;</span><br><span class="line">width:200px;</span><br><span class="line">margin:50px;&#125;</span><br><span class="line">盒子宽度是200px</span><br></pre></td></tr></table></figure>
+<p><strong>当盒子使用margin时，盒子是往内压，使用padding时，是往外推。</strong>使用margin最明显的一点是，可以保证元素与元素之间互不干扰。</p>
+<h2 id="块级元素与内联元素"><a href="#块级元素与内联元素" class="headerlink" title="#块级元素与内联元素"></a>#块级元素与内联元素</h2><p>##1. 块级元素(block)</p>
+<ul>
+<li><p>高度(height)：块级元素高度由其内部文档流元素的高度总和决定。</p>
+<blockquote>
+<p>文档流：文档内元素的流动方向</p>
+<ul>
+<li>内联元素从左往右流动，若遇到阻碍则换行继续。<ul>
+<li>块级元素独占一行，从上往下流动。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>宽度(width)：块级元素宽度默认为100%</p>
+</li>
+</ul>
+<p>块级元素可以设置width和height。但是，一般不建议使用这两个属性，因为一旦使用这两个属性，会出现很多bug！</p>
+<p>##2. 内联元素(inline)</p>
+<ul>
+<li>高度(height)：内联元素高度由<code>line-height</code>（字体建议行高）确定。而这个是由字体设计师 确定。</li>
+<li>宽度(width)：内联元素的宽度由内容决定。<br>有一个特点：英文字母无论多长都会在一行，不会换行。可以使用<code>word-break</code>属性。中文：<code>word-break:break-all</code>，英文：<code>word-break:break-word</code></li>
+</ul>
+<p><strong>内联元素不接受设置宽高。还有，内联元素的上下margin和padding都设定无效</strong></p>
+<ul>
+<li>什么是line-box?<br><img src="https://upload-images.jianshu.io/upload_images/9929263-e783e4c4cb1b205e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>① 一个内联元素的高度由line-height（行内框高度）决定。而line-height跟文字内容区（font-size）也有一定的距离。<br>②内联元素的文字位置以基线为中心对齐。因此一般内联元素文字没有垂直居中，可以使用<code>vertical-align:center</code>消除这个bug<br>##3. 内联块级元素(inline-block)<br>inline-block元素既含有block的宽度高度特性又具有inline的同行特性。<br>在这次练习的一个例子：</li>
+<li><p>html代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;JS Bin&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"> &lt;section&gt;</span><br><span class="line">   &lt;div class=&quot;prouduction&quot;&gt;</span><br><span class="line">	 &lt;h2&gt;作品集&lt;/h2&gt;</span><br><span class="line">	   &lt;nav&gt; </span><br><span class="line">	     &lt;ol &gt;</span><br><span class="line">		   &lt;li i&gt;所有&lt;/li&gt;</span><br><span class="line">		   &lt;li &gt;框架&lt;/li&gt;</span><br><span class="line">		   &lt;li &gt;原生JS&amp;amp;CSS&lt;/li&gt;</span><br><span class="line">    	    &lt;/ol&gt;</span><br><span class="line">            &lt;div id=&quot;bar&quot; class=&quot;bar status-1&quot;&gt;</span><br><span class="line">		 &lt;div class=&quot;bar-inner&quot;&gt;&lt;/div&gt;</span><br><span class="line">	    &lt;/div&gt;		</span><br><span class="line">   	  &lt;/nav&gt;</span><br><span class="line"> &lt;/section&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>CSS代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">section .prouduction&#123;</span><br><span class="line">    margin-top: 30px;</span><br><span class="line">    margin-bottom: 50px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    margin-left: auto;</span><br><span class="line">    margin-right: auto;</span><br><span class="line">    max-width: 400px;</span><br><span class="line">    border: 1px solid;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">section .prouduction nav&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    margin-top: 10px;</span><br><span class="line">    border: 1px solid;</span><br><span class="line">&#125;</span><br><span class="line">section .prouduction ol&#123;</span><br><span class="line">    margin: 0;//&lt;ol&gt;-&lt;li&gt;结构会有默认的padding和margin样式</span><br><span class="line">    padding: 0;</span><br><span class="line">    list-style: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">section .prouduction li&#123;</span><br><span class="line">    display: inline;</span><br><span class="line">    vertical-align: top;</span><br><span class="line">    margin-left: 40px;</span><br><span class="line">    border: 1px solid;</span><br><span class="line">&#125;</span><br><span class="line">section .prouduction li:first-child&#123;</span><br><span class="line">    margin-left: 0px;</span><br><span class="line">    border: 1px solid;</span><br><span class="line">&#125;</span><br><span class="line">section .prouduction .bar&#123;</span><br><span class="line">    background: #FAE1E1; </span><br><span class="line">    border-radius: 2px;</span><br><span class="line">    height: 5px;</span><br><span class="line">    margin: 5px 0 </span><br><span class="line">&#125;</span><br><span class="line">section .prouduction .bar-inner&#123;</span><br><span class="line">    height: 100%;</span><br><span class="line">    background: #E6686A;</span><br><span class="line">    border-radius: 2px;</span><br><span class="line">  width: 15%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>显示效果：<br><img src="https://upload-images.jianshu.io/upload_images/9929263-24a1ba0adf4db60c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这个例子，利用了文档流的特性，保证了<code>&lt;ol&gt;</code>与<code>&lt;bar&gt;</code>的宽度一致，却没有写死width。在这里<code>&lt;nav&gt;</code>包裹着<code>&lt;ol&gt;</code>与<code>&lt;bar&gt;</code>，而<code>&lt;ol&gt;</code>是内联元素宽度由内容决定，<code>&lt;nav&gt;</code>是inline-block元素，宽度由<code>&lt;ol&gt;</code>决定，<code>&lt;bar&gt;</code>是block元素，宽度默认为父级元素，即<code>&lt;nav&gt;</code>的100%。<br>在这里，如果设定<code>&lt;nav&gt;</code>为<code>display:inline</code>，则<code>&lt;nav&gt;</code>宽度为0，意思即是<code>&lt;nav&gt;</code>并没有包裹住<code>&lt;ol&gt;</code>与<code>&lt;bar&gt;</code>，以上设定无效。经查资料：</p>
+<blockquote>
+<p>block元素可以包含block元素和inline元素；但inline元素只能包含inline元素。要注意的是这个是个大概的说法，每个特定的元素能包含的元素也是特定的，所以具体到个别元素上，这条规律是不适用的。比如 P 元素，只能包含inline元素，而不能包含block元素。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -257,7 +423,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T09:19:58+08:00">
                 2018-03-14
@@ -419,7 +585,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T10:01:25+08:00">
                 2018-03-13
@@ -562,7 +728,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T17:01:51+08:00">
                 2018-03-12
@@ -720,7 +886,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-10T13:35:27+08:00">
                 2018-03-10
@@ -888,7 +1054,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-04T18:23:40+08:00">
                 2018-03-04
@@ -1064,8 +1230,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -1115,7 +1281,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
