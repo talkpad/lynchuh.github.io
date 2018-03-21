@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="算法 算法的特征 可以没有输入量 必须有输出量 有限时间 明确性，算法描述无歧义 有效性，可行的  几个简单的排序算法  关于数组，数组也是一种数据结构。 关于数组的一些运算，要注意：length≠’length’ 。length是一个容器，而’length’是一个字符串，容器可以容纳字符串，容器、字符串可以赋值。 假设，length=0，此时a[length]=a[‘length’]，因为 to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法与数据结构入门总结">
+<meta property="og:url" content="http://yoursite.com/2018/03/21/算法与数据结构入门总结/index.html">
+<meta property="og:site_name" content="Lyn&#39;s Blog">
+<meta property="og:description" content="算法 算法的特征 可以没有输入量 必须有输出量 有限时间 明确性，算法描述无歧义 有效性，可行的  几个简单的排序算法  关于数组，数组也是一种数据结构。 关于数组的一些运算，要注意：length≠’length’ 。length是一个容器，而’length’是一个字符串，容器可以容纳字符串，容器、字符串可以赋值。 假设，length=0，此时a[length]=a[‘length’]，因为 to">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-2593c95b0eb1b575.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-f4b07d5a0410c2f9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-285e934d12b7a0da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-ce4f1772446c0433.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-837c804a8571b23d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-03-21T09:17:34.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法与数据结构入门总结">
+<meta name="twitter:description" content="算法 算法的特征 可以没有输入量 必须有输出量 有限时间 明确性，算法描述无歧义 有效性，可行的  几个简单的排序算法  关于数组，数组也是一种数据结构。 关于数组的一些运算，要注意：length≠’length’ 。length是一个容器，而’length’是一个字符串，容器可以容纳字符串，容器、字符串可以赋值。 假设，length=0，此时a[length]=a[‘length’]，因为 to">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9929263-2593c95b0eb1b575.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/21/算法与数据结构入门总结/"/>
+
+
+
+
+
+  <title>算法与数据结构入门总结 | Lyn's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lyn's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/21/算法与数据结构入门总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法与数据结构入门总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-21T17:15:21+08:00">
+                2018-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><hr>
+<h3 id="算法的特征"><a href="#算法的特征" class="headerlink" title="算法的特征"></a>算法的特征</h3><ul>
+<li>可以没有输入量</li>
+<li>必须有输出量</li>
+<li>有限时间</li>
+<li>明确性，算法描述无歧义</li>
+<li>有效性，可行的</li>
+</ul>
+<h3 id="几个简单的排序算法"><a href="#几个简单的排序算法" class="headerlink" title="几个简单的排序算法"></a>几个简单的排序算法</h3><blockquote>
+<p> 关于数组，数组也是一种数据结构。<br> 关于数组的一些运算，要注意：length≠’length’ 。length是一个容器，而’length’是一个字符串，容器可以容纳字符串，容器、字符串可以赋值。<br> 假设，length=0，此时a[length]=a[‘length’]，因为 toString(n) 可以把数字转换为字符串，如 toString(0) 结果为 ‘0’</p>
+</blockquote>
+<h4 id="冒泡排序（Bubble-Sort）"><a href="#冒泡排序（Bubble-Sort）" class="headerlink" title="冒泡排序（Bubble Sort）"></a>冒泡排序（Bubble Sort）</h4><p>每次循环里相邻两个数值两两对比，按大小排序，大的继续与下一位数值进相对比。每一次循环可以确定一个最大值。</p>
+<h4 id="选择排序（Selection-sort）"><a href="#选择排序（Selection-sort）" class="headerlink" title="选择排序（Selection sort）"></a>选择排序（Selection sort）</h4><p>每次循环选定一个数值a与其他数值进行对比，若大于a，则继续对比，若小于a，则交换位置，假设这个数值为b，拿b与剩下的数值进行对比。每一次循环可以确认最小值。</p>
+<h4 id="插入排序（Insertion-Sort）"><a href="#插入排序（Insertion-Sort）" class="headerlink" title="插入排序（Insertion Sort）"></a>插入排序（Insertion Sort）</h4><p>每次循环新的数值与循环内的每个数值进行对比排序，插入循环内。每次循环结束，循环内的数值已排序好。</p>
+<h4 id="快排（Quicksort）"><a href="#快排（Quicksort）" class="headerlink" title="快排（Quicksort）"></a>快排（Quicksort）</h4><p>每次循环以某个数为基准，大的排右面，小的排左边。快排的循环效率会比以上的排序算法更高。</p>
+<h4 id="桶排序（Bucket-sort）"><a href="#桶排序（Bucket-sort）" class="headerlink" title="桶排序（Bucket sort）"></a>桶排序（Bucket sort）</h4><p>设定有限的桶，将相同规律的数值依次放在相同的桶里。</p>
+<p><a href="https://link.jianshu.com/?t=https%3A%2F%2Fvisualgo.net%2Fbn%2Fsorting" target="_blank" rel="noopener">这里是以上排序算法的动画演示</a></p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><hr>
+<p>数据结构是指数据的结构，即是对象组成的各个要素是以什么样的额方式构建或组织起来。结构实际上是一种关系。<br>下面是几个基本的数据结构：</p>
+<h4 id="1-哈希（hash）"><a href="#1-哈希（hash）" class="headerlink" title="1.哈希（hash）"></a>1.哈希（hash）</h4><p>哈希的组成： （key:value）<br>哈希的应用例子有：计数排序、桶排序、基数排序。</p>
+<ul>
+<li>计数排序<br>跟算法里冒泡排序、插入排序、选择排序、快排的原理都不同，他们是用比较法进行排序的，复杂度O(n²)；而计数排序是以哈希为工具进行排序，它的复杂度是O(n+max)。</li>
+</ul>
+<p>将计数排序分为入桶、出桶两个大步骤。下面是计数排序的流程图：<br><img src="https://upload-images.jianshu.io/upload_images/9929263-2593c95b0eb1b575.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="计数排序流程图.png"></p>
+<ul>
+<li><p>基数排序（Radix sort）<br>将整数按“位数”切割，然后每个位数分别对比放入不同的桶内，多次入桶出桶。<br><a href="https://link.jianshu.com/?t=https%3A%2F%2Fvisualgo.net%2Fbn%2Fsorting" target="_blank" rel="noopener">这里是基数排序的动画演示（选择Radix sort）</a></p>
+</li>
+<li><p>关于这几种排序的优缺点<br>① 计数排序比一般的比较类型排序效率会更高。<br>② 这几个排序一般都是针对正整数进行排序。<br>③关于桶排序，一般入桶后，桶内需配合其他排序进行。如果设定的桶太少，那么排序时间相应会更高，更消耗CPU。若设定的桶太多，效率会更高，但是会消耗内存。<br>④ 基数排序的桶是固定的，一共十个桶，需要多次入桶出桶，如果数值较大，用基数排序会更快。</p>
+</li>
+</ul>
+<h4 id="2-队列（Queue）"><a href="#2-队列（Queue）" class="headerlink" title="2. 队列（Queue）"></a>2. 队列（Queue）</h4><ul>
+<li>先进先出</li>
+<li>可以用数组实现</li>
+<li>类似生活中的排队</li>
+</ul>
+<h4 id="3-栈（Stack）"><a href="#3-栈（Stack）" class="headerlink" title="3.栈（Stack）"></a>3.栈（Stack）</h4><ul>
+<li>先进后出</li>
+<li>可以用数组实现</li>
+<li>类似盗梦空间</li>
+</ul>
+<h4 id="4-链表（Linked-list）"><a href="#4-链表（Linked-list）" class="headerlink" title="4.链表（Linked list）"></a>4.链表（Linked list）</h4><p><img src="https://upload-images.jianshu.io/upload_images/9929263-f4b07d5a0410c2f9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let a = &#123;</span><br><span class="line">    value:1,</span><br><span class="line">    next:&#123;</span><br><span class="line">         value:2,</span><br><span class="line">         next:&#123;</span><br><span class="line">            value:3</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>链表也是哈希，head:第一个哈希对象。node：链表分节点</li>
+<li>与数组相比较，链表可以轻松地删除一组数据内随机一项，数组不可以。但是数组可以随机查询某个值。</li>
+</ul>
+<h4 id="5-树（tree）"><a href="#5-树（tree）" class="headerlink" title="5.树（tree）"></a>5.树（tree）</h4><ul>
+<li><html>也是一个树结构（DOM树）</html></li>
+<li>层数、深度、节点<br><img src="https://upload-images.jianshu.io/upload_images/9929263-285e934d12b7a0da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="示例"><br>这个树结构有3层，深度为2（根节点的深度为0），每一个点都是节点。</li>
+<li>二叉树：每个节点最多只有2个分节点（左子树、右子树）。<br>假设二叉树的深度为n，则它的第k层最多可有2ᵏ个节点，一共最多可有（2ⁿ⁺¹-1）个节点。（n₀=0）</li>
+<li>满二叉树：除了最后一层没有任何子节点外，每层节点数都有2个子节点。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-ce4f1772446c0433.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="满二叉树"></li>
+<li>完全二叉树：除了最后一层外，每层节点都有两个子节点，且最后一层所有节点都连续集中在最左边。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-837c804a8571b23d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="完全二叉树"><br><strong>满二叉树一定是完全二叉树，完全二叉树不一定是满二叉树</strong></li>
+<li>可以用数值存二叉树，例子：堆（最大堆/最小堆/堆排序）<br><a href="https://www.cs.usfca.edu/~galles/visualization/HeapSort.html" target="_blank" rel="noopener">堆排序动画演示</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/18/入门css总结1/" rel="next" title="入门css总结1">
+                <i class="fa fa-chevron-left"></i> 入门css总结1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lynchuh</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">1.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法的特征"><span class="nav-number">1.0.1.</span> <span class="nav-text">算法的特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几个简单的排序算法"><span class="nav-number">1.0.2.</span> <span class="nav-text">几个简单的排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序（Bubble-Sort）"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">冒泡排序（Bubble Sort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择排序（Selection-sort）"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">选择排序（Selection sort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序（Insertion-Sort）"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">插入排序（Insertion Sort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快排（Quicksort）"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">快排（Quicksort）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#桶排序（Bucket-sort）"><span class="nav-number">1.0.2.5.</span> <span class="nav-text">桶排序（Bucket sort）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构"><span class="nav-number">1.0.3.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-哈希（hash）"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">1.哈希（hash）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-队列（Queue）"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">2. 队列（Queue）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-栈（Stack）"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">3.栈（Stack）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-链表（Linked-list）"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">4.链表（Linked list）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-树（tree）"><span class="nav-number">1.0.3.5.</span> <span class="nav-text">5.树（tree）</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lynchuh</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
