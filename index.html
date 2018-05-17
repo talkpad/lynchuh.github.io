@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -214,6 +214,169 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/DOM事件，捕获与冒泡总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/17/DOM事件，捕获与冒泡总结/" itemprop="url">Unbenannt</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-17T20:10:57+08:00">
+                2018-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="DOM事件模型"><a href="#DOM事件模型" class="headerlink" title="DOM事件模型"></a>DOM事件模型</h1><p><a href="https://www.w3.org/DOM" target="_blank" rel="noopener">DOM标准文档</a></p>
+<ul>
+<li><p>目前的DOM事件模型标准是Document Object Model Level 2</p>
+</li>
+<li><p>DOM level 1中一道题</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">/**html代码**/</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">		function print()&#123;</span></span><br><span class="line"><span class="undefined">          console.log('hi')</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">X</span> <span class="attr">onclick</span> = <span class="string">"print"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">Y</span> <span class="attr">onclick</span> = <span class="string">"print()"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">Z</span> <span class="attr">onclick</span> = <span class="string">"print.call()"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">/**javascript**/</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      	X.onclick = print</span></span><br><span class="line"><span class="undefined">		Y.onclick = print()</span></span><br><span class="line"><span class="undefined">		Z.onclick = print.call()</span></span><br><span class="line"><span class="undefined">        </span></span><br><span class="line"><span class="undefined">/**哪个会正确运行?</span></span><br><span class="line"><span class="undefined">*答案是B、C、X</span></span><br><span class="line"><span class="undefined">*print // 类型为函数对象</span></span><br><span class="line"><span class="undefined">*print()//undefined  （默认return值为undefined）</span></span><br><span class="line"><span class="undefined">*print.call()//undefined</span></span><br><span class="line"><span class="undefined">*在css中，onclick = "要执行的代码"</span></span><br><span class="line"><span class="undefined">*一旦用户点击，浏览器就eval("要执行的代码") </span></span><br><span class="line"><span class="undefined">*eval("print")</span></span><br><span class="line"><span class="undefined">*在javaScript中，</span></span><br><span class="line"><span class="undefined">*一旦用户点击，那么浏览器会执行 X.onclick.call(x,&#123;&#125;)</span></span><br><span class="line"><span class="undefined">**/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DOM level2</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xxx.addEventListener(event,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; &#125;)</span><br><span class="line"><span class="comment">//优点：level 1里, xxx.onclick()事件是唯一的一个属性，</span></span><br><span class="line"><span class="comment">//在level2 里，xxx拥有一个队列 eventListeners</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>题外拓宽</p>
+<p><code>$btn.one(event,fn)</code></p>
+<p>相当于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">  xxx.removeEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">&#125;</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,fn)</span><br><span class="line"><span class="comment">//只调用一次event事件。</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>要时刻记住<code>addEventListener</code>得到是一个队列！！！</p>
+<p>一道小题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">xxx.removeEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line">xxx.removeEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//最终得到的结果是 2</span></span><br><span class="line"><span class="comment">//因为xxx会得到一个队列：eventListener，最终只剩下一个有f2函数的click时间</span></span><br><span class="line"><span class="comment">//队列的出栈与入栈需要了解一下</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>捕获与冒泡</p>
+<p>一般不传第三个参数，则优先显示冒泡。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**html**/</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">grandpa</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">parent</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">child</span>&gt;</span>儿子<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>冒泡阶段（从下到上）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//五个flasy值：undefined, Null, '', 0, NaN</span></span><br><span class="line"><span class="comment">//如果第三个参数是falsy值，则结果是 321</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>捕获阶段（从上到下），第三个参数可转化为true，则显示捕获</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//如果第三个参数值为true，则结果是 1 2 3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一般事件模型是先捕获再冒泡</p>
+<p><img src="C:\Users\Administrator\Desktop\1234.png" alt="1234"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//还是上面那个例子</span></span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1,<span class="literal">false</span>)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2,<span class="literal">true</span>)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3,<span class="literal">false</span>)</span><br><span class="line"><span class="comment">//最后得到的结果是2 3 1，因为先捕获再冒泡，就是爸爸的click事件最先被触发，然后再到儿子，再到爷爷</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意，同一个元素的事件不受捕获与冒泡阶段影响。也就是同一个元素同时加入event事件，则触发时间按代码出现决定。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line"><span class="comment">//得到的结果是3 2</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -257,7 +420,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-21T17:15:21+08:00">
                 2018-03-21
@@ -429,7 +592,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-18T14:22:45+08:00">
                 2018-03-18
@@ -595,7 +758,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T09:19:58+08:00">
                 2018-03-14
@@ -757,7 +920,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T10:01:25+08:00">
                 2018-03-13
@@ -900,7 +1063,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T17:01:51+08:00">
                 2018-03-12
@@ -1058,7 +1221,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-10T13:35:27+08:00">
                 2018-03-10
@@ -1226,7 +1389,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-04T18:23:40+08:00">
                 2018-03-04
@@ -1402,8 +1565,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -1453,7 +1616,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
