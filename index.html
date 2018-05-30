@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -214,6 +214,783 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/20/DOM事件实例/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/20/DOM事件实例/" itemprop="url">DOM事件实例</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-20T09:19:58+08:00">
+                2018-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="点击别处关闭浮层"><a href="#点击别处关闭浮层" class="headerlink" title="点击别处关闭浮层"></a>点击别处关闭浮层</h4><h5 id="Ⅰ-思路1"><a href="#Ⅰ-思路1" class="headerlink" title="Ⅰ. 思路1"></a>Ⅰ. 思路1</h5><blockquote>
+<p>阻止冒泡 <code>stopPropagation()</code></p>
+</blockquote>
+<ul>
+<li><a href="http://js.jirengu.com/yanosijehu/1/edit?html,css,js,output" target="_blank" rel="noopener">案例点这里</a></li>
+<li>bug：同样地，点击浮层会关闭</li>
+<li>解决bug：在它们的父元素<code>wrapper</code>上增加阻止冒泡</li>
+</ul>
+<h5 id="Ⅱ-思路2"><a href="#Ⅱ-思路2" class="headerlink" title="Ⅱ. 思路2"></a>Ⅱ. 思路2</h5><blockquote>
+<p>document在捕获阶段触发click事件，点击按钮在冒泡阶段触发click事件</p>
+</blockquote>
+<ul>
+<li><a href="http://js.jirengu.com/pijocozuya/1/edit?html,css,js,output" target="_blank" rel="noopener">案例点这里</a></li>
+<li>bug：点击浮层会关闭</li>
+<li>解决bug：笨方法，给浮层也加上一个click事件，这里用思路1的解决方法是解决不了问题的。因为document的click事件是在捕获阶段获取的，而<code>stopPropagation()</code>只是阻止了冒泡阶段。</li>
+</ul>
+<h5 id="Ⅲ-思路3（更节省内存）"><a href="#Ⅲ-思路3（更节省内存）" class="headerlink" title="Ⅲ. 思路3（更节省内存）"></a>Ⅲ. 思路3（更节省内存）</h5><p>1.使用one()方法，使document只执行一次click事件（hide）</p>
+<ul>
+<li><a href="http://js.jirengu.com/ladomubage/1/edit?html,css,js,output" target="_blank" rel="noopener">案例点这里</a></li>
+<li>解决两个bug方法<ul>
+<li>阻止冒泡<ol>
+<li>知识点<br>a. jQuery的.on()方法的一个用法<br>$(wrapper).on(‘click’,false)<br>//等价于下面<br>$(wrapper).on(‘click’,function(e){<br>e.stopPropagation()<br>e.preventDefault()<br>})<br>//会出现的一个bug<br>//preventDefault()会使得checkbox不能点击。<br>b. .one()方法只执行一次事件的函数。</li>
+</ol>
+</li>
+<li>添加一个定时器，让document的事件函数在冒泡结束之后再添加。———-防止点击button时，浮层无法出现。</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/19/DOM事件，捕获与冒泡总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/19/DOM事件，捕获与冒泡总结/" itemprop="url">DOM事件模型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-19T09:19:58+08:00">
+                2018-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="DOM事件模型"><a href="#DOM事件模型" class="headerlink" title="DOM事件模型"></a>DOM事件模型</h1><p><a href="https://www.w3.org/DOM" target="_blank" rel="noopener">DOM标准文档</a></p>
+<ul>
+<li><p>目前的DOM事件模型标准是Document Object Model Level 2</p>
+</li>
+<li><p>DOM level 1中一道题</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">/**html代码**/</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">		function print()&#123;</span></span><br><span class="line"><span class="undefined">          console.log('hi')</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">X</span> <span class="attr">onclick</span> = <span class="string">"print"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">Y</span> <span class="attr">onclick</span> = <span class="string">"print()"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">Z</span> <span class="attr">onclick</span> = <span class="string">"print.call()"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">/**javascript**/</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      	X.onclick = print</span></span><br><span class="line"><span class="undefined">		Y.onclick = print()</span></span><br><span class="line"><span class="undefined">		Z.onclick = print.call()</span></span><br><span class="line"><span class="undefined">        </span></span><br><span class="line"><span class="undefined">/**哪个会正确运行?</span></span><br><span class="line"><span class="undefined">*答案是B、C、X</span></span><br><span class="line"><span class="undefined">*print // 类型为函数对象</span></span><br><span class="line"><span class="undefined">*print()//undefined  （默认return值为undefined）</span></span><br><span class="line"><span class="undefined">*print.call()//undefined</span></span><br><span class="line"><span class="undefined">*在css中，onclick = "要执行的代码"</span></span><br><span class="line"><span class="undefined">*一旦用户点击，浏览器就eval("要执行的代码") </span></span><br><span class="line"><span class="undefined">*eval("print")</span></span><br><span class="line"><span class="undefined">*在javaScript中，</span></span><br><span class="line"><span class="undefined">*一旦用户点击，那么浏览器会执行 X.onclick.call(x,&#123;&#125;)</span></span><br><span class="line"><span class="undefined">**/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DOM level2</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xxx.addEventListener(event,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; &#125;)</span><br><span class="line"><span class="comment">//优点：level 1里, xxx.onclick()事件是唯一的一个属性，</span></span><br><span class="line"><span class="comment">//在level2 里，xxx拥有一个队列 eventListeners</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>题外拓宽</p>
+<p><code>$btn.one(event,fn)</code></p>
+<p>相当于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">  xxx.removeEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">&#125;</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,fn)</span><br><span class="line"><span class="comment">//只调用一次event事件。</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>要时刻记住<code>addEventListener</code>得到是一个队列！！！</p>
+<p>一道小题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">xxx.removeEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line">xxx.removeEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//最终得到的结果是 2</span></span><br><span class="line"><span class="comment">//因为xxx会得到一个队列：eventListener，最终只剩下一个有f2函数的click时间</span></span><br><span class="line"><span class="comment">//队列的出栈与入栈需要了解一下</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>捕获与冒泡</p>
+<p>一般不传第三个参数，则优先显示冒泡。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**html**/</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">grandpa</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">parent</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">child</span>&gt;</span>儿子<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>冒泡阶段（从下到上）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//五个flasy值：undefined, Null, '', 0, NaN</span></span><br><span class="line"><span class="comment">//如果第三个参数是falsy值，则结果是 321</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>捕获阶段（从上到下），第三个参数可转化为true，则显示捕获</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//如果第三个参数值为true，则结果是 1 2 3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一般事件模型是先捕获再冒泡</p>
+<p><img src="C:\Users\Administrator\Desktop\1234.png" alt="1234"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//还是上面那个例子</span></span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1,<span class="literal">false</span>)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2,<span class="literal">true</span>)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3,<span class="literal">false</span>)</span><br><span class="line"><span class="comment">//最后得到的结果是2 3 1，因为先捕获再冒泡，就是爸爸的click事件最先被触发，然后再到儿子，再到爷爷</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意，同一个元素的事件不受捕获与冒泡阶段影响。也就是同一个元素同时加入event事件，则触发时间按代码出现决定。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line"><span class="comment">//得到的结果是3 2</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/04/自己做一个jQuery的思路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/04/自己做一个jQuery的思路/" itemprop="url">自己做一个jQuery的思路</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-04T09:19:58+08:00">
+                2018-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="自己做一个jQuery的思路"><a href="#自己做一个jQuery的思路" class="headerlink" title="自己做一个jQuery的思路"></a>自己做一个jQuery的思路</h3><hr>
+<p>封装两个函数 → 添加命名空间 → 扩展Node原型/无侵入设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--html代码--&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;text&lt;/h1&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li id=&quot;item1&quot;&gt;选项1&lt;/li&gt;</span><br><span class="line">    &lt;li id=&quot;item2&quot;&gt;选项2&lt;/li&gt;</span><br><span class="line">    &lt;li id=&quot;item3&quot;&gt;选项3&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="1、封装两个函数"><a href="#1、封装两个函数" class="headerlink" title="1、封装两个函数"></a>1、封装两个函数</h5><ul>
+<li>获取所有兄弟元素</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//javaScript代码</span><br><span class="line">function getSiblings(node) &#123;</span><br><span class="line">  var allChlidren = node.parentNode.chlidren</span><br><span class="line">  var array = &#123; </span><br><span class="line">    length：0 </span><br><span class="line">  &#125;</span><br><span class="line">  for(let i=0;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">    if(allChildren[i] !== node)&#123;</span><br><span class="line">    array[array.length] =allChildren[i]</span><br><span class="line">    array.length += 1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return array</span><br><span class="line">&#125;</span><br><span class="line">//调用方法</span><br><span class="line">getSiblings(item2)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>给目标元素添加class</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//javaScript代码</span><br><span class="line">function addClass(node,classes)&#123;</span><br><span class="line">  for (let key in classes)&#123;</span><br><span class="line">    var value = classes[key]</span><br><span class="line">    var methodName = value? &apos; add &apos; : &apos; remove &apos; </span><br><span class="line">    node.classList[methodName](key)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 调用addClass()</span><br><span class="line">addClass(item1,&#123; a:ture , b:false&#125; )</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>//语法基础<br>classList[methodName === classList.methodName</p>
+</blockquote>
+<h5 id="2、添加命名空间"><a href="#2、添加命名空间" class="headerlink" title="2、添加命名空间"></a>2、添加命名空间</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//javaScrip代码</span><br><span class="line">window.textdom = &#123;&#125; // yui</span><br><span class="line">textdom.getSiblings=function (node) &#123;</span><br><span class="line">  var allChlidren = node.parentNode.chlidren</span><br><span class="line">  var array = &#123; </span><br><span class="line">    length：0 </span><br><span class="line">  &#125;</span><br><span class="line">  for(let i=0;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">    if(allChildren[i] !== node)&#123;</span><br><span class="line">    array[array.length] =allChildren[i]</span><br><span class="line">    array.length += 1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return array</span><br><span class="line">&#125;</span><br><span class="line">textdom.addClass = function (node,classes)&#123;</span><br><span class="line">  for (let key in classes)&#123;</span><br><span class="line">    var value = classes[key]</span><br><span class="line">    var methodName = value? &apos; add &apos; : &apos; remove &apos; </span><br><span class="line">    node.classList[methodName](key)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//调用方法</span><br><span class="line">textdom.getSiblings( item3 )</span><br><span class="line">textdom.addClass ( item3,&#123;a:false , b:true &#125; )</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>了解不扎实的语法基础： for in 语法</p>
+</blockquote>
+<h5 id="3、-扩展Node原型-无侵入设置"><a href="#3、-扩展Node原型-无侵入设置" class="headerlink" title="3、 扩展Node原型/无侵入设置"></a>3、 扩展Node原型/无侵入设置</h5><p>上面的函数调用方法都是<code>textdom.addClass()</code>这样的，假如设想，直接以目标元素为对象进行方法调用，如<code>item2.getClass(&#39;red&#39;)</code>,方法有两种。</p>
+<ul>
+<li><h6 id="扩展Node原型"><a href="#扩展Node原型" class="headerlink" title="扩展Node原型"></a>扩展Node原型</h6></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Node.prototype.getSiblings =function ( ) &#123;</span><br><span class="line">  var allChlidren = this.parentNode.chlidren</span><br><span class="line">  var array = &#123; length：0 &#125;</span><br><span class="line">  for(let i=0;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">    if(allChildren[i] !== this)&#123;</span><br><span class="line">      array[array.length] =allChildren[i]</span><br><span class="line">      array.length += 1</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return array</span><br><span class="line">&#125;</span><br><span class="line">Node.prototype.addClass = function(classes)&#123;</span><br><span class="line">  classes.forEach( </span><br><span class="line">    ( value ) =&gt; this.classList.add( value ) </span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line">//调用函数：</span><br><span class="line">item3.getSiblings.call(items) </span><br><span class="line">//等价于item3.getSiblings()</span><br><span class="line">item3.addClass.call( item1,[ &apos;text&apos; , &apos;red&apos; , &apos;blue&apos; ] )</span><br><span class="line">//等价于item3.addClass( [&apos;text&apos; , &apos;red&apos; , &apos;blue&apos; ] )</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>① this知识点 : this是call()的第一个参数<br>② 箭头函数<br>③函数调用： f.call ( asThis , input1 , input2 )<br>其中asThis会被当作this，[ input1 , input2 ]会被当作arguments</p>
+</blockquote>
+<ul>
+<li><h6 id="无侵入设置"><a href="#无侵入设置" class="headerlink" title="无侵入设置"></a>无侵入设置</h6></li>
+</ul>
+<p>第一版 基本实现直接目标元素调用的目的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//javaScript</span><br><span class="line">window.Node2 =  function( node )&#123;</span><br><span class="line">  return&#123;</span><br><span class="line">    getSiblings : function( )&#123;</span><br><span class="line">      var allChlidren = this.parentNode.chlidren</span><br><span class="line">      var array = &#123; length：0 &#125;</span><br><span class="line">      for(let i=0;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">        if(allChildren[i] !== this)&#123;</span><br><span class="line">          array[array.length] =allChildren[i]</span><br><span class="line">          array.length += 1</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return array</span><br><span class="line">    &#125;,</span><br><span class="line">    addClass : function (classes ) &#123;</span><br><span class="line">      classes.forEach( </span><br><span class="line">        (value) =&gt; this.classList.add(value) </span><br><span class="line">      )</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var item3 = Node2(item3)</span><br><span class="line">//实现调用</span><br><span class="line">item3.getSiblings()</span><br><span class="line">item3.addClass([ &apos; red &apos; ])</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>console.dir(node2)</code> //得到的是一个原型为<code>Object.prototype</code>，里面含有<code>addClass()</code>等方法的对象</p>
+</blockquote>
+<p>第二版 可以使用选择器确定目标元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">window.Node2 =  function( nodeOrSelector )&#123;</span><br><span class="line">  let node</span><br><span class="line">  if(typeof nodeOrSelector === &apos;string&apos; )&#123;</span><br><span class="line">    node= document.querySelector(nodeOrSelector)</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    node= nodeOrSelector</span><br><span class="line">  &#125;</span><br><span class="line">  return&#123;</span><br><span class="line">    getSiblings : function()&#123;</span><br><span class="line">      var allChlidren =node.parentNode.chlidren</span><br><span class="line">      var array = &#123; length：0 &#125;</span><br><span class="line">      for(let i=0;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">        if(allChildren[i] !==node)&#123;</span><br><span class="line">        array[array.length] =al lChildren[i]</span><br><span class="line">        array.length += 1</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return array</span><br><span class="line">    &#125;,</span><br><span class="line">    addClass : function (classes ) &#123;</span><br><span class="line">      classes.forEach( </span><br><span class="line">        (value) =&gt;node.classList.add(value)</span><br><span class="line">      )</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var item3= Node2(item3)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用了闭包</p>
+</blockquote>
+<p>第三版 可以实现对多个目标元素设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">window.Node2 =  function( nodeOrSelector )&#123;</span><br><span class="line">    let nodes = &#123; &#125;</span><br><span class="line">    if( typeof nodeOrSelector === &apos;string&apos; )&#123;</span><br><span class="line">        let temp =  document.querySelectorALL ( nodeOrSelector)</span><br><span class="line">        for(let i=0 ; i&lt;temp.length ; i++ )&#123;</span><br><span class="line">            nodes[i] = temp[i]</span><br><span class="line">        &#125;</span><br><span class="line">        node.length = i //得到一个伪数组</span><br><span class="line">    &#125;else if (nodeOrSelector instanceof Node)&#123;</span><br><span class="line">        nodes = &#123;</span><br><span class="line">        0:nodeSelector , </span><br><span class="line">        length:1</span><br><span class="line">        &#125;//为了保持一致性，的到一个伪数组</span><br><span class="line">    &#125;</span><br><span class="line">    nodes.addClass = function ( classes ) &#123;</span><br><span class="line">        classes.forEach( (value) =&gt; &#123;</span><br><span class="line">            for( let i=0 ; i&lt; nodes.length ; i++ )&#123;</span><br><span class="line">                nodes[i].classList.add(value)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125; </span><br><span class="line">    nodes.getText = function ( )&#123;</span><br><span class="line">        var texts= [ ]</span><br><span class="line">        for ( let i=0 ; i&lt;nodes.length ; i++ )&#123;</span><br><span class="line">        texts.push(nodes[i].textContent)</span><br><span class="line">    &#125;</span><br><span class="line">    nodes.setText = function (text)&#123;</span><br><span class="line">        for ( let i=0 ; i&lt;nodes.length ; i++ )&#123;</span><br><span class="line">            nodes[ i ] .textContext = text</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return nodes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="了解jQuery的一些特点"><a href="#了解jQuery的一些特点" class="headerlink" title="了解jQuery的一些特点"></a>了解jQuery的一些特点</h3><hr>
+<ul>
+<li><p>jQuery是一个构造函数，这次自制的jQuery没有使用到<code>prototype</code>。实际上jQuery构造的实例函数原型是<code>jQuery.prototype</code>。</p>
+</li>
+<li><p>jQuery实例函数的构成：<br>jQuery的实例是一个数组对象，每个key对应的是一个node节点对象。</p>
+<p>​</p>
+<p>​</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9929263-f8951a9144f1d165.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="img"></p>
+</li>
+<li><p>jQuery除了DOM操作外，还有动画、AJAX 等模块。</p>
+</li>
+<li><p>一道常考的面试题</p>
+</li>
+</ul>
+<blockquote>
+<p><code></code><br><code>var div = document.getElementById(&#39;x&#39;);</code><br><code>var $div = $(&#39;#x&#39;);</code><br>请说出 div 和 $div 的联系和区别。</p>
+</blockquote>
+<blockquote>
+<p><strong>联系：</strong><br><code>$div = $( div )</code> 可以将div变成$div<br><code>div = $div [0]</code> 或 <code>div = $div.get(0)</code>可以将$div变成div<br><strong>区别:</strong><br><code>div</code> 是一个DOM(element)对象，它的原型是<code>node.prototype</code><br><code>$div</code>是由jQuery函数构建的数组对象，它的原型是<code>jQuery.prototype</code>,他的属性和方法有0 1 2…..length selector 等等</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/javaScript函数基础总结（2）闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/20/javaScript函数基础总结（2）闭包/" itemprop="url">javaScript函数基础总结（2）闭包</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-20T09:19:58+08:00">
+                2018-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而<strong>闭包指的是函数与函数外的变量组成的一个词法环境。</strong></p>
+<ul>
+<li><p>闭包可以隐藏一个变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function fn1()&#123;</span><br><span class="line">      var a = &apos;我只是测试&apos;</span><br><span class="line">      function fn2()&#123;</span><br><span class="line">          console.log(a)</span><br><span class="line">      &#125;</span><br><span class="line">      return fn2</span><br><span class="line">  &#125;</span><br><span class="line">  var result=fn1()</span><br><span class="line">  result()</span><br></pre></td></tr></table></figure>
+<p>这里在fn1的函数体内变量a与函数fn2组成了一个闭包，而变量a被隐藏在函数fn1内，只能局部访问。</p>
+</li>
+<li><p>在只有一个方法，却需要多个数据的情况下，也可以使用闭包。闭包可以很好地封装数据。<br><a href="http://js.jirengu.com/xahanepali/1/edit?html,js,output" target="_blank" rel="noopener">例子看这里</a><br><a href="http://js.jirengu.com/zadevakudo/1/edit?html,js,output" target="_blank" rel="noopener">例子看这里</a> 例子里，counter1和counter2共用一个闭包，却不会影响到各自的值。</p>
+</li>
+<li><p>柯里化函数<br>每次只穿一个参数分多次调用.<br>栗子看这里：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var add = function(x)&#123;</span><br><span class="line"> return function(y)&#123;</span><br><span class="line">     return x+y</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">var addTen = add(10)</span><br><span class="line">var add7 = add(7)</span><br><span class="line">add7(1)    //8</span><br><span class="line">addTen(1)     //11</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/javaScript函数基础总结（1）声明、调用与this/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/18/javaScript函数基础总结（1）声明、调用与this/" itemprop="url">javaScript函数基础总结（1）声明/调用/this</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-18T09:19:58+08:00">
+                2018-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>函数是什么？</strong></p>
+<blockquote>
+<p>函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。</p>
+</blockquote>
+<h3 id="函数的几种声明方式"><a href="#函数的几种声明方式" class="headerlink" title="函数的几种声明方式"></a>函数的几种声明方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function fn1(input1,input2)&#123;</span><br><span class="line">console.log(fn1.name)</span><br><span class="line">&#125;//具名函数声明</span><br><span class="line"></span><br><span class="line">function()&#123;</span><br><span class="line"> console.log(&apos;我没有name属性&apos;)</span><br><span class="line">&#125;//匿名函数声明，一般不单独使用</span><br><span class="line"></span><br><span class="line">var x = function fn3(input1,input2)&#123;</span><br><span class="line"> console.log(fn3.name)</span><br><span class="line">&#125;// 变量赋值方式</span><br><span class="line">console.log(x.name) //&apos;fn3&apos;</span><br><span class="line">console.log(fn3.name)//报错，fn3没有定义。</span><br><span class="line"></span><br><span class="line">var y = new Function (&apos;x&apos;,&apos;y&apos;,&apos;return x+&apos; + n + &apos;+y&apos;)</span><br><span class="line">//函数对象构造声明</span><br><span class="line">//除最后一个参数是函数体外，其他都是参数</span><br><span class="line"></span><br><span class="line">f(x,y) =&gt;&#123;console.log(&apos;我是匿名函数，没有name属性&apos;)&#125;</span><br><span class="line">//ES6新语法</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建匿名函数可以避免命名冲突。</li>
+<li>匿名函数创建完成后，在堆内存（heap）内存上地址，被变量引用才能被使用。</li>
+<li>或者匿名函数在创建完成后直接调用。（这个用法在MVC中js模块中常被使用。）</li>
+</ul>
+<hr>
+<h3 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function callfn()&#123;</span><br><span class="line">  console.log(&apos;我被调用了&apos;)</span><br><span class="line">&#125;</span><br><span class="line">//第一种调用方式，语法糖</span><br><span class="line">callfn()</span><br><span class="line">//第二种调用方式，call()</span><br><span class="line">callfn.call(undefined,argument1,argument2)</span><br><span class="line">//第三种调用方式，apply()</span><br><span class="line">callfn.apply(undefined,[argument1,argument2])</span><br></pre></td></tr></table></figure>
+<h4 id="Ⅰ-this"><a href="#Ⅰ-this" class="headerlink" title="Ⅰ. this"></a>Ⅰ. this</h4><p>前面<code>call()</code>和<code>apply()</code>的调用方法，第一个参数就是this。<br>在我接触this的一段时间里，this是一个捉摸不透的玩意。很多时候一不小心加了几个代码，就改变了this的指向，而我却毫不知情。所以对this做一个总结是很有必要的。<br>为了了解this，我翻看了好多篇技术博客，有一篇博客我觉得形容this很贴切。</p>
+<blockquote>
+<p>this是某个函数运行时的上下文(context)，call()、apply()的存在就是为了改变函数体内部 this 的指向。<br>而JavaScript 的一大特点是，函数存在「定义时上下文」和「运行时上下文」以及「上下文是可以改变的」这样的概念。</p>
+</blockquote>
+<p>1.this首先肯定是一个对象。<br>2.this是函数与对象的羁绊。<br>3.this就是这个嵌有这个函数的对象。<br>几个典型的小李子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//第一个小李子</span><br><span class="line">function obj()&#123;</span><br><span class="line">    var a = 1</span><br><span class="line">    console.log(this.a)</span><br><span class="line">&#125;</span><br><span class="line">var a = 2</span><br><span class="line">obj() //2</span><br><span class="line">//在这个例子里，obj是一个全局变量函数。</span><br><span class="line">//它被包含在window对象，所以我们可以理解为它的this就是window。</span><br><span class="line">//但要注意的是！！如果在严格模式下，this会指向undefined！</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//第二个小李子</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 2,</span><br><span class="line">    fn1: function ()&#123;</span><br><span class="line">    var a = 1</span><br><span class="line">    console.log(this.a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn1() //2</span><br><span class="line">//在这个例子里，可以看出fn1是obj的其中一个方法函数，</span><br><span class="line">//这里的this就是包含fn1这个函数的上一级对象----obj。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//第三个小李子</span><br><span class="line">function fn1()&#123;</span><br><span class="line">    var a = 1</span><br><span class="line">    console.log(this.a)</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 2,</span><br><span class="line">    fn1:fn1</span><br><span class="line">&#125;</span><br><span class="line">fn1() //undefined</span><br><span class="line">obj.fn1() //2</span><br><span class="line">/** 在这个例子里，两种不同的调用方法，产生的结果却完全不同</span><br><span class="line">  *因为同样一个函数地址，它却被两个不同的变量所引用。</span><br><span class="line">  *第一个fn1()被调用在全局环境下调用，而在全局对象window里，a没有赋值，因此结果为undefined</span><br><span class="line">  *第二个obj.fn1()的调用是在对象obj环境下调用，因此指向obj.a===2</span><br><span class="line">  *这种方法是隐式绑定</span><br><span class="line">**/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//第四个小李子</span><br><span class="line">function obj(a)&#123;</span><br><span class="line">    this.a = a</span><br><span class="line">&#125;</span><br><span class="line">var fn1 = new obj(2)</span><br><span class="line">console.log(fn1.a) //2</span><br><span class="line">//使用new构造函数，this指定的都是构造出来的新对象。</span><br></pre></td></tr></table></figure>
+<p>另外，在dom的事件触发和事件监听中，函数内的this指向是所触发事件的node节点。jQuery的事件监听同理，如果是事件委托，则与selector相匹配的元素。</p>
+<p>以上是在没有使用<code>call()</code>、<code>apply()</code>情况下，this的指向判断，但当使用过了<code>call()</code>、<code>apply()</code>后，this的指向明显清晰了，因为我们可以根据自己的意愿随意更改this！</p>
+<h4 id="Ⅱ-call-、apply-与bind"><a href="#Ⅱ-call-、apply-与bind" class="headerlink" title="Ⅱ.call()、apply()与bind()"></a>Ⅱ.<code>call()</code>、<code>apply()</code>与<code>bind()</code></h4><ul>
+<li><code>call()</code>、<code>apply()</code><ol>
+<li>两者用法相似，都是调用函数体及改变函数体内的this指向.</li>
+<li>不同的是，<code>apply()</code>传入的参数是一个数组，通常在执行可变参数的函数时可以使用<code>apply()</code>，将每个参数传入一个数组。<br>调用方法如下:<br><code>fn.call(this,arg1,arg2)</code><br><code>fn.apply(this,[arg1,arg2)</code></li>
+<li><a href="http://js.jirengu.com/zajejeqali/1/edit?js,output" target="_blank" rel="noopener">改变this的一个简单例子</a></li>
+</ol>
+</li>
+<li><code>bind()</code><br><code>bind()</code> 允许我们在函数或者方法被调用时绑定 this 到指定对象上。<br>例如：在js的DOM事件里，当某一事件被调用时，this会默认是事件调用的Node对象身上，此时我们可以使用<code>bind()</code>函数，绑定一个回调函数，改变this的指向。<br><a href="http://js.jirengu.com/livihutori/1/edit?html,console,output" target="_blank" rel="noopener">一个简单的小李子</a></li>
+<li>总结</li>
+</ul>
+<ol>
+<li><code>call</code>、<code>apply</code>、<code>bind</code>都可以改变函数的this对象的指向。</li>
+<li><code>call</code>、<code>apply</code>、<code>bind</code>除了第一个参数是this指向外，后面可以继续传参数。</li>
+<li><code>bind</code>是返回回调函数，不是立即调用，而<code>apply</code>和<code>call</code>是立即调用。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -257,7 +1034,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-21T17:15:21+08:00">
                 2018-03-21
@@ -429,7 +1206,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-18T14:22:45+08:00">
                 2018-03-18
@@ -566,783 +1343,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/DOM事件实例/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lynchuh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lyn's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/14/DOM事件实例/" itemprop="url">DOM事件实例</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T09:19:58+08:00">
-                2018-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="点击别处关闭浮层"><a href="#点击别处关闭浮层" class="headerlink" title="点击别处关闭浮层"></a>点击别处关闭浮层</h4><h5 id="Ⅰ-思路1"><a href="#Ⅰ-思路1" class="headerlink" title="Ⅰ. 思路1"></a>Ⅰ. 思路1</h5><blockquote>
-<p>阻止冒泡 <code>stopPropagation()</code></p>
-</blockquote>
-<ul>
-<li><a href="http://js.jirengu.com/yanosijehu/1/edit?html,css,js,output" target="_blank" rel="noopener">案例点这里</a></li>
-<li>bug：同样地，点击浮层会关闭</li>
-<li>解决bug：在它们的父元素<code>wrapper</code>上增加阻止冒泡</li>
-</ul>
-<h5 id="Ⅱ-思路2"><a href="#Ⅱ-思路2" class="headerlink" title="Ⅱ. 思路2"></a>Ⅱ. 思路2</h5><blockquote>
-<p>document在捕获阶段触发click事件，点击按钮在冒泡阶段触发click事件</p>
-</blockquote>
-<ul>
-<li><a href="http://js.jirengu.com/pijocozuya/1/edit?html,css,js,output" target="_blank" rel="noopener">案例点这里</a></li>
-<li>bug：点击浮层会关闭</li>
-<li>解决bug：笨方法，给浮层也加上一个click事件，这里用思路1的解决方法是解决不了问题的。因为document的click事件是在捕获阶段获取的，而<code>stopPropagation()</code>只是阻止了冒泡阶段。</li>
-</ul>
-<h5 id="Ⅲ-思路3（更节省内存）"><a href="#Ⅲ-思路3（更节省内存）" class="headerlink" title="Ⅲ. 思路3（更节省内存）"></a>Ⅲ. 思路3（更节省内存）</h5><p>1.使用one()方法，使document只执行一次click事件（hide）</p>
-<ul>
-<li><a href="http://js.jirengu.com/ladomubage/1/edit?html,css,js,output" target="_blank" rel="noopener">案例点这里</a></li>
-<li>解决两个bug方法<ul>
-<li>阻止冒泡<ol>
-<li>知识点<br>a. jQuery的.on()方法的一个用法<br>$(wrapper).on(‘click’,false)<br>//等价于下面<br>$(wrapper).on(‘click’,function(e){<br>e.stopPropagation()<br>e.preventDefault()<br>})<br>//会出现的一个bug<br>//preventDefault()会使得checkbox不能点击。<br>b. .one()方法只执行一次事件的函数。</li>
-</ol>
-</li>
-<li>添加一个定时器，让document的事件函数在冒泡结束之后再添加。———-防止点击button时，浮层无法出现。</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/javaScript函数基础总结（1）声明、调用与this/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lynchuh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lyn's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/14/javaScript函数基础总结（1）声明、调用与this/" itemprop="url">javaScript函数基础总结（1）声明/调用/this</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T09:19:58+08:00">
-                2018-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>函数是什么？</strong></p>
-<blockquote>
-<p>函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。</p>
-</blockquote>
-<h3 id="函数的几种声明方式"><a href="#函数的几种声明方式" class="headerlink" title="函数的几种声明方式"></a>函数的几种声明方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function fn1(input1,input2)&#123;</span><br><span class="line">console.log(fn1.name)</span><br><span class="line">&#125;//具名函数声明</span><br><span class="line"></span><br><span class="line">function()&#123;</span><br><span class="line"> console.log(&apos;我没有name属性&apos;)</span><br><span class="line">&#125;//匿名函数声明，一般不单独使用</span><br><span class="line"></span><br><span class="line">var x = function fn3(input1,input2)&#123;</span><br><span class="line"> console.log(fn3.name)</span><br><span class="line">&#125;// 变量赋值方式</span><br><span class="line">console.log(x.name) //&apos;fn3&apos;</span><br><span class="line">console.log(fn3.name)//报错，fn3没有定义。</span><br><span class="line"></span><br><span class="line">var y = new Function (&apos;x&apos;,&apos;y&apos;,&apos;return x+&apos; + n + &apos;+y&apos;)</span><br><span class="line">//函数对象构造声明</span><br><span class="line">//除最后一个参数是函数体外，其他都是参数</span><br><span class="line"></span><br><span class="line">f(x,y) =&gt;&#123;console.log(&apos;我是匿名函数，没有name属性&apos;)&#125;</span><br><span class="line">//ES6新语法</span><br></pre></td></tr></table></figure>
-<ul>
-<li>创建匿名函数可以避免命名冲突。</li>
-<li>匿名函数创建完成后，在堆内存（heap）内存上地址，被变量引用才能被使用。</li>
-<li>或者匿名函数在创建完成后直接调用。（这个用法在MVC中js模块中常被使用。）</li>
-</ul>
-<hr>
-<h3 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function callfn()&#123;</span><br><span class="line">  console.log(&apos;我被调用了&apos;)</span><br><span class="line">&#125;</span><br><span class="line">//第一种调用方式，语法糖</span><br><span class="line">callfn()</span><br><span class="line">//第二种调用方式，call()</span><br><span class="line">callfn.call(undefined,argument1,argument2)</span><br><span class="line">//第三种调用方式，apply()</span><br><span class="line">callfn.apply(undefined,[argument1,argument2])</span><br></pre></td></tr></table></figure>
-<h4 id="Ⅰ-this"><a href="#Ⅰ-this" class="headerlink" title="Ⅰ. this"></a>Ⅰ. this</h4><p>前面<code>call()</code>和<code>apply()</code>的调用方法，第一个参数就是this。<br>在我接触this的一段时间里，this是一个捉摸不透的玩意。很多时候一不小心加了几个代码，就改变了this的指向，而我却毫不知情。所以对this做一个总结是很有必要的。<br>为了了解this，我翻看了好多篇技术博客，有一篇博客我觉得形容this很贴切。</p>
-<blockquote>
-<p>this是某个函数运行时的上下文(context)，call()、apply()的存在就是为了改变函数体内部 this 的指向。<br>而JavaScript 的一大特点是，函数存在「定义时上下文」和「运行时上下文」以及「上下文是可以改变的」这样的概念。</p>
-</blockquote>
-<p>1.this首先肯定是一个对象。<br>2.this是函数与对象的羁绊。<br>3.this就是这个嵌有这个函数的对象。<br>几个典型的小李子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//第一个小李子</span><br><span class="line">function obj()&#123;</span><br><span class="line">    var a = 1</span><br><span class="line">    console.log(this.a)</span><br><span class="line">&#125;</span><br><span class="line">var a = 2</span><br><span class="line">obj() //2</span><br><span class="line">//在这个例子里，obj是一个全局变量函数。</span><br><span class="line">//它被包含在window对象，所以我们可以理解为它的this就是window。</span><br><span class="line">//但要注意的是！！如果在严格模式下，this会指向undefined！</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//第二个小李子</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 2,</span><br><span class="line">    fn1: function ()&#123;</span><br><span class="line">    var a = 1</span><br><span class="line">    console.log(this.a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn1() //2</span><br><span class="line">//在这个例子里，可以看出fn1是obj的其中一个方法函数，</span><br><span class="line">//这里的this就是包含fn1这个函数的上一级对象----obj。</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//第三个小李子</span><br><span class="line">function fn1()&#123;</span><br><span class="line">    var a = 1</span><br><span class="line">    console.log(this.a)</span><br><span class="line">&#125;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    a: 2,</span><br><span class="line">    fn1:fn1</span><br><span class="line">&#125;</span><br><span class="line">fn1() //undefined</span><br><span class="line">obj.fn1() //2</span><br><span class="line">/** 在这个例子里，两种不同的调用方法，产生的结果却完全不同</span><br><span class="line">  *因为同样一个函数地址，它却被两个不同的变量所引用。</span><br><span class="line">  *第一个fn1()被调用在全局环境下调用，而在全局对象window里，a没有赋值，因此结果为undefined</span><br><span class="line">  *第二个obj.fn1()的调用是在对象obj环境下调用，因此指向obj.a===2</span><br><span class="line">  *这种方法是隐式绑定</span><br><span class="line">**/</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//第四个小李子</span><br><span class="line">function obj(a)&#123;</span><br><span class="line">    this.a = a</span><br><span class="line">&#125;</span><br><span class="line">var fn1 = new obj(2)</span><br><span class="line">console.log(fn1.a) //2</span><br><span class="line">//使用new构造函数，this指定的都是构造出来的新对象。</span><br></pre></td></tr></table></figure>
-<p>另外，在dom的事件触发和事件监听中，函数内的this指向是所触发事件的node节点。jQuery的事件监听同理，如果是事件委托，则与selector相匹配的元素。</p>
-<p>以上是在没有使用<code>call()</code>、<code>apply()</code>情况下，this的指向判断，但当使用过了<code>call()</code>、<code>apply()</code>后，this的指向明显清晰了，因为我们可以根据自己的意愿随意更改this！</p>
-<h4 id="Ⅱ-call-、apply-与bind"><a href="#Ⅱ-call-、apply-与bind" class="headerlink" title="Ⅱ.call()、apply()与bind()"></a>Ⅱ.<code>call()</code>、<code>apply()</code>与<code>bind()</code></h4><ul>
-<li><code>call()</code>、<code>apply()</code><ol>
-<li>两者用法相似，都是调用函数体及改变函数体内的this指向.</li>
-<li>不同的是，<code>apply()</code>传入的参数是一个数组，通常在执行可变参数的函数时可以使用<code>apply()</code>，将每个参数传入一个数组。<br>调用方法如下:<br><code>fn.call(this,arg1,arg2)</code><br><code>fn.apply(this,[arg1,arg2)</code></li>
-<li><a href="http://js.jirengu.com/zajejeqali/1/edit?js,output" target="_blank" rel="noopener">改变this的一个简单例子</a></li>
-</ol>
-</li>
-<li><code>bind()</code><br><code>bind()</code> 允许我们在函数或者方法被调用时绑定 this 到指定对象上。<br>例如：在js的DOM事件里，当某一事件被调用时，this会默认是事件调用的Node对象身上，此时我们可以使用<code>bind()</code>函数，绑定一个回调函数，改变this的指向。<br><a href="http://js.jirengu.com/livihutori/1/edit?html,console,output" target="_blank" rel="noopener">一个简单的小李子</a></li>
-<li>总结</li>
-</ul>
-<ol>
-<li><code>call</code>、<code>apply</code>、<code>bind</code>都可以改变函数的this对象的指向。</li>
-<li><code>call</code>、<code>apply</code>、<code>bind</code>除了第一个参数是this指向外，后面可以继续传参数。</li>
-<li><code>bind</code>是返回回调函数，不是立即调用，而<code>apply</code>和<code>call</code>是立即调用。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/javaScript函数基础总结（2）闭包/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lynchuh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lyn's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/14/javaScript函数基础总结（2）闭包/" itemprop="url">javaScript函数基础总结（2）闭包</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T09:19:58+08:00">
-                2018-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而<strong>闭包指的是函数与函数外的变量组成的一个词法环境。</strong></p>
-<ul>
-<li><p>闭包可以隐藏一个变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function fn1()&#123;</span><br><span class="line">      var a = &apos;我只是测试&apos;</span><br><span class="line">      function fn2()&#123;</span><br><span class="line">          console.log(a)</span><br><span class="line">      &#125;</span><br><span class="line">      return fn2</span><br><span class="line">  &#125;</span><br><span class="line">  var result=fn1()</span><br><span class="line">  result()</span><br></pre></td></tr></table></figure>
-<p>这里在fn1的函数体内变量a与函数fn2组成了一个闭包，而变量a被隐藏在函数fn1内，只能局部访问。</p>
-</li>
-<li><p>在只有一个方法，却需要多个数据的情况下，也可以使用闭包。闭包可以很好地封装数据。<br><a href="http://js.jirengu.com/xahanepali/1/edit?html,js,output" target="_blank" rel="noopener">例子看这里</a><br><a href="http://js.jirengu.com/zadevakudo/1/edit?html,js,output" target="_blank" rel="noopener">例子看这里</a> 例子里，counter1和counter2共用一个闭包，却不会影响到各自的值。</p>
-</li>
-<li><p>柯里化函数<br>每次只穿一个参数分多次调用.<br>栗子看这里：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var add = function(x)&#123;</span><br><span class="line"> return function(y)&#123;</span><br><span class="line">     return x+y</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">var addTen = add(10)</span><br><span class="line">var add7 = add(7)</span><br><span class="line">add7(1)    //8</span><br><span class="line">addTen(1)     //11</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/自己做一个jQuery的思路/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lynchuh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lyn's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/14/自己做一个jQuery的思路/" itemprop="url">自己做一个jQuery的思路</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T09:19:58+08:00">
-                2018-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="自己做一个jQuery的思路"><a href="#自己做一个jQuery的思路" class="headerlink" title="自己做一个jQuery的思路"></a>自己做一个jQuery的思路</h3><hr>
-<p>封装两个函数 → 添加命名空间 → 扩展Node原型/无侵入设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--html代码--&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;h1&gt;text&lt;/h1&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li id=&quot;item1&quot;&gt;选项1&lt;/li&gt;</span><br><span class="line">    &lt;li id=&quot;item2&quot;&gt;选项2&lt;/li&gt;</span><br><span class="line">    &lt;li id=&quot;item3&quot;&gt;选项3&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
-<h5 id="1、封装两个函数"><a href="#1、封装两个函数" class="headerlink" title="1、封装两个函数"></a>1、封装两个函数</h5><ul>
-<li>获取所有兄弟元素</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//javaScript代码</span><br><span class="line">function getSiblings(node) &#123;</span><br><span class="line">  var allChlidren = node.parentNode.chlidren</span><br><span class="line">  var array = &#123; </span><br><span class="line">    length：0 </span><br><span class="line">  &#125;</span><br><span class="line">  for(let i=0;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">    if(allChildren[i] !== node)&#123;</span><br><span class="line">    array[array.length] =allChildren[i]</span><br><span class="line">    array.length += 1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return array</span><br><span class="line">&#125;</span><br><span class="line">//调用方法</span><br><span class="line">getSiblings(item2)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>给目标元素添加class</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//javaScript代码</span><br><span class="line">function addClass(node,classes)&#123;</span><br><span class="line">  for (let key in classes)&#123;</span><br><span class="line">    var value = classes[key]</span><br><span class="line">    var methodName = value? &apos; add &apos; : &apos; remove &apos; </span><br><span class="line">    node.classList[methodName](key)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 调用addClass()</span><br><span class="line">addClass(item1,&#123; a:ture , b:false&#125; )</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>//语法基础<br>classList[methodName === classList.methodName</p>
-</blockquote>
-<h5 id="2、添加命名空间"><a href="#2、添加命名空间" class="headerlink" title="2、添加命名空间"></a>2、添加命名空间</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//javaScrip代码</span><br><span class="line">window.textdom = &#123;&#125; // yui</span><br><span class="line">textdom.getSiblings=function (node) &#123;</span><br><span class="line">  var allChlidren = node.parentNode.chlidren</span><br><span class="line">  var array = &#123; </span><br><span class="line">    length：0 </span><br><span class="line">  &#125;</span><br><span class="line">  for(let i=0;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">    if(allChildren[i] !== node)&#123;</span><br><span class="line">    array[array.length] =allChildren[i]</span><br><span class="line">    array.length += 1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return array</span><br><span class="line">&#125;</span><br><span class="line">textdom.addClass = function (node,classes)&#123;</span><br><span class="line">  for (let key in classes)&#123;</span><br><span class="line">    var value = classes[key]</span><br><span class="line">    var methodName = value? &apos; add &apos; : &apos; remove &apos; </span><br><span class="line">    node.classList[methodName](key)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//调用方法</span><br><span class="line">textdom.getSiblings( item3 )</span><br><span class="line">textdom.addClass ( item3,&#123;a:false , b:true &#125; )</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>了解不扎实的语法基础： for in 语法</p>
-</blockquote>
-<h5 id="3、-扩展Node原型-无侵入设置"><a href="#3、-扩展Node原型-无侵入设置" class="headerlink" title="3、 扩展Node原型/无侵入设置"></a>3、 扩展Node原型/无侵入设置</h5><p>上面的函数调用方法都是<code>textdom.addClass()</code>这样的，假如设想，直接以目标元素为对象进行方法调用，如<code>item2.getClass(&#39;red&#39;)</code>,方法有两种。</p>
-<ul>
-<li><h6 id="扩展Node原型"><a href="#扩展Node原型" class="headerlink" title="扩展Node原型"></a>扩展Node原型</h6></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Node.prototype.getSiblings =function ( ) &#123;</span><br><span class="line">  var allChlidren = this.parentNode.chlidren</span><br><span class="line">  var array = &#123; length：0 &#125;</span><br><span class="line">  for(let i=0;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">    if(allChildren[i] !== this)&#123;</span><br><span class="line">      array[array.length] =allChildren[i]</span><br><span class="line">      array.length += 1</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return array</span><br><span class="line">&#125;</span><br><span class="line">Node.prototype.addClass = function(classes)&#123;</span><br><span class="line">  classes.forEach( </span><br><span class="line">    ( value ) =&gt; this.classList.add( value ) </span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line">//调用函数：</span><br><span class="line">item3.getSiblings.call(items) </span><br><span class="line">//等价于item3.getSiblings()</span><br><span class="line">item3.addClass.call( item1,[ &apos;text&apos; , &apos;red&apos; , &apos;blue&apos; ] )</span><br><span class="line">//等价于item3.addClass( [&apos;text&apos; , &apos;red&apos; , &apos;blue&apos; ] )</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>① this知识点 : this是call()的第一个参数<br>② 箭头函数<br>③函数调用： f.call ( asThis , input1 , input2 )<br>其中asThis会被当作this，[ input1 , input2 ]会被当作arguments</p>
-</blockquote>
-<ul>
-<li><h6 id="无侵入设置"><a href="#无侵入设置" class="headerlink" title="无侵入设置"></a>无侵入设置</h6></li>
-</ul>
-<p>第一版 基本实现直接目标元素调用的目的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//javaScript</span><br><span class="line">window.Node2 =  function( node )&#123;</span><br><span class="line">  return&#123;</span><br><span class="line">    getSiblings : function( )&#123;</span><br><span class="line">      var allChlidren = this.parentNode.chlidren</span><br><span class="line">      var array = &#123; length：0 &#125;</span><br><span class="line">      for(let i=0;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">        if(allChildren[i] !== this)&#123;</span><br><span class="line">          array[array.length] =allChildren[i]</span><br><span class="line">          array.length += 1</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return array</span><br><span class="line">    &#125;,</span><br><span class="line">    addClass : function (classes ) &#123;</span><br><span class="line">      classes.forEach( </span><br><span class="line">        (value) =&gt; this.classList.add(value) </span><br><span class="line">      )</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var item3 = Node2(item3)</span><br><span class="line">//实现调用</span><br><span class="line">item3.getSiblings()</span><br><span class="line">item3.addClass([ &apos; red &apos; ])</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>console.dir(node2)</code> //得到的是一个原型为<code>Object.prototype</code>，里面含有<code>addClass()</code>等方法的对象</p>
-</blockquote>
-<p>第二版 可以使用选择器确定目标元素</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">window.Node2 =  function( nodeOrSelector )&#123;</span><br><span class="line">  let node</span><br><span class="line">  if(typeof nodeOrSelector === &apos;string&apos; )&#123;</span><br><span class="line">    node= document.querySelector(nodeOrSelector)</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    node= nodeOrSelector</span><br><span class="line">  &#125;</span><br><span class="line">  return&#123;</span><br><span class="line">    getSiblings : function()&#123;</span><br><span class="line">      var allChlidren =node.parentNode.chlidren</span><br><span class="line">      var array = &#123; length：0 &#125;</span><br><span class="line">      for(let i=0;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">        if(allChildren[i] !==node)&#123;</span><br><span class="line">        array[array.length] =al lChildren[i]</span><br><span class="line">        array.length += 1</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return array</span><br><span class="line">    &#125;,</span><br><span class="line">    addClass : function (classes ) &#123;</span><br><span class="line">      classes.forEach( </span><br><span class="line">        (value) =&gt;node.classList.add(value)</span><br><span class="line">      )</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var item3= Node2(item3)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>使用了闭包</p>
-</blockquote>
-<p>第三版 可以实现对多个目标元素设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">window.Node2 =  function( nodeOrSelector )&#123;</span><br><span class="line">    let nodes = &#123; &#125;</span><br><span class="line">    if( typeof nodeOrSelector === &apos;string&apos; )&#123;</span><br><span class="line">        let temp =  document.querySelectorALL ( nodeOrSelector)</span><br><span class="line">        for(let i=0 ; i&lt;temp.length ; i++ )&#123;</span><br><span class="line">            nodes[i] = temp[i]</span><br><span class="line">        &#125;</span><br><span class="line">        node.length = i //得到一个伪数组</span><br><span class="line">    &#125;else if (nodeOrSelector instanceof Node)&#123;</span><br><span class="line">        nodes = &#123;</span><br><span class="line">        0:nodeSelector , </span><br><span class="line">        length:1</span><br><span class="line">        &#125;//为了保持一致性，的到一个伪数组</span><br><span class="line">    &#125;</span><br><span class="line">    nodes.addClass = function ( classes ) &#123;</span><br><span class="line">        classes.forEach( (value) =&gt; &#123;</span><br><span class="line">            for( let i=0 ; i&lt; nodes.length ; i++ )&#123;</span><br><span class="line">                nodes[i].classList.add(value)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125; </span><br><span class="line">    nodes.getText = function ( )&#123;</span><br><span class="line">        var texts= [ ]</span><br><span class="line">        for ( let i=0 ; i&lt;nodes.length ; i++ )&#123;</span><br><span class="line">        texts.push(nodes[i].textContent)</span><br><span class="line">    &#125;</span><br><span class="line">    nodes.setText = function (text)&#123;</span><br><span class="line">        for ( let i=0 ; i&lt;nodes.length ; i++ )&#123;</span><br><span class="line">            nodes[ i ] .textContext = text</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return nodes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="了解jQuery的一些特点"><a href="#了解jQuery的一些特点" class="headerlink" title="了解jQuery的一些特点"></a>了解jQuery的一些特点</h3><hr>
-<ul>
-<li><p>jQuery是一个构造函数，这次自制的jQuery没有使用到<code>prototype</code>。实际上jQuery构造的实例函数原型是<code>jQuery.prototype</code>。</p>
-</li>
-<li><p>jQuery实例函数的构成：<br>jQuery的实例是一个数组对象，每个key对应的是一个node节点对象。</p>
-<p>​</p>
-<p>​</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9929263-f8951a9144f1d165.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="img"></p>
-</li>
-<li><p>jQuery除了DOM操作外，还有动画、AJAX 等模块。</p>
-</li>
-<li><p>一道常考的面试题</p>
-</li>
-</ul>
-<blockquote>
-<p><code></code><br><code>var div = document.getElementById(&#39;x&#39;);</code><br><code>var $div = $(&#39;#x&#39;);</code><br>请说出 div 和 $div 的联系和区别。</p>
-</blockquote>
-<blockquote>
-<p><strong>联系：</strong><br><code>$div = $( div )</code> 可以将div变成$div<br><code>div = $div [0]</code> 或 <code>div = $div.get(0)</code>可以将$div变成div<br><strong>区别:</strong><br><code>div</code> 是一个DOM(element)对象，它的原型是<code>node.prototype</code><br><code>$div</code>是由jQuery函数构建的数组对象，它的原型是<code>jQuery.prototype</code>,他的属性和方法有0 1 2…..length selector 等等</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/DOM事件，捕获与冒泡总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lynchuh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lyn's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/14/DOM事件，捕获与冒泡总结/" itemprop="url">DOM事件模型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T09:19:58+08:00">
-                2018-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="DOM事件模型"><a href="#DOM事件模型" class="headerlink" title="DOM事件模型"></a>DOM事件模型</h1><p><a href="https://www.w3.org/DOM" target="_blank" rel="noopener">DOM标准文档</a></p>
-<ul>
-<li><p>目前的DOM事件模型标准是Document Object Model Level 2</p>
-</li>
-<li><p>DOM level 1中一道题</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">/**html代码**/</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">		function print()&#123;</span></span><br><span class="line"><span class="undefined">          console.log('hi')</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">X</span> <span class="attr">onclick</span> = <span class="string">"print"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">Y</span> <span class="attr">onclick</span> = <span class="string">"print()"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">Z</span> <span class="attr">onclick</span> = <span class="string">"print.call()"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">/**javascript**/</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      	X.onclick = print</span></span><br><span class="line"><span class="undefined">		Y.onclick = print()</span></span><br><span class="line"><span class="undefined">		Z.onclick = print.call()</span></span><br><span class="line"><span class="undefined">        </span></span><br><span class="line"><span class="undefined">/**哪个会正确运行?</span></span><br><span class="line"><span class="undefined">*答案是B、C、X</span></span><br><span class="line"><span class="undefined">*print // 类型为函数对象</span></span><br><span class="line"><span class="undefined">*print()//undefined  （默认return值为undefined）</span></span><br><span class="line"><span class="undefined">*print.call()//undefined</span></span><br><span class="line"><span class="undefined">*在css中，onclick = "要执行的代码"</span></span><br><span class="line"><span class="undefined">*一旦用户点击，浏览器就eval("要执行的代码") </span></span><br><span class="line"><span class="undefined">*eval("print")</span></span><br><span class="line"><span class="undefined">*在javaScript中，</span></span><br><span class="line"><span class="undefined">*一旦用户点击，那么浏览器会执行 X.onclick.call(x,&#123;&#125;)</span></span><br><span class="line"><span class="undefined">**/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>DOM level2</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xxx.addEventListener(event,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; &#125;)</span><br><span class="line"><span class="comment">//优点：level 1里, xxx.onclick()事件是唯一的一个属性，</span></span><br><span class="line"><span class="comment">//在level2 里，xxx拥有一个队列 eventListeners</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>题外拓宽</p>
-<p><code>$btn.one(event,fn)</code></p>
-<p>相当于：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">  xxx.removeEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">&#125;</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,fn)</span><br><span class="line"><span class="comment">//只调用一次event事件。</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>要时刻记住<code>addEventListener</code>得到是一个队列！！！</p>
-<p>一道小题：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">xxx.removeEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line">xxx.removeEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//最终得到的结果是 2</span></span><br><span class="line"><span class="comment">//因为xxx会得到一个队列：eventListener，最终只剩下一个有f2函数的click时间</span></span><br><span class="line"><span class="comment">//队列的出栈与入栈需要了解一下</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>捕获与冒泡</p>
-<p>一般不传第三个参数，则优先显示冒泡。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**html**/</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">grandpa</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">parent</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">child</span>&gt;</span>儿子<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>冒泡阶段（从下到上）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//五个flasy值：undefined, Null, '', 0, NaN</span></span><br><span class="line"><span class="comment">//如果第三个参数是falsy值，则结果是 321</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>捕获阶段（从上到下），第三个参数可转化为true，则显示捕获</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//如果第三个参数值为true，则结果是 1 2 3</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>一般事件模型是先捕获再冒泡</p>
-<p><img src="C:\Users\Administrator\Desktop\1234.png" alt="1234"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//还是上面那个例子</span></span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1,<span class="literal">false</span>)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2,<span class="literal">true</span>)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3,<span class="literal">false</span>)</span><br><span class="line"><span class="comment">//最后得到的结果是2 3 1，因为先捕获再冒泡，就是爸爸的click事件最先被触发，然后再到儿子，再到爷爷</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注意，同一个元素的事件不受捕获与冒泡阶段影响。也就是同一个元素同时加入event事件，则触发时间按代码出现决定。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line"><span class="comment">//得到的结果是3 2</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/关于html标签的一些总结2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1372,7 +1372,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T09:19:58+08:00">
                 2018-03-14
@@ -1534,7 +1534,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T10:01:25+08:00">
                 2018-03-13
@@ -1677,7 +1677,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-12T17:01:51+08:00">
                 2018-03-12
@@ -1844,7 +1844,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -1857,7 +1857,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -1903,7 +1903,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
