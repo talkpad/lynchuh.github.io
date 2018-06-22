@@ -559,6 +559,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/javaScript之初遇立即执行函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/123.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/08/javaScript之初遇立即执行函数/" itemprop="url">javaScript之初遇立即执行函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-08T18:54:11+08:00">
+                2018-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              "<span class="post-meta-divider">|</span>"
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">javaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p>关于立即执行函数，我还是从模块化中了解到它的，在没遇到他们以前，我对全局变量，局部变量的使用完全没有概念，当我听了方方老师这节课以后还有在网上搜了一些博客看完以后，发现自己还是图样图神婆啊</p>
+</blockquote>
+<h2 id="立即执行函数的存在价值"><a href="#立即执行函数的存在价值" class="headerlink" title="立即执行函数的存在价值"></a>立即执行函数的存在价值</h2><p>我们都知道，在ES6出现之前，变量只有两个作用域：一个是全局作用域（浏览器下是window），一个是函数作用域。<br>如果不注意变量的作用域问题的话，那在我们敲代码的时候，说不定在不知不觉中…一些已经存在的全局变量就这样被我们污染了(以前的我就是这样←_←)<br>来个简单的小李子<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"x"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> parent = <span class="built_in">document</span>.querySelector(<span class="string">"#x"</span>)</span></span><br><span class="line"><span class="handlebars"><span class="xml">		console.log(parent) //<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"x"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的<code>parent</code>声明是在全局作用域内，那么全局属性里的window.parent的值就会被覆盖了。为了避免这种情况的出现，前端圈的前辈们于是想出了一个方法，那就是立即执行函数~</p>
+<h2 id="立即执行函数的使用"><a href="#立即执行函数的使用" class="headerlink" title="立即执行函数的使用"></a>立即执行函数的使用</h2><p>函数的调用，一般就是<code>xxx()</code>,那立即执行函数就是在创建一个函数之后，立即执行，所以应该这样写？：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'你好哇'</span>)</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure></p>
+<p>这样写..看着没毛病啊..试着运行一下。emm…报错来了：<code>Uncaught SyntaxError: Unexpected token )</code><br>浏览器会出现语法报错。那解决方法有几个</p>
+<ul>
+<li><p>用括号将函数及调用包起来</p>
+<figure class="highlight clojure"><table><tr><td class="code"><pre><span class="line">(<span class="name">function</span> a()&#123;</span><br><span class="line">    console.log(<span class="name">'a'</span>)</span><br><span class="line">&#125;())</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用括号将函数包起来</p>
+<figure class="highlight clojure"><table><tr><td class="code"><pre><span class="line">(<span class="name">function</span> a()&#123;</span><br><span class="line">    console.log(<span class="name">'a'</span>)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用一些运算符</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">!<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'a'</span>)</span><br><span class="line">&#125;()</span><br><span class="line"><span class="comment">//这里实际是对函数值进行取反，如果我们不在乎return的值，可以使用取反符号。</span></span><br><span class="line"><span class="comment">//这里还可以用 + 、- 、~ 等等..</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>最后，还有一个小问题，既然我们这个函数声明之后马上执行了，为什么还要变量名呢？<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">!function()&#123;</span><br><span class="line">    console.log(&apos;1&apos;)</span><br><span class="line">&#125;.call()</span><br></pre></td></tr></table></figure></p>
+<p>完。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/04/自己做一个jQuery的思路/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -615,17 +776,6 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/javaScript/" itemprop="url" rel="index">
                     <span itemprop="name">javaScript</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript/入门/" itemprop="url" rel="index">
-                    <span itemprop="name">入门</span>
                   </a>
                 </span>
 
@@ -1226,17 +1376,6 @@
 
                 
                 
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/入门/" itemprop="url" rel="index">
-                    <span itemprop="name">入门</span>
-                  </a>
-                </span>
-
-                
-                
               
             </span>
           
@@ -1378,17 +1517,6 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/HTML/" itemprop="url" rel="index">
                     <span itemprop="name">HTML</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/入门/" itemprop="url" rel="index">
-                    <span itemprop="name">入门</span>
                   </a>
                 </span>
 
@@ -1545,17 +1673,6 @@
 
                 
                 
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/入门/" itemprop="url" rel="index">
-                    <span itemprop="name">入门</span>
-                  </a>
-                </span>
-
-                
-                
               
             </span>
           
@@ -1591,157 +1708,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/13/关于html标签的一些总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/12/计算机基础-计算机是如何存储数据的/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lynchuh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/123.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lyn's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/12/计算机基础-计算机是如何存储数据的/" itemprop="url">计算机基础---计算机是如何存储数据的</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T17:01:51+08:00">
-                2018-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              "<span class="post-meta-divider">|</span>"
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/入门/" itemprop="url" rel="index">
-                    <span itemprop="name">入门</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>首先明确一点，为什么要学习编程基础？</p>
-<blockquote>
-<p>操作系统运行于 <strong>硬件</strong> 之上<br>浏览器运行于 <strong>操作系统</strong> 之上<br>html/css/JS运行于 <strong>浏览器</strong> 之上<br>html/css/JS和 <strong>数据</strong> 都来自于 <strong>服务器</strong></p>
-</blockquote>
-<p>硬件与软件：计算机的运行原理，推荐阅读 <a href="https://book.douban.com/subject/4822685/" target="_blank" rel="noopener">编码</a></p>
-<p>学习编程基础可以把我们的知识面扩大，防止自己成为井底之蛙。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/12/计算机基础-计算机是如何存储数据的/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1833,7 +1799,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1844,7 +1810,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1855,7 +1821,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
