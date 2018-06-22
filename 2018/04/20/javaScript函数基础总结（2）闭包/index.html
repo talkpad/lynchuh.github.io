@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="闭包根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而闭包指的是函数与函数外的变量组成的一个词法环境。  闭包可以隐藏一个变量。 function fn1()&amp;#123;      var a = &apos;我只是测试&apos;      function fn2()&amp;#123;          console.log(a)      &amp;#125;      retur">
+<meta name="description" content="闭包根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而闭包指的是函数与函数外的变量组成的一个词法环境。  闭包可以隐藏一个变量。">
 <meta name="keywords" content="javaScript,基础,闭包&#x2F;作用域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javaScript函数基础总结（2）闭包">
 <meta property="og:url" content="http://yoursite.com/2018/04/20/javaScript函数基础总结（2）闭包/index.html">
 <meta property="og:site_name" content="Lyn&#39;s Blog">
-<meta property="og:description" content="闭包根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而闭包指的是函数与函数外的变量组成的一个词法环境。  闭包可以隐藏一个变量。 function fn1()&amp;#123;      var a = &apos;我只是测试&apos;      function fn2()&amp;#123;          console.log(a)      &amp;#125;      retur">
+<meta property="og:description" content="闭包根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而闭包指的是函数与函数外的变量组成的一个词法环境。  闭包可以隐藏一个变量。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-685c6fae801b2ff5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/411">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-e6d5b57c160da3de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/409">
-<meta property="og:updated_time" content="2018-06-22T09:10:10.904Z">
+<meta property="og:updated_time" content="2018-06-22T09:20:12.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript函数基础总结（2）闭包">
-<meta name="twitter:description" content="闭包根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而闭包指的是函数与函数外的变量组成的一个词法环境。  闭包可以隐藏一个变量。 function fn1()&amp;#123;      var a = &apos;我只是测试&apos;      function fn2()&amp;#123;          console.log(a)      &amp;#125;      retur">
+<meta name="twitter:description" content="闭包根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而闭包指的是函数与函数外的变量组成的一个词法环境。  闭包可以隐藏一个变量。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9929263-685c6fae801b2ff5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/411">
 
 
@@ -339,6 +339,39 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  782
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
 
           
 
@@ -358,11 +391,11 @@
         <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而<strong>闭包指的是函数与函数外的变量组成的一个词法环境。</strong></p>
 <ul>
 <li><p>闭包可以隐藏一个变量。</p>
+<a id="more"></a>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> a = <span class="string">'我只是测试'</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(a)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> fn2</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> result=fn1()</span><br><span class="line">  result()</span><br></pre></td></tr></table></figure>
 <p>这里在fn1的函数体内变量a与函数fn2组成了一个闭包，而变量a被隐藏在函数fn1内，只能局部访问。</p>
 </li>
 </ul>
-<a id="more"></a>
 <ul>
 <li><p>在只有一个方法，却需要多个数据的情况下，也可以使用闭包。闭包可以很好地封装数据。<br><a href="http://js.jirengu.com/xahanepali/1/edit?html,js,output" target="_blank" rel="noopener">例子看这里</a><br><a href="http://js.jirengu.com/puwejuliga/1/edit" target="_blank" rel="noopener">例子看这里</a> 例子里，counter1和counter2共用一个闭包，却不会影响到各自的值。</p>
 </li>

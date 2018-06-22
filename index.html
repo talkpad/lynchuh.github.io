@@ -337,6 +337,39 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  431
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
 
           
 
@@ -355,18 +388,7 @@
       
         
           <blockquote>
-<p>在学习事件模型的时候，本来看书看到这个还有点模糊，然后碰到了一个小李子—-做浮层，果然还是实践出真知，所以还是总结一下自己的思路吧。</p>
-</blockquote>
-<h4 id="点击别处关闭浮层"><a href="#点击别处关闭浮层" class="headerlink" title="点击别处关闭浮层"></a>点击别处关闭浮层</h4><h5 id="Ⅰ-思路1"><a href="#Ⅰ-思路1" class="headerlink" title="Ⅰ. 思路1"></a>Ⅰ. 思路1</h5><p>这个用到了jQuery。通过监听目标元素，然后调用toggle这个API来控制浮层元素的出现。</p>
-<p>这里有点小bug。即使他们的包裹层wrapper是inline元素，包裹住了他们，但还是有一些小角落没有包住，点击那里还是不会隐藏到浮层。</p>
-<blockquote>
-<p>阻止冒泡 <code>stopPropagation()</code></p>
-</blockquote>
-<ul>
-<li><a href="http://js.jirengu.com/yanosijehu/1/edit?html,css,js,output" target="_blank" rel="noopener">案例点这里</a></li>
-<li>bug：同样地，点击浮层会关闭</li>
-<li>解决bug：在它们的父元素<code>wrapper</code>上增加阻止冒泡</li>
-</ul>
+<p>在学习事件模型的时候，本来看书看到这个还有点模糊，然后碰到了一个小李子—-做浮层，果然还是实践出真知，所以还是总结一下自己的思路吧。<br></p></blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/20/DOM事件实例/#more" rel="contents">
@@ -495,6 +517,39 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  631
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
 
           
 
@@ -516,10 +571,7 @@
 <ul>
 <li><p>目前的DOM事件模型标准是Document Object Model Level 2</p>
 </li>
-<li><p>DOM level 1中一道题</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">/**html代码**/</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">		function print()&#123;</span></span><br><span class="line"><span class="undefined">          console.log('hi')</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">X</span> <span class="attr">onclick</span> = <span class="string">"print"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">Y</span> <span class="attr">onclick</span> = <span class="string">"print()"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">Z</span> <span class="attr">onclick</span> = <span class="string">"print.call()"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">/**javascript**/</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      	X.onclick = print</span></span><br><span class="line"><span class="undefined">		Y.onclick = print()</span></span><br><span class="line"><span class="undefined">		Z.onclick = print.call()</span></span><br><span class="line"><span class="undefined">        </span></span><br><span class="line"><span class="undefined">/**哪个会正确运行?</span></span><br><span class="line"><span class="undefined">*答案是B、C、X</span></span><br><span class="line"><span class="undefined">*print // 类型为函数对象</span></span><br><span class="line"><span class="undefined">*print()//undefined  （默认return值为undefined）</span></span><br><span class="line"><span class="undefined">*print.call()//undefined</span></span><br><span class="line"><span class="undefined">*在css中，onclick = "要执行的代码"</span></span><br><span class="line"><span class="undefined">*一旦用户点击，浏览器就eval("要执行的代码") </span></span><br><span class="line"><span class="undefined">*eval("print")</span></span><br><span class="line"><span class="undefined">*在javaScript中，</span></span><br><span class="line"><span class="undefined">*一旦用户点击，那么浏览器会执行 X.onclick.call(x,&#123;&#125;)</span></span><br><span class="line"><span class="undefined">**/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<li><p>DOM level 1中一道题</p></li></ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/19/DOM事件，捕获与冒泡总结/#more" rel="contents">
@@ -658,6 +710,39 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  966
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
           
 
           
@@ -807,6 +892,39 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  782
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
 
           
 
@@ -826,11 +944,7 @@
         
           <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而<strong>闭包指的是函数与函数外的变量组成的一个词法环境。</strong></p>
 <ul>
-<li><p>闭包可以隐藏一个变量。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> a = <span class="string">'我只是测试'</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(a)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> fn2</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> result=fn1()</span><br><span class="line">  result()</span><br></pre></td></tr></table></figure>
-<p>这里在fn1的函数体内变量a与函数fn2组成了一个闭包，而变量a被隐藏在函数fn1内，只能局部访问。</p>
-</li>
-</ul>
+<li><p>闭包可以隐藏一个变量。</p></li></ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/20/javaScript函数基础总结（2）闭包/#more" rel="contents">
@@ -959,6 +1073,39 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,259
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
 
           
 
@@ -977,11 +1124,7 @@
       
         
           <blockquote>
-<p>虽说在学习的路上有很多老师带领着，少走了很多弯路，但有些地方真的很迷，就像this。</p>
-</blockquote>
-<h3 id="函数的几种声明方式"><a href="#函数的几种声明方式" class="headerlink" title="函数的几种声明方式"></a>函数的几种声明方式</h3><p>函数是什么？**</p>
-<blockquote>
-<p>函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。<br>
+<p>虽说在学习的路上有很多老师带领着，少走了很多弯路，但有些地方真的很迷，就像this。<br></p></blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/18/javaScript函数基础总结（1）声明、调用与this/#more" rel="contents">
@@ -1109,6 +1252,39 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,145
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
           
 
           
@@ -1273,6 +1449,39 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  997
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
 
           
 
@@ -1290,12 +1499,7 @@
 
       
         
-          <h2 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="#什么是盒模型"></a>#什么是盒模型</h2><p>在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CSS盒模型科普.jpg"></p>
-<ul>
-<li>一个元素的width默认是content-width。</li>
-<li>但是一个盒子的width一般是<strong>content-width</strong>+<strong>padding-width</strong>+<strong>border-width</strong></li>
-<li>当<code>box-sizing:border-box</code>时，一个元素的width则是<strong>content+padding+border</strong></li>
-</ul>
+          <h2 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="#什么是盒模型"></a>#什么是盒模型</h2><p>在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CSS盒模型科普.jpg"><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/18/入门css总结1/#more" rel="contents">
@@ -1434,6 +1638,39 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,431
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
           
 
           
@@ -1597,6 +1834,39 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  712
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
 
           
 
@@ -1742,6 +2012,39 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  763
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
           
 
           

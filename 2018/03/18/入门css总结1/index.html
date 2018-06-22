@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="#什么是盒模型在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。  一个元素的width默认是content-width。 但是一个盒子的width一般是content-width+padding-width+border-width 当box-sizing:border-box时，一个元素的width则是content+padding+border">
+<meta name="description" content="#什么是盒模型在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。">
 <meta name="keywords" content="基础,CSS,入门">
 <meta property="og:type" content="article">
 <meta property="og:title" content="入门css总结1">
 <meta property="og:url" content="http://yoursite.com/2018/03/18/入门css总结1/index.html">
 <meta property="og:site_name" content="Lyn&#39;s Blog">
-<meta property="og:description" content="#什么是盒模型在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。  一个元素的width默认是content-width。 但是一个盒子的width一般是content-width+padding-width+border-width 当box-sizing:border-box时，一个元素的width则是content+padding+border">
+<meta property="og:description" content="#什么是盒模型在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-e783e4c4cb1b205e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-24a1ba0adf4db60c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-22T09:10:23.297Z">
+<meta property="og:updated_time" content="2018-06-22T09:20:37.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入门css总结1">
-<meta name="twitter:description" content="#什么是盒模型在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。  一个元素的width默认是content-width。 但是一个盒子的width一般是content-width+padding-width+border-width 当box-sizing:border-box时，一个元素的width则是content+padding+border">
+<meta name="twitter:description" content="#什么是盒模型在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -351,6 +351,39 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  997
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
 
           
 
@@ -367,13 +400,12 @@
       
 
       
-        <h2 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="#什么是盒模型"></a>#什么是盒模型</h2><p>在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CSS盒模型科普.jpg"></p>
+        <h2 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="#什么是盒模型"></a>#什么是盒模型</h2><p>在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CSS盒模型科普.jpg"><br><a id="more"></a></p>
 <ul>
 <li>一个元素的width默认是content-width。</li>
 <li>但是一个盒子的width一般是<strong>content-width</strong>+<strong>padding-width</strong>+<strong>border-width</strong></li>
 <li>当<code>box-sizing:border-box</code>时，一个元素的width则是<strong>content+padding+border</strong></li>
 </ul>
-<a id="more"></a>
 <p>在写页面的时候，遇到比较多的问题就是，什么时候使用margin，什么时候使用padding。<br>margin定义为外边距，即是盒子与盒子的距离。padding为内边距，它是盒子与盒子里的内容的距离。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-class">.text1</span>&#123;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line"><span class="attribute">padding</span>:<span class="number">50px</span>; &#125;</span><br><span class="line"><span class="comment">//盒子宽度是200px+50px*2</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.text2</span>&#123;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line"><span class="attribute">margin</span>:<span class="number">50px</span>;&#125;</span><br><span class="line">盒子宽度是200px</span><br></pre></td></tr></table></figure>
 <p><strong>当盒子使用margin时，盒子是往内压，使用padding时，是往外推。</strong>使用margin最明显的一点是，可以保证元素与元素之间互不干扰。</p>

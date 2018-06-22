@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="DOM事件模型DOM标准文档  目前的DOM事件模型标准是Document Object Model Level 2  DOM level 1中一道题 /**html代码**/&amp;lt;body&amp;gt;	&amp;lt;script&amp;gt;		function print()&amp;#123;          console.log(&apos;hi&apos;)		&amp;#125;	&amp;lt;/script&amp;gt;	&amp;lt;butto">
+<meta name="description" content="DOM事件模型DOM标准文档  目前的DOM事件模型标准是Document Object Model Level 2  DOM level 1中一道题">
 <meta name="keywords" content="javaScript,DOM,基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DOM事件模型">
 <meta property="og:url" content="http://yoursite.com/2018/05/19/DOM事件，捕获与冒泡总结/index.html">
 <meta property="og:site_name" content="Lyn&#39;s Blog">
-<meta property="og:description" content="DOM事件模型DOM标准文档  目前的DOM事件模型标准是Document Object Model Level 2  DOM level 1中一道题 /**html代码**/&amp;lt;body&amp;gt;	&amp;lt;script&amp;gt;		function print()&amp;#123;          console.log(&apos;hi&apos;)		&amp;#125;	&amp;lt;/script&amp;gt;	&amp;lt;butto">
+<meta property="og:description" content="DOM事件模型DOM标准文档  目前的DOM事件模型标准是Document Object Model Level 2  DOM level 1中一道题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="c:/Users/Administrator/Desktop/1234.png">
-<meta property="og:updated_time" content="2018-06-22T09:09:39.312Z">
+<meta property="og:image" content="http://yoursite.com/2018/05/19/DOM事件，捕获与冒泡总结/C:/Users/Administrator/Desktop/1234.png">
+<meta property="og:updated_time" content="2018-06-22T09:19:46.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM事件模型">
-<meta name="twitter:description" content="DOM事件模型DOM标准文档  目前的DOM事件模型标准是Document Object Model Level 2  DOM level 1中一道题 /**html代码**/&amp;lt;body&amp;gt;	&amp;lt;script&amp;gt;		function print()&amp;#123;          console.log(&apos;hi&apos;)		&amp;#125;	&amp;lt;/script&amp;gt;	&amp;lt;butto">
-<meta name="twitter:image" content="c:/Users/Administrator/Desktop/1234.png">
+<meta name="twitter:description" content="DOM事件模型DOM标准文档  目前的DOM事件模型标准是Document Object Model Level 2  DOM level 1中一道题">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/19/DOM事件，捕获与冒泡总结/C:/Users/Administrator/Desktop/1234.png">
 
 
 
@@ -338,6 +338,39 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  631
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
 
           
 
@@ -359,11 +392,9 @@
 <li><p>目前的DOM事件模型标准是Document Object Model Level 2</p>
 </li>
 <li><p>DOM level 1中一道题</p>
+<a id="more"></a>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">/**html代码**/</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">		function print()&#123;</span></span><br><span class="line"><span class="undefined">          console.log('hi')</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">X</span> <span class="attr">onclick</span> = <span class="string">"print"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">Y</span> <span class="attr">onclick</span> = <span class="string">"print()"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">Z</span> <span class="attr">onclick</span> = <span class="string">"print.call()"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">/**javascript**/</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      	X.onclick = print</span></span><br><span class="line"><span class="undefined">		Y.onclick = print()</span></span><br><span class="line"><span class="undefined">		Z.onclick = print.call()</span></span><br><span class="line"><span class="undefined">        </span></span><br><span class="line"><span class="undefined">/**哪个会正确运行?</span></span><br><span class="line"><span class="undefined">*答案是B、C、X</span></span><br><span class="line"><span class="undefined">*print // 类型为函数对象</span></span><br><span class="line"><span class="undefined">*print()//undefined  （默认return值为undefined）</span></span><br><span class="line"><span class="undefined">*print.call()//undefined</span></span><br><span class="line"><span class="undefined">*在css中，onclick = "要执行的代码"</span></span><br><span class="line"><span class="undefined">*一旦用户点击，浏览器就eval("要执行的代码") </span></span><br><span class="line"><span class="undefined">*eval("print")</span></span><br><span class="line"><span class="undefined">*在javaScript中，</span></span><br><span class="line"><span class="undefined">*一旦用户点击，那么浏览器会执行 X.onclick.call(x,&#123;&#125;)</span></span><br><span class="line"><span class="undefined">**/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<a id="more"></a>
-<ul>
 <li><p>DOM level2</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">xxx.addEventListener(event,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; &#125;)</span><br><span class="line"><span class="comment">//优点：level 1里, xxx.onclick()事件是唯一的一个属性，</span></span><br><span class="line"><span class="comment">//在level2 里，xxx拥有一个队列 eventListeners</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -389,7 +420,7 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//如果第三个参数值为true，则结果是 1 2 3</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>一般事件模型是先捕获再冒泡</p>
-<p><img src="C:\Users\Administrator\Desktop\1234.png" alt="1234"></p>
+<p><img src="/2018/05/19/DOM事件，捕获与冒泡总结/C:/Users\Administrator\Desktop\1234.png" alt="1234"></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//还是上面那个例子</span></span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1,<span class="literal">false</span>)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2,<span class="literal">true</span>)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3,<span class="literal">false</span>)</span><br><span class="line"><span class="comment">//最后得到的结果是2 3 1，因为先捕获再冒泡，就是爸爸的click事件最先被触发，然后再到儿子，再到爷爷</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>注意，同一个元素的事件不受捕获与冒泡阶段影响。也就是同一个元素同时加入event事件，则触发时间按代码出现决定。</p>
