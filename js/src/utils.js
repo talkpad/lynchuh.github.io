@@ -285,16 +285,16 @@ NexT.utils = NexT.$u = {
           ((sidebarPadding * 2) + sidebarNavHeight + (CONFIG.sidebar.offset * 2) + this.getSidebarb2tHeight()) :
           ((sidebarPadding * 2) + (sidebarNavHeight / 2));
     return sidebarSchemePadding;
-  },
+  }
 
   /**
    * Affix behaviour for Sidebar.
    *
    * @returns {Boolean}
    */
- needAffix: function () {
-   return false  //this.isPisces() || this.isGemini();
- }
+//  needAffix: function () {
+//    return this.isPisces() || this.isGemini();
+//  }
 };
 
 $(document).ready(function () {
