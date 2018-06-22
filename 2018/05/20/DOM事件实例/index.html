@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Lyn&#39;s Blog">
 <meta property="og:description" content="在学习事件模型的时候，本来看书看到这个还有点模糊，然后碰到了一个小李子—-做浮层，果然还是实践出真知，所以还是总结一下自己的思路吧。  点击别处关闭浮层Ⅰ. 思路1这个用到了jQuery。通过监听目标元素，然后调用toggle这个API来控制浮层元素的出现。 这里有点小bug。即使他们的包裹层wrapper是inline元素，包裹住了他们，但还是有一些小角落没有包住，点击那里还是不会隐藏到浮层。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-22T07:39:08.441Z">
+<meta property="og:updated_time" content="2018-06-22T09:09:51.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript基础-DOM事件实例">
 <meta name="twitter:description" content="在学习事件模型的时候，本来看书看到这个还有点模糊，然后碰到了一个小李子—-做浮层，果然还是实践出真知，所以还是总结一下自己的思路吧。  点击别处关闭浮层Ⅰ. 思路1这个用到了jQuery。通过监听目标元素，然后调用toggle这个API来控制浮层元素的出现。 这里有点小bug。即使他们的包裹层wrapper是inline元素，包裹住了他们，但还是有一些小角落没有包住，点击那里还是不会隐藏到浮层。">
@@ -365,6 +365,7 @@
 <li>bug：同样地，点击浮层会关闭</li>
 <li>解决bug：在它们的父元素<code>wrapper</code>上增加阻止冒泡</li>
 </ul>
+<a id="more"></a>
 <h5 id="Ⅱ-思路2"><a href="#Ⅱ-思路2" class="headerlink" title="Ⅱ. 思路2"></a>Ⅱ. 思路2</h5><blockquote>
 <p>document在捕获阶段触发click事件，点击按钮在冒泡阶段触发click事件</p>
 </blockquote>
@@ -629,15 +630,7 @@
 </div>
 
 
-
-
-
-
   <span class="post-meta-divider">|</span>
-
-
-
-  
 
 
 

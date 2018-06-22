@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="虽说在学习的路上有很多老师带领着，少走了很多弯路，但有些地方真的很迷，就像this。  函数的几种声明方式函数是什么？**  函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。  function fn1(input1,input2)&amp;#123;console.log(fn1.name)&amp;#125;//具名函数声明function()&amp;#123; console.log(">
+<meta name="description" content="虽说在学习的路上有很多老师带领着，少走了很多弯路，但有些地方真的很迷，就像this。  函数的几种声明方式函数是什么？**  函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。">
 <meta name="keywords" content="javaScript,基础,函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javaScript函数基础总结（1）声明&#x2F;调用&#x2F;this">
 <meta property="og:url" content="http://yoursite.com/2018/04/18/javaScript函数基础总结（1）声明、调用与this/index.html">
 <meta property="og:site_name" content="Lyn&#39;s Blog">
-<meta property="og:description" content="虽说在学习的路上有很多老师带领着，少走了很多弯路，但有些地方真的很迷，就像this。  函数的几种声明方式函数是什么？**  函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。  function fn1(input1,input2)&amp;#123;console.log(fn1.name)&amp;#125;//具名函数声明function()&amp;#123; console.log(">
+<meta property="og:description" content="虽说在学习的路上有很多老师带领着，少走了很多弯路，但有些地方真的很迷，就像this。  函数的几种声明方式函数是什么？**  函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-22T07:39:21.857Z">
+<meta property="og:updated_time" content="2018-06-22T09:10:00.167Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript函数基础总结（1）声明&#x2F;调用&#x2F;this">
-<meta name="twitter:description" content="虽说在学习的路上有很多老师带领着，少走了很多弯路，但有些地方真的很迷，就像this。  函数的几种声明方式函数是什么？**  函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。  function fn1(input1,input2)&amp;#123;console.log(fn1.name)&amp;#125;//具名函数声明function()&amp;#123; console.log(">
+<meta name="twitter:description" content="虽说在学习的路上有很多老师带领着，少走了很多弯路，但有些地方真的很迷，就像this。  函数的几种声明方式函数是什么？**  函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。">
 
 
 
@@ -357,9 +357,8 @@
 </blockquote>
 <h3 id="函数的几种声明方式"><a href="#函数的几种声明方式" class="headerlink" title="函数的几种声明方式"></a>函数的几种声明方式</h3><p>函数是什么？**</p>
 <blockquote>
-<p>函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。</p>
+<p>函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params">input1,input2</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(fn1.name)</span><br><span class="line">&#125;<span class="comment">//具名函数声明</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'我没有name属性'</span>)</span><br><span class="line">&#125;<span class="comment">//匿名函数声明，一般不单独使用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">fn3</span>(<span class="params">input1,input2</span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(fn3.name)</span><br><span class="line">&#125;<span class="comment">// 变量赋值方式</span></span><br><span class="line"><span class="built_in">console</span>.log(x.name) <span class="comment">//'fn3'</span></span><br><span class="line"><span class="built_in">console</span>.log(fn3.name)<span class="comment">//报错，fn3没有定义。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> y = <span class="keyword">new</span> <span class="built_in">Function</span> (<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'return x+'</span> + n + <span class="string">'+y'</span>)</span><br><span class="line"><span class="comment">//函数对象构造声明</span></span><br><span class="line"><span class="comment">//除最后一个参数是函数体外，其他都是参数</span></span><br><span class="line"></span><br><span class="line">f(x,y) =&gt;&#123;<span class="built_in">console</span>.log(<span class="string">'我是匿名函数，没有name属性'</span>)&#125;</span><br><span class="line"><span class="comment">//ES6新语法</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params">input1,input2</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(fn1.name)</span><br><span class="line">&#125;<span class="comment">//具名函数声明</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'我没有name属性'</span>)</span><br><span class="line">&#125;<span class="comment">//匿名函数声明，一般不单独使用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">fn3</span>(<span class="params">input1,input2</span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(fn3.name)</span><br><span class="line">&#125;<span class="comment">// 变量赋值方式</span></span><br><span class="line"><span class="built_in">console</span>.log(x.name) <span class="comment">//'fn3'</span></span><br><span class="line"><span class="built_in">console</span>.log(fn3.name)<span class="comment">//报错，fn3没有定义。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> y = <span class="keyword">new</span> <span class="built_in">Function</span> (<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'return x+'</span> + n + <span class="string">'+y'</span>)</span><br><span class="line"><span class="comment">//函数对象构造声明</span></span><br><span class="line"><span class="comment">//除最后一个参数是函数体外，其他都是参数</span></span><br><span class="line"></span><br><span class="line">f(x,y) =&gt;&#123;<span class="built_in">console</span>.log(<span class="string">'我是匿名函数，没有name属性'</span>)&#125;</span><br><span class="line"><span class="comment">//ES6新语法</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>创建匿名函数可以避免命名冲突。</li>
 <li>匿名函数创建完成后，在堆内存（heap）内存上地址，被变量引用才能被使用。</li>
@@ -641,15 +640,7 @@
 </div>
 
 
-
-
-
-
   <span class="post-meta-divider">|</span>
-
-
-
-  
 
 
 

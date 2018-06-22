@@ -354,8 +354,7 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>在学习事件模型的时候，本来看书看到这个还有点模糊，然后碰到了一个小李子—-做浮层，果然还是实践出真知，所以还是总结一下自己的思路吧。</p>
 </blockquote>
 <h4 id="点击别处关闭浮层"><a href="#点击别处关闭浮层" class="headerlink" title="点击别处关闭浮层"></a>点击别处关闭浮层</h4><h5 id="Ⅰ-思路1"><a href="#Ⅰ-思路1" class="headerlink" title="Ⅰ. 思路1"></a>Ⅰ. 思路1</h5><p>这个用到了jQuery。通过监听目标元素，然后调用toggle这个API来控制浮层元素的出现。</p>
@@ -368,28 +367,13 @@
 <li>bug：同样地，点击浮层会关闭</li>
 <li>解决bug：在它们的父元素<code>wrapper</code>上增加阻止冒泡</li>
 </ul>
-<h5 id="Ⅱ-思路2"><a href="#Ⅱ-思路2" class="headerlink" title="Ⅱ. 思路2"></a>Ⅱ. 思路2</h5><blockquote>
-<p>document在捕获阶段触发click事件，点击按钮在冒泡阶段触发click事件</p>
-</blockquote>
-<ul>
-<li><a href="http://js.jirengu.com/pijocozuya/1/edit?html,css,js,output" target="_blank" rel="noopener">案例点这里</a></li>
-<li>bug：点击浮层会关闭</li>
-<li>解决bug：笨方法，给浮层也加上一个click事件，这里用思路1的解决方法是解决不了问题的。因为document的click事件是在捕获阶段获取的，而<code>stopPropagation()</code>只是阻止了冒泡阶段。</li>
-</ul>
-<h5 id="Ⅲ-思路3（更节省内存）"><a href="#Ⅲ-思路3（更节省内存）" class="headerlink" title="Ⅲ. 思路3（更节省内存）"></a>Ⅲ. 思路3（更节省内存）</h5><p>1.使用one()方法，使document只执行一次click事件（hide）</p>
-<ul>
-<li><a href="http://js.jirengu.com/ladomubage/1/edit?html,css,js,output" target="_blank" rel="noopener">案例点这里</a></li>
-<li>解决两个bug方法<ul>
-<li>阻止冒泡<ol>
-<li>知识点<br>a. jQuery的.on()方法的一个用法<br>$(wrapper).on(‘click’,false)<br>//等价于下面<br>$(wrapper).on(‘click’,function(e){<br>e.stopPropagation()<br>e.preventDefault()<br>})<br>//会出现的一个bug<br>//preventDefault()会使得checkbox不能点击。<br>b. .one()方法只执行一次事件的函数。</li>
-</ol>
-</li>
-<li>添加一个定时器，让document的事件函数在冒泡结束之后再添加。———-防止点击button时，浮层无法出现。</li>
-</ul>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/20/DOM事件实例/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -528,53 +512,21 @@
 
       
         
-          
-            <h1 id="DOM事件模型"><a href="#DOM事件模型" class="headerlink" title="DOM事件模型"></a>DOM事件模型</h1><p><a href="https://www.w3.org/DOM" target="_blank" rel="noopener">DOM标准文档</a></p>
+          <h1 id="DOM事件模型"><a href="#DOM事件模型" class="headerlink" title="DOM事件模型"></a>DOM事件模型</h1><p><a href="https://www.w3.org/DOM" target="_blank" rel="noopener">DOM标准文档</a></p>
 <ul>
 <li><p>目前的DOM事件模型标准是Document Object Model Level 2</p>
 </li>
 <li><p>DOM level 1中一道题</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">/**html代码**/</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">		function print()&#123;</span></span><br><span class="line"><span class="undefined">          console.log('hi')</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">X</span> <span class="attr">onclick</span> = <span class="string">"print"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">Y</span> <span class="attr">onclick</span> = <span class="string">"print()"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">Z</span> <span class="attr">onclick</span> = <span class="string">"print.call()"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">/**javascript**/</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">      	X.onclick = print</span></span><br><span class="line"><span class="undefined">		Y.onclick = print()</span></span><br><span class="line"><span class="undefined">		Z.onclick = print.call()</span></span><br><span class="line"><span class="undefined">        </span></span><br><span class="line"><span class="undefined">/**哪个会正确运行?</span></span><br><span class="line"><span class="undefined">*答案是B、C、X</span></span><br><span class="line"><span class="undefined">*print // 类型为函数对象</span></span><br><span class="line"><span class="undefined">*print()//undefined  （默认return值为undefined）</span></span><br><span class="line"><span class="undefined">*print.call()//undefined</span></span><br><span class="line"><span class="undefined">*在css中，onclick = "要执行的代码"</span></span><br><span class="line"><span class="undefined">*一旦用户点击，浏览器就eval("要执行的代码") </span></span><br><span class="line"><span class="undefined">*eval("print")</span></span><br><span class="line"><span class="undefined">*在javaScript中，</span></span><br><span class="line"><span class="undefined">*一旦用户点击，那么浏览器会执行 X.onclick.call(x,&#123;&#125;)</span></span><br><span class="line"><span class="undefined">**/</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>DOM level2</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">xxx.addEventListener(event,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; &#125;)</span><br><span class="line"><span class="comment">//优点：level 1里, xxx.onclick()事件是唯一的一个属性，</span></span><br><span class="line"><span class="comment">//在level2 里，xxx拥有一个队列 eventListeners</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>题外拓宽</p>
-<p><code>$btn.one(event,fn)</code></p>
-<p>相当于：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">  xxx.removeEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">&#125;</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,fn)</span><br><span class="line"><span class="comment">//只调用一次event事件。</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>要时刻记住<code>addEventListener</code>得到是一个队列！！！</p>
-<p>一道小题：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">xxx.removeEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">xxx.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line">xxx.removeEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//最终得到的结果是 2</span></span><br><span class="line"><span class="comment">//因为xxx会得到一个队列：eventListener，最终只剩下一个有f2函数的click时间</span></span><br><span class="line"><span class="comment">//队列的出栈与入栈需要了解一下</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>捕获与冒泡</p>
-<p>一般不传第三个参数，则优先显示冒泡。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">/**html**/</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">grandpa</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">parent</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">child</span>&gt;</span>儿子<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>冒泡阶段（从下到上）</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//五个flasy值：undefined, Null, '', 0, NaN</span></span><br><span class="line"><span class="comment">//如果第三个参数是falsy值，则结果是 321</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p>捕获阶段（从上到下），第三个参数可转化为true，则显示捕获</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line"><span class="comment">//如果第三个参数值为true，则结果是 1 2 3</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>一般事件模型是先捕获再冒泡</p>
-<p><img src="C:\Users\Administrator\Desktop\1234.png" alt="1234"></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//还是上面那个例子</span></span><br><span class="line">grandpa.addEventListener(<span class="string">'click'</span>,f1,<span class="literal">false</span>)</span><br><span class="line">parent.addEventListener(<span class="string">'click'</span>,f2,<span class="literal">true</span>)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f3,<span class="literal">false</span>)</span><br><span class="line"><span class="comment">//最后得到的结果是2 3 1，因为先捕获再冒泡，就是爸爸的click事件最先被触发，然后再到儿子，再到爷爷</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注意，同一个元素的事件不受捕获与冒泡阶段影响。也就是同一个元素同时加入event事件，则触发时间按代码出现决定。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">child.addEventListener(<span class="string">'click'</span>,f3)</span><br><span class="line">child.addEventListener(<span class="string">'click'</span>,f2)</span><br><span class="line"><span class="comment">//得到的结果是3 2</span></span><br></pre></td></tr></table></figure>
-<p>​</p>
-</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/19/DOM事件，捕获与冒泡总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -724,70 +676,16 @@
 
       
         
-          
-            <h3 id="自己做一个jQuery的思路"><a href="#自己做一个jQuery的思路" class="headerlink" title="自己做一个jQuery的思路"></a>自己做一个jQuery的思路</h3><hr>
+          <h3 id="自己做一个jQuery的思路"><a href="#自己做一个jQuery的思路" class="headerlink" title="自己做一个jQuery的思路"></a>自己做一个jQuery的思路</h3><hr>
 <p>封装两个函数 → 添加命名空间 → 扩展Node原型/无侵入设置</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--html代码--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>text<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"item1"</span>&gt;</span>选项1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"item2"</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"item3"</span>&gt;</span>选项3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h5 id="1、封装两个函数"><a href="#1、封装两个函数" class="headerlink" title="1、封装两个函数"></a>1、封装两个函数</h5><ul>
-<li>获取所有兄弟元素</li>
-</ul>
-<figure class="highlight zephir"><table><tr><td class="code"><pre><span class="line"><span class="comment">//javaScript代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSiblings</span><span class="params">(node)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> allChlidren = node.parentNode.chlidren</span><br><span class="line">  <span class="keyword">var</span> <span class="keyword">array</span> = &#123; </span><br><span class="line">    length：<span class="number">0</span> </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(allChildren[i] !== node)&#123;</span><br><span class="line">    <span class="keyword">array</span>[<span class="keyword">array</span>.length] =allChildren[i]</span><br><span class="line">    <span class="keyword">array</span>.length += <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">array</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用方法</span></span><br><span class="line">getSiblings(item2)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>给目标元素添加class</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//javaScript代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClass</span>(<span class="params">node,classes</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> classes)&#123;</span><br><span class="line">    <span class="keyword">var</span> value = classes[key]</span><br><span class="line">    <span class="keyword">var</span> methodName = value? <span class="string">' add '</span> : <span class="string">' remove '</span> </span><br><span class="line">    node.classList[methodName](key)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用addClass()</span></span><br><span class="line">addClass(item1,&#123; <span class="attr">a</span>:ture , <span class="attr">b</span>:<span class="literal">false</span>&#125; )</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>//语法基础<br>classList[methodName === classList.methodName</p>
-</blockquote>
-<h5 id="2、添加命名空间"><a href="#2、添加命名空间" class="headerlink" title="2、添加命名空间"></a>2、添加命名空间</h5><figure class="highlight zephir"><table><tr><td class="code"><pre><span class="line"><span class="comment">//javaScrip代码</span></span><br><span class="line">window.textdom = &#123;&#125; <span class="comment">// yui</span></span><br><span class="line">textdom.getSiblings=<span class="function"><span class="keyword">function</span> <span class="params">(node)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> allChlidren = node.parentNode.chlidren</span><br><span class="line">  <span class="keyword">var</span> <span class="keyword">array</span> = &#123; </span><br><span class="line">    length：<span class="number">0</span> </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(allChildren[i] !== node)&#123;</span><br><span class="line">    <span class="keyword">array</span>[<span class="keyword">array</span>.length] =allChildren[i]</span><br><span class="line">    <span class="keyword">array</span>.length += <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">array</span></span><br><span class="line">&#125;</span><br><span class="line">textdom.addClass = <span class="function"><span class="keyword">function</span> <span class="params">(node,classes)</span></span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key in classes)&#123;</span><br><span class="line">    <span class="keyword">var</span> value = classes[key]</span><br><span class="line">    <span class="keyword">var</span> methodName = value? <span class="string">' add '</span> : <span class="string">' remove '</span> </span><br><span class="line">    node.classList[methodName](key)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用方法</span></span><br><span class="line">textdom.getSiblings( item3 )</span><br><span class="line">textdom.addClass ( item3,&#123;a:<span class="keyword">false</span> , b:<span class="keyword">true</span> &#125; )</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>了解不扎实的语法基础： for in 语法</p>
-</blockquote>
-<h5 id="3、-扩展Node原型-无侵入设置"><a href="#3、-扩展Node原型-无侵入设置" class="headerlink" title="3、 扩展Node原型/无侵入设置"></a>3、 扩展Node原型/无侵入设置</h5><p>上面的函数调用方法都是<code>textdom.addClass()</code>这样的，假如设想，直接以目标元素为对象进行方法调用，如<code>item2.getClass(&#39;red&#39;)</code>,方法有两种。</p>
-<ul>
-<li><h6 id="扩展Node原型"><a href="#扩展Node原型" class="headerlink" title="扩展Node原型"></a>扩展Node原型</h6></li>
-</ul>
-<figure class="highlight zephir"><table><tr><td class="code"><pre><span class="line">Node.prototype.getSiblings =<span class="function"><span class="keyword">function</span> <span class="params">( )</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> allChlidren = this.parentNode.chlidren</span><br><span class="line">  <span class="keyword">var</span> <span class="keyword">array</span> = &#123; length：<span class="number">0</span> &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(allChildren[i] !== this)&#123;</span><br><span class="line">      <span class="keyword">array</span>[<span class="keyword">array</span>.length] =allChildren[i]</span><br><span class="line">      <span class="keyword">array</span>.length += <span class="number">1</span></span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">array</span></span><br><span class="line">&#125;</span><br><span class="line">Node.prototype.addClass = <span class="function"><span class="keyword">function</span><span class="params">(classes)</span></span>&#123;</span><br><span class="line">  classes.<span class="keyword">forEach</span>( </span><br><span class="line">    ( value ) =&gt; this.classList.add( value ) </span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用函数：</span></span><br><span class="line">item3.getSiblings.call(items) </span><br><span class="line"><span class="comment">//等价于item3.getSiblings()</span></span><br><span class="line">item3.addClass.call( item1,[ <span class="string">'text'</span> , <span class="string">'red'</span> , <span class="string">'blue'</span> ] )</span><br><span class="line"><span class="comment">//等价于item3.addClass( ['text' , 'red' , 'blue' ] )</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>① this知识点 : this是call()的第一个参数<br>② 箭头函数<br>③函数调用： f.call ( asThis , input1 , input2 )<br>其中asThis会被当作this，[ input1 , input2 ]会被当作arguments</p>
-</blockquote>
-<ul>
-<li><h6 id="无侵入设置"><a href="#无侵入设置" class="headerlink" title="无侵入设置"></a>无侵入设置</h6></li>
-</ul>
-<p>第一版 基本实现直接目标元素调用的目的</p>
-<figure class="highlight zephir"><table><tr><td class="code"><pre><span class="line"><span class="comment">//javaScript</span></span><br><span class="line">window.Node2 =  <span class="function"><span class="keyword">function</span><span class="params">( node )</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    getSiblings : <span class="function"><span class="keyword">function</span><span class="params">( )</span></span>&#123;</span><br><span class="line">      <span class="keyword">var</span> allChlidren = this.parentNode.chlidren</span><br><span class="line">      <span class="keyword">var</span> <span class="keyword">array</span> = &#123; length：<span class="number">0</span> &#125;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(allChildren[i] !== this)&#123;</span><br><span class="line">          <span class="keyword">array</span>[<span class="keyword">array</span>.length] =allChildren[i]</span><br><span class="line">          <span class="keyword">array</span>.length += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">array</span></span><br><span class="line">    &#125;,</span><br><span class="line">    addClass : <span class="function"><span class="keyword">function</span> <span class="params">(classes )</span> </span>&#123;</span><br><span class="line">      classes.<span class="keyword">forEach</span>( </span><br><span class="line">        (value) =&gt; this.classList.add(value) </span><br><span class="line">      )</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> item3 = Node2(item3)</span><br><span class="line"><span class="comment">//实现调用</span></span><br><span class="line">item3.getSiblings()</span><br><span class="line">item3.addClass([ <span class="string">' red '</span> ])</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>console.dir(node2)</code> //得到的是一个原型为<code>Object.prototype</code>，里面含有<code>addClass()</code>等方法的对象</p>
-</blockquote>
-<p>第二版 可以使用选择器确定目标元素</p>
-<figure class="highlight zephir"><table><tr><td class="code"><pre><span class="line">window.Node2 =  <span class="function"><span class="keyword">function</span><span class="params">( nodeOrSelector )</span></span>&#123;</span><br><span class="line">  <span class="keyword">let</span> node</span><br><span class="line">  <span class="keyword">if</span>(typeof nodeOrSelector === <span class="string">'string'</span> )&#123;</span><br><span class="line">    node= document.querySelector(nodeOrSelector)</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    node= nodeOrSelector</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    getSiblings : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">var</span> allChlidren =node.parentNode.chlidren</span><br><span class="line">      <span class="keyword">var</span> <span class="keyword">array</span> = &#123; length：<span class="number">0</span> &#125;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;allChildren.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(allChildren[i] !==node)&#123;</span><br><span class="line">        <span class="keyword">array</span>[<span class="keyword">array</span>.length] =al lChildren[i]</span><br><span class="line">        <span class="keyword">array</span>.length += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">array</span></span><br><span class="line">    &#125;,</span><br><span class="line">    addClass : <span class="function"><span class="keyword">function</span> <span class="params">(classes )</span> </span>&#123;</span><br><span class="line">      classes.<span class="keyword">forEach</span>( </span><br><span class="line">        (value) =&gt;node.classList.add(value)</span><br><span class="line">      )</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> item3= Node2(item3)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>使用了闭包</p>
-</blockquote>
-<p>第三版 可以实现对多个目标元素设置</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.Node2 =  <span class="function"><span class="keyword">function</span>(<span class="params"> nodeOrSelector </span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> nodes = &#123; &#125;</span><br><span class="line">    <span class="keyword">if</span>( <span class="keyword">typeof</span> nodeOrSelector === <span class="string">'string'</span> )&#123;</span><br><span class="line">        <span class="keyword">let</span> temp =  <span class="built_in">document</span>.querySelectorALL ( nodeOrSelector)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span> ; i&lt;temp.length ; i++ )&#123;</span><br><span class="line">            nodes[i] = temp[i]</span><br><span class="line">        &#125;</span><br><span class="line">        node.length = i <span class="comment">//得到一个伪数组</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (nodeOrSelector <span class="keyword">instanceof</span> Node)&#123;</span><br><span class="line">        nodes = &#123;</span><br><span class="line">        <span class="number">0</span>:nodeSelector , </span><br><span class="line">        length:<span class="number">1</span></span><br><span class="line">        &#125;<span class="comment">//为了保持一致性，的到一个伪数组</span></span><br><span class="line">    &#125;</span><br><span class="line">    nodes.addClass = <span class="function"><span class="keyword">function</span> (<span class="params"> classes </span>) </span>&#123;</span><br><span class="line">        classes.forEach( <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">for</span>( <span class="keyword">let</span> i=<span class="number">0</span> ; i&lt; nodes.length ; i++ )&#123;</span><br><span class="line">                nodes[i].classList.add(value)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125; </span><br><span class="line">    nodes.getText = <span class="function"><span class="keyword">function</span> (<span class="params"> </span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> texts= [ ]</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">let</span> i=<span class="number">0</span> ; i&lt;nodes.length ; i++ )&#123;</span><br><span class="line">        texts.push(nodes[i].textContent)</span><br><span class="line">    &#125;</span><br><span class="line">    nodes.setText = <span class="function"><span class="keyword">function</span> (<span class="params">text</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">let</span> i=<span class="number">0</span> ; i&lt;nodes.length ; i++ )&#123;</span><br><span class="line">            nodes[ i ] .textContext = text</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nodes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="了解jQuery的一些特点"><a href="#了解jQuery的一些特点" class="headerlink" title="了解jQuery的一些特点"></a>了解jQuery的一些特点</h3><hr>
-<ul>
-<li><p>jQuery是一个构造函数，这次自制的jQuery没有使用到<code>prototype</code>。实际上jQuery构造的实例函数原型是<code>jQuery.prototype</code>。</p>
-</li>
-<li><p>jQuery实例函数的构成：<br>jQuery的实例是一个数组对象，每个key对应的是一个node节点对象。</p>
-<p>​</p>
-<p>​</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9929263-f8951a9144f1d165.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="img"></p>
-</li>
-<li><p>jQuery除了DOM操作外，还有动画、AJAX 等模块。</p>
-</li>
-<li><p>一道常考的面试题</p>
-</li>
-</ul>
-<blockquote>
-<p><code></code><br><code>var div = document.getElementById(&#39;x&#39;);</code><br><code>var $div = $(&#39;#x&#39;);</code><br>请说出 div 和 $div 的联系和区别。</p>
-</blockquote>
-<blockquote>
-<p><strong>联系：</strong><br><code>$div = $( div )</code> 可以将div变成$div<br><code>div = $div [0]</code> 或 <code>div = $div.get(0)</code>可以将$div变成div<br><strong>区别:</strong><br><code>div</code> 是一个DOM(element)对象，它的原型是<code>node.prototype</code><br><code>$div</code>是由jQuery函数构建的数组对象，它的原型是<code>jQuery.prototype</code>,他的属性和方法有0 1 2…..length selector 等等</p>
-</blockquote>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/04/自己做一个jQuery的思路/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -926,40 +824,20 @@
 
       
         
-          
-            <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而<strong>闭包指的是函数与函数外的变量组成的一个词法环境。</strong></p>
+          <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而<strong>闭包指的是函数与函数外的变量组成的一个词法环境。</strong></p>
 <ul>
 <li><p>闭包可以隐藏一个变量。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> a = <span class="string">'我只是测试'</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(a)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> fn2</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> result=fn1()</span><br><span class="line">  result()</span><br></pre></td></tr></table></figure>
 <p>这里在fn1的函数体内变量a与函数fn2组成了一个闭包，而变量a被隐藏在函数fn1内，只能局部访问。</p>
 </li>
-<li><p>在只有一个方法，却需要多个数据的情况下，也可以使用闭包。闭包可以很好地封装数据。<br><a href="http://js.jirengu.com/xahanepali/1/edit?html,js,output" target="_blank" rel="noopener">例子看这里</a><br><a href="http://js.jirengu.com/puwejuliga/1/edit" target="_blank" rel="noopener">例子看这里</a> 例子里，counter1和counter2共用一个闭包，却不会影响到各自的值。</p>
-</li>
-<li><p>柯里化函数<br>每次只传一个参数分多次调用.<br>栗子看这里：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">var</span> add = function(x)&#123;</span><br><span class="line"> return function(y)&#123;</span><br><span class="line">     return x+y</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> addTen = add(<span class="number">10</span>)</span><br><span class="line"><span class="selector-tag">var</span> add7 = add(<span class="number">7</span>)</span><br><span class="line"><span class="function"><span class="title">add7</span><span class="params">(<span class="number">1</span>)</span></span>    <span class="comment">//8</span></span><br><span class="line"><span class="function"><span class="title">addTen</span><span class="params">(<span class="number">1</span>)</span></span>     <span class="comment">//11</span></span><br></pre></td></tr></table></figure>
-</li>
 </ul>
-<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>在刚接触函数的时候，了解到每个函数都有return语句，return的作用很好理解，但是我不清楚return的返回值 有什么作用，或者说，返回值在什么样的场景被利用。<br>下面总结一下返回值的细节。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9929263-685c6fae801b2ff5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/411" alt="img"></p>
-<ul>
-<li>返回值是函数经调用之后返回的值。</li>
-<li>obj本质上也是一个变量，不过这个变量赋的值是一个函数（对象）。</li>
-<li>我将obj和调用后的obj（即obj()）分别赋值给变量result和text，可以看到result的值是函数obj的整个函数体，但text的值是return的值age，即是7。</li>
-</ul>
-<p>再次升级：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9929263-e6d5b57c160da3de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/409" alt="img"></p>
-<ul>
-<li>我将函数的返回值设为一个匿名函数，而这个匿名函数也有一个返回值。</li>
-<li>赋值obj()给变量newAge，得到的结果是返回值–匿名函数的函数体，想要最终的结果需要再次调用变量newAge。</li>
-</ul>
-<p><strong>上面闭包的柯里化函数就是返回值和闭包的一个简单运用</strong></p>
-<h3 id="闭包和返回值的场景应用"><a href="#闭包和返回值的场景应用" class="headerlink" title="闭包和返回值的场景应用"></a>闭包和返回值的场景应用</h3><p>很多项目的开展，需要按功能将js模块化。为了不要将每个模块的变量都暴露在全局作用域内，一般我们会将每个模块都封装在一个匿名函数内再立即调用（立即执行函数）。<br>那么问题是 当有两个模块需要共享一个变量时，我们如何满足这个需求，答案是闭包。下面是简单的栗子：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//model-1.js</span></span><br><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person =&#123;</span><br><span class="line">    name: <span class="string">'lyn'</span>,</span><br><span class="line">    age: <span class="number">7</span>,</span><br><span class="line">    hobby: <span class="string">'handsome man'</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">window</span>.newAge= <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="keyword">return</span> person.newAge += <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//model-2.js</span></span><br><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(newAge())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面例子里，model-1里将变量person封装在一个匿名函数里面，然后再使用闭包来改变变量person的某一个属性，这样可以更好的保护数据，而且在另一个模块model-2里也可以操作变量，但是不能够直接访问变量。</p>
-<p><strong>再改变一下model-1：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//model-1.js</span></span><br><span class="line"><span class="keyword">var</span> accessor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person =&#123;</span><br><span class="line">  name: <span class="string">'lyn'</span>,</span><br><span class="line">    age: <span class="number">7</span>,</span><br><span class="line">    hobby: <span class="string">'handsome man'</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> person.newAge += <span class="number">10</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> growUp = accessor.call()</span><br><span class="line"></span><br><span class="line"><span class="comment">//model-2.js</span></span><br><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(accessor.call())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/20/javaScript函数基础总结（2）闭包/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1098,50 +976,19 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>虽说在学习的路上有很多老师带领着，少走了很多弯路，但有些地方真的很迷，就像this。</p>
 </blockquote>
 <h3 id="函数的几种声明方式"><a href="#函数的几种声明方式" class="headerlink" title="函数的几种声明方式"></a>函数的几种声明方式</h3><p>函数是什么？**</p>
 <blockquote>
-<p>函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params">input1,input2</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(fn1.name)</span><br><span class="line">&#125;<span class="comment">//具名函数声明</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'我没有name属性'</span>)</span><br><span class="line">&#125;<span class="comment">//匿名函数声明，一般不单独使用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> <span class="title">fn3</span>(<span class="params">input1,input2</span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(fn3.name)</span><br><span class="line">&#125;<span class="comment">// 变量赋值方式</span></span><br><span class="line"><span class="built_in">console</span>.log(x.name) <span class="comment">//'fn3'</span></span><br><span class="line"><span class="built_in">console</span>.log(fn3.name)<span class="comment">//报错，fn3没有定义。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> y = <span class="keyword">new</span> <span class="built_in">Function</span> (<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'return x+'</span> + n + <span class="string">'+y'</span>)</span><br><span class="line"><span class="comment">//函数对象构造声明</span></span><br><span class="line"><span class="comment">//除最后一个参数是函数体外，其他都是参数</span></span><br><span class="line"></span><br><span class="line">f(x,y) =&gt;&#123;<span class="built_in">console</span>.log(<span class="string">'我是匿名函数，没有name属性'</span>)&#125;</span><br><span class="line"><span class="comment">//ES6新语法</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>创建匿名函数可以避免命名冲突。</li>
-<li>匿名函数创建完成后，在堆内存（heap）内存上地址，被变量引用才能被使用。</li>
-<li>或者匿名函数在创建完成后直接调用。（这个用法在MVC中js模块中常被使用。）</li>
-</ul>
-<hr>
-<h3 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callfn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'我被调用了'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第一种调用方式，语法糖</span></span><br><span class="line">callfn()</span><br><span class="line"><span class="comment">//第二种调用方式，call()</span></span><br><span class="line">callfn.call(<span class="literal">undefined</span>,argument1,argument2)</span><br><span class="line"><span class="comment">//第三种调用方式，apply()</span></span><br><span class="line">callfn.apply(<span class="literal">undefined</span>,[argument1,argument2])</span><br></pre></td></tr></table></figure>
-<h4 id="Ⅰ-this"><a href="#Ⅰ-this" class="headerlink" title="Ⅰ. this"></a>Ⅰ. this</h4><p>前面<code>call()</code>和<code>apply()</code>的调用方法，第一个参数就是this。<br>在我接触this的一段时间里，this是一个捉摸不透的玩意。很多时候一不小心加了几个代码，就改变了this的指向，而我却毫不知情。所以对this做一个总结是很有必要的。<br>为了了解this，我翻看了好多篇技术博客，有一篇博客我觉得形容this很贴切。</p>
-<blockquote>
-<p>this是某个函数运行时的上下文(context)，call()、apply()的存在就是为了改变函数体内部 this 的指向。<br>而JavaScript 的一大特点是，函数存在「定义时上下文」和「运行时上下文」以及「上下文是可以改变的」这样的概念。</p>
-</blockquote>
-<p>1.this首先肯定是一个对象。<br>2.this是函数与对象的羁绊。<br>3.this就是这个嵌有这个函数的对象。<br>几个典型的小李子：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第一个小李子</span></span><br><span class="line">function obj()&#123;</span><br><span class="line">    <span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">1</span></span><br><span class="line">    console.log(this.a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">2</span></span><br><span class="line"><span class="function"><span class="title">obj</span><span class="params">()</span></span> <span class="comment">//2</span></span><br><span class="line"><span class="comment">//在这个例子里，obj是一个全局变量函数。</span></span><br><span class="line"><span class="comment">//它被包含在window对象，所以我们可以理解为它的this就是window。</span></span><br><span class="line"><span class="comment">//但要注意的是！！如果在严格模式下，this会指向undefined！</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第二个小李子</span></span><br><span class="line"><span class="selector-tag">var</span> obj = &#123;</span><br><span class="line">    <span class="selector-tag">a</span>: <span class="number">2</span>,</span><br><span class="line">    fn1: function ()&#123;</span><br><span class="line">    <span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">1</span></span><br><span class="line">    console.log(this.a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn1() <span class="comment">//2</span></span><br><span class="line"><span class="comment">//在这个例子里，可以看出fn1是obj的其中一个方法函数，</span></span><br><span class="line"><span class="comment">//这里的this就是包含fn1这个函数的上一级对象----obj。</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第三个小李子</span></span><br><span class="line">function fn1()&#123;</span><br><span class="line">    <span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">1</span></span><br><span class="line">    console.log(this.a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> obj = &#123;</span><br><span class="line">    <span class="selector-tag">a</span>: <span class="number">2</span>,</span><br><span class="line">    fn1:fn1</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">fn1</span><span class="params">()</span></span> <span class="comment">//undefined</span></span><br><span class="line">obj.fn1() <span class="comment">//2</span></span><br><span class="line"><span class="comment">/** 在这个例子里，两种不同的调用方法，产生的结果却完全不同</span></span><br><span class="line"><span class="comment">  *因为同样一个函数地址，它却被两个不同的变量所引用。</span></span><br><span class="line"><span class="comment">  *第一个fn1()被调用在全局环境下调用，而在全局对象window里，a没有赋值，因此结果为undefined</span></span><br><span class="line"><span class="comment">  *第二个obj.fn1()的调用是在对象obj环境下调用，因此指向obj.a===2</span></span><br><span class="line"><span class="comment">  *这种方法是隐式绑定</span></span><br><span class="line"><span class="comment">**/</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//第四个小李子</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">obj</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = a</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn1 = <span class="keyword">new</span> obj(<span class="number">2</span>)</span><br><span class="line"><span class="built_in">console</span>.log(fn1.a) <span class="comment">//2</span></span><br><span class="line"><span class="comment">//使用new构造函数，this指定的都是构造出来的新对象。</span></span><br></pre></td></tr></table></figure>
-<p>另外，在dom的事件触发和事件监听中，函数内的this指向是所触发事件的node节点。jQuery的事件监听同理，如果是事件委托，则与selector相匹配的元素。</p>
-<p>以上是在没有使用<code>call()</code>、<code>apply()</code>情况下，this的指向判断，但当使用过了<code>call()</code>、<code>apply()</code>后，this的指向明显清晰了，因为我们可以根据自己的意愿随意更改this！</p>
-<h4 id="Ⅱ-call-、apply-与bind"><a href="#Ⅱ-call-、apply-与bind" class="headerlink" title="Ⅱ.call()、apply()与bind()"></a>Ⅱ.<code>call()</code>、<code>apply()</code>与<code>bind()</code></h4><ul>
-<li><code>call()</code>、<code>apply()</code><ol>
-<li>两者用法相似，都是调用函数体及改变函数体内的this指向.</li>
-<li>不同的是，<code>apply()</code>传入的参数是一个数组，通常在执行可变参数的函数时可以使用<code>apply()</code>，将每个参数传入一个数组。<br>调用方法如下:<br><code>fn.call(this,arg1,arg2)</code><br><code>fn.apply(this,[arg1,arg2)</code></li>
-<li><a href="http://js.jirengu.com/zajejeqali/1/edit?js,output" target="_blank" rel="noopener">改变this的一个简单例子</a></li>
-</ol>
-</li>
-<li><code>bind()</code><br><code>bind()</code> 允许我们在函数或者方法被调用时绑定 this 到指定对象上。<br>例如：在js的DOM事件里，当某一事件被调用时，this会默认是事件调用的Node对象身上，此时我们可以使用<code>bind()</code>函数，绑定一个回调函数，改变this的指向。<br><a href="http://js.jirengu.com/livihutori/1/edit?html,console,output" target="_blank" rel="noopener">一个简单的小李子</a></li>
-<li>总结</li>
-</ul>
-<ol>
-<li><code>call</code>、<code>apply</code>、<code>bind</code>都可以改变函数的this对象的指向。</li>
-<li><code>call</code>、<code>apply</code>、<code>bind</code>除了第一个参数是this指向外，后面可以继续传参数。</li>
-<li><code>bind</code>是返回回调函数，不是立即调用，而<code>apply</code>和<code>call</code>是立即调用。</li>
-</ol>
-
-          
+<p>函数是一种特殊的对象，也是由事件驱动或者被调用时执行的可重复使用的代码块。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/18/javaScript函数基础总结（1）声明、调用与this/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1280,62 +1127,20 @@
 
       
         
-          
-            <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><hr>
+          <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><hr>
 <h3 id="算法的特征"><a href="#算法的特征" class="headerlink" title="算法的特征"></a>算法的特征</h3><ul>
 <li>可以没有输入量</li>
 <li>必须有输出量</li>
 <li>有限时间</li>
 <li>明确性，算法描述无歧义</li>
-<li>有效性，可行的</li>
-</ul>
-<h3 id="几个简单的排序算法"><a href="#几个简单的排序算法" class="headerlink" title="几个简单的排序算法"></a>几个简单的排序算法</h3><blockquote>
-<p> 关于数组，数组也是一种数据结构。<br> 关于数组的一些运算，要注意：length≠’length’ 。length是一个容器，而’length’是一个字符串，容器可以容纳字符串，容器、字符串可以赋值。<br> 假设，length=0，此时a[length]=a[‘length’]，因为 toString(n) 可以把数字转换为字符串，如 toString(0) 结果为 ‘0’</p>
-</blockquote>
-<h4 id="冒泡排序（Bubble-Sort）"><a href="#冒泡排序（Bubble-Sort）" class="headerlink" title="冒泡排序（Bubble Sort）"></a>冒泡排序（Bubble Sort）</h4><p>每次循环里相邻两个数值两两对比，按大小排序，大的继续与下一位数值进相对比。每一次循环可以确定一个最大值。</p>
-<h4 id="选择排序（Selection-sort）"><a href="#选择排序（Selection-sort）" class="headerlink" title="选择排序（Selection sort）"></a>选择排序（Selection sort）</h4><p>每次循环选定一个数值a与其他数值进行对比，若大于a，则继续对比，若小于a，则交换位置，假设这个数值为b，拿b与剩下的数值进行对比。每一次循环可以确认最小值。</p>
-<h4 id="插入排序（Insertion-Sort）"><a href="#插入排序（Insertion-Sort）" class="headerlink" title="插入排序（Insertion Sort）"></a>插入排序（Insertion Sort）</h4><p>每次循环新的数值与循环内的每个数值进行对比排序，插入循环内。每次循环结束，循环内的数值已排序好。</p>
-<h4 id="快排（Quicksort）"><a href="#快排（Quicksort）" class="headerlink" title="快排（Quicksort）"></a>快排（Quicksort）</h4><p>每次循环以某个数为基准，大的排右面，小的排左边。快排的循环效率会比以上的排序算法更高。</p>
-<h4 id="桶排序（Bucket-sort）"><a href="#桶排序（Bucket-sort）" class="headerlink" title="桶排序（Bucket sort）"></a>桶排序（Bucket sort）</h4><p>设定有限的桶，将相同规律的数值依次放在相同的桶里。</p>
-<p><a href="https://link.jianshu.com/?t=https%3A%2F%2Fvisualgo.net%2Fbn%2Fsorting" target="_blank" rel="noopener">这里是以上排序算法的动画演示</a></p>
-<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><hr>
-<p>数据结构是指数据的结构，即是对象组成的各个要素是以什么样的额方式构建或组织起来。结构实际上是一种关系。<br>下面是几个基本的数据结构：</p>
-<h4 id="1-哈希（hash）"><a href="#1-哈希（hash）" class="headerlink" title="1.哈希（hash）"></a>1.哈希（hash）</h4><p>哈希的组成： （key:value）<br>哈希的应用例子有：计数排序、桶排序、基数排序。</p>
-<ul>
-<li>计数排序<br>跟算法里冒泡排序、插入排序、选择排序、快排的原理都不同，他们是用比较法进行排序的，复杂度O(n²)；而计数排序是以哈希为工具进行排序，它的复杂度是O(n+max)。</li>
-</ul>
-<p>将计数排序分为入桶、出桶两个大步骤。下面是计数排序的流程图：<br><img src="https://upload-images.jianshu.io/upload_images/9929263-2593c95b0eb1b575.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="计数排序流程图.png"></p>
-<ul>
-<li><p>基数排序（Radix sort）<br>将整数按“位数”切割，然后每个位数分别对比放入不同的桶内，多次入桶出桶。<br><a href="https://link.jianshu.com/?t=https%3A%2F%2Fvisualgo.net%2Fbn%2Fsorting" target="_blank" rel="noopener">这里是基数排序的动画演示（选择Radix sort）</a></p>
-</li>
-<li><p>关于这几种排序的优缺点<br>① 计数排序比一般的比较类型排序效率会更高。<br>② 这几个排序一般都是针对正整数进行排序。<br>③关于桶排序，一般入桶后，桶内需配合其他排序进行。如果设定的桶太少，那么排序时间相应会更高，更消耗CPU。若设定的桶太多，效率会更高，但是会消耗内存。<br>④ 基数排序的桶是固定的，一共十个桶，需要多次入桶出桶，如果数值较大，用基数排序会更快。</p>
-</li>
-</ul>
-<h4 id="2-队列（Queue）"><a href="#2-队列（Queue）" class="headerlink" title="2. 队列（Queue）"></a>2. 队列（Queue）</h4><ul>
-<li>先进先出</li>
-<li>可以用数组实现</li>
-<li>类似生活中的排队</li>
-</ul>
-<h4 id="3-栈（Stack）"><a href="#3-栈（Stack）" class="headerlink" title="3.栈（Stack）"></a>3.栈（Stack）</h4><ul>
-<li>先进后出</li>
-<li>可以用数组实现</li>
-<li>类似盗梦空间</li>
-</ul>
-<h4 id="4-链表（Linked-list）"><a href="#4-链表（Linked-list）" class="headerlink" title="4.链表（Linked list）"></a>4.链表（Linked list）</h4><p><img src="https://upload-images.jianshu.io/upload_images/9929263-f4b07d5a0410c2f9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><figure class="highlight dts"><table><tr><td class="code"><pre><span class="line">let a = &#123;</span><br><span class="line"><span class="symbol">    value:</span><span class="number">1</span>,</span><br><span class="line"><span class="symbol">    next:</span>&#123;</span><br><span class="line"><span class="symbol">         value:</span><span class="number">2</span>,</span><br><span class="line"><span class="symbol">         next:</span>&#123;</span><br><span class="line"><span class="symbol">            value:</span><span class="number">3</span></span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>链表也是哈希，head:第一个哈希对象。node：链表分节点</li>
-<li>与数组相比较，链表可以轻松地删除一组数据内随机一项，数组不可以。但是数组可以随机查询某个值。</li>
-</ul>
-<h4 id="5-树（tree）"><a href="#5-树（tree）" class="headerlink" title="5.树（tree）"></a>5.树（tree）</h4><ul>
-<li><html>也是一个树结构（DOM树）</html></li>
-<li>层数、深度、节点<br><img src="https://upload-images.jianshu.io/upload_images/9929263-285e934d12b7a0da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="示例"><br>这个树结构有3层，深度为2（根节点的深度为0），每一个点都是节点。</li>
-<li>二叉树：每个节点最多只有2个分节点（左子树、右子树）。<br>假设二叉树的深度为n，则它的第k层最多可有2ᵏ个节点，一共最多可有（2ⁿ⁺¹-1）个节点。（n₀=0）</li>
-<li>满二叉树：除了最后一层没有任何子节点外，每层节点数都有2个子节点。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-ce4f1772446c0433.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="满二叉树"></li>
-<li>完全二叉树：除了最后一层外，每层节点都有两个子节点，且最后一层所有节点都连续集中在最左边。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-837c804a8571b23d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="完全二叉树"><br><strong>满二叉树一定是完全二叉树，完全二叉树不一定是满二叉树</strong></li>
-<li>可以用数值存二叉树，例子：堆（最大堆/最小堆/堆排序）<br><a href="https://www.cs.usfca.edu/~galles/visualization/HeapSort.html" target="_blank" rel="noopener">堆排序动画演示</a></li>
-</ul>
-
-          
+<li>有效性，可行的
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/21/算法与数据结构入门总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1485,56 +1290,19 @@
 
       
         
-          
-            <h2 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="#什么是盒模型"></a>#什么是盒模型</h2><p>在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CSS盒模型科普.jpg"></p>
+          <h2 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="#什么是盒模型"></a>#什么是盒模型</h2><p>在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CSS盒模型科普.jpg"></p>
 <ul>
 <li>一个元素的width默认是content-width。</li>
 <li>但是一个盒子的width一般是<strong>content-width</strong>+<strong>padding-width</strong>+<strong>border-width</strong></li>
 <li>当<code>box-sizing:border-box</code>时，一个元素的width则是<strong>content+padding+border</strong></li>
 </ul>
-<p>在写页面的时候，遇到比较多的问题就是，什么时候使用margin，什么时候使用padding。<br>margin定义为外边距，即是盒子与盒子的距离。padding为内边距，它是盒子与盒子里的内容的距离。</p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-class">.text1</span>&#123;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line"><span class="attribute">padding</span>:<span class="number">50px</span>; &#125;</span><br><span class="line"><span class="comment">//盒子宽度是200px+50px*2</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.text2</span>&#123;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line"><span class="attribute">margin</span>:<span class="number">50px</span>;&#125;</span><br><span class="line">盒子宽度是200px</span><br></pre></td></tr></table></figure>
-<p><strong>当盒子使用margin时，盒子是往内压，使用padding时，是往外推。</strong>使用margin最明显的一点是，可以保证元素与元素之间互不干扰。</p>
-<h2 id="块级元素与内联元素"><a href="#块级元素与内联元素" class="headerlink" title="#块级元素与内联元素"></a>#块级元素与内联元素</h2><p>##1. 块级元素(block)</p>
-<ul>
-<li><p>高度(height)：块级元素高度由其内部文档流元素的高度总和决定。</p>
-<blockquote>
-<p>文档流：文档内元素的流动方向</p>
-<ul>
-<li>内联元素从左往右流动，若遇到阻碍则换行继续。<ul>
-<li>块级元素独占一行，从上往下流动。</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><p>宽度(width)：块级元素宽度默认为100%</p>
-</li>
-</ul>
-<p>块级元素可以设置width和height。但是，一般不建议使用这两个属性，因为一旦使用这两个属性，会出现很多bug！</p>
-<p>##2. 内联元素(inline)</p>
-<ul>
-<li>高度(height)：内联元素高度由<code>line-height</code>（字体建议行高）确定。而这个是由字体设计师 确定。</li>
-<li>宽度(width)：内联元素的宽度由内容决定。<br>有一个特点：英文字母无论多长都会在一行，不会换行。可以使用<code>word-break</code>属性。中文：<code>word-break:break-all</code>，英文：<code>word-break:break-word</code></li>
-</ul>
-<p><strong>内联元素不接受设置宽高。还有，内联元素的上下margin和padding都设定无效</strong></p>
-<ul>
-<li>什么是line-box?<br><img src="https://upload-images.jianshu.io/upload_images/9929263-e783e4c4cb1b205e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>① 一个内联元素的高度由line-height（行内框高度）决定。而line-height跟文字内容区（font-size）也有一定的距离。<br>②内联元素的文字位置以基线为中心对齐。因此一般内联元素文字没有垂直居中，可以使用<code>vertical-align:center</code>消除这个bug<br>##3. 内联块级元素(inline-block)<br>inline-block元素既含有block的宽度高度特性又具有inline的同行特性。<br>在这次练习的一个例子：</li>
-<li><p>html代码</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS Bin<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"prouduction"</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">h2</span>&gt;</span>作品集<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	   <span class="tag">&lt;<span class="name">nav</span>&gt;</span> </span><br><span class="line">	     <span class="tag">&lt;<span class="name">ol</span> &gt;</span></span><br><span class="line">		   <span class="tag">&lt;<span class="name">li</span> <span class="attr">i</span>&gt;</span>所有<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		   <span class="tag">&lt;<span class="name">li</span> &gt;</span>框架<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		   <span class="tag">&lt;<span class="name">li</span> &gt;</span>原生JS&amp;amp;CSS<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    	    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"bar"</span> <span class="attr">class</span>=<span class="string">"bar status-1"</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bar-inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>		</span><br><span class="line">   	  <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>CSS代码<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">section</span> .prouduction&#123;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">margin-left</span>: auto;</span><br><span class="line">    <span class="attribute">margin-right</span>: auto;</span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-class">.prouduction</span> nav&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-class">.prouduction</span> ol&#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;<span class="comment">//&lt;ol&gt;-&lt;li&gt;结构会有默认的padding和margin样式</span></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-class">.prouduction</span> li&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline;</span><br><span class="line">    <span class="attribute">vertical-align</span>: top;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-class">.prouduction</span> <span class="selector-tag">li</span>:first-child&#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-class">.prouduction</span> .bar&#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#FAE1E1</span>; </span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">2px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">5px</span> <span class="number">0</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-class">.prouduction</span> .bar-inner&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#E6686A</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">2px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">15%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<p>显示效果：<br><img src="https://upload-images.jianshu.io/upload_images/9929263-24a1ba0adf4db60c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>这个例子，利用了文档流的特性，保证了<code>&lt;ol&gt;</code>与<code>&lt;bar&gt;</code>的宽度一致，却没有写死width。在这里<code>&lt;nav&gt;</code>包裹着<code>&lt;ol&gt;</code>与<code>&lt;bar&gt;</code>，而<code>&lt;ol&gt;</code>是内联元素宽度由内容决定，<code>&lt;nav&gt;</code>是inline-block元素，宽度由<code>&lt;ol&gt;</code>决定，<code>&lt;bar&gt;</code>是block元素，宽度默认为父级元素，即<code>&lt;nav&gt;</code>的100%。<br>在这里，如果设定<code>&lt;nav&gt;</code>为<code>display:inline</code>，则<code>&lt;nav&gt;</code>宽度为0，意思即是<code>&lt;nav&gt;</code>并没有包裹住<code>&lt;ol&gt;</code>与<code>&lt;bar&gt;</code>，以上设定无效。经查资料：</p>
-<blockquote>
-<p>block元素可以包含block元素和inline元素；但inline元素只能包含inline元素。要注意的是这个是个大概的说法，每个特定的元素能包含的元素也是特定的，所以具体到个别元素上，这条规律是不适用的。比如 P 元素，只能包含inline元素，而不能包含block元素。</p>
-</blockquote>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/18/入门css总结1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1684,52 +1452,19 @@
 
       
         
-          
-            <h6 id="1-lt-iframe-gt-标签"><a href="#1-lt-iframe-gt-标签" class="headerlink" title="1. &lt;iframe&gt;标签"></a>1. <code>&lt;iframe&gt;</code>标签</h6><p><code>&lt;iframe&gt;</code>表示嵌套页面，默认大小为50*100。可以修改属性height和width.但是iframe的宽度可以设置百分比，高度却不可以。</p>
+          <h6 id="1-lt-iframe-gt-标签"><a href="#1-lt-iframe-gt-标签" class="headerlink" title="1. &lt;iframe&gt;标签"></a>1. <code>&lt;iframe&gt;</code>标签</h6><p><code>&lt;iframe&gt;</code>表示嵌套页面，默认大小为50*100。可以修改属性height和width.但是iframe的宽度可以设置百分比，高度却不可以。</p>
 <p>下面是 <code>&lt;iframe&gt;</code>的一些属性的使用。</p>
 <ul>
 <li><code>src</code>  ,表示嵌套页面的URL地址。记得不要写成href。</li>
 <li><code>name</code> ,表示嵌套页面的名字，可以用于<code>&lt;a&gt;</code>和<code>&lt;form&gt;</code>的target属性，或者<code>&lt;input&gt;</code>和<code>&lt;button&gt;</code>的formtarget属性。</li>
-<li><code>frameborder</code>, <code>&lt;iframe&gt;</code>标签默认在浏览器表现出的样式会有一个边框，使用这个属性可以消除这个丑丑的边框：<code>frameborder=&quot;0&quot;</code></li>
-</ul>
-<h6 id="2-lt-a-gt-标签"><a href="#2-lt-a-gt-标签" class="headerlink" title="2. &lt;a&gt;标签"></a>2. <code>&lt;a&gt;</code>标签</h6><p><code>&lt;a&gt;</code>是一个锚元素，创建一个超链接。</p>
-<p>下面是 <code>&lt;a&gt;</code>的一些属性的使用。<br><strong><code>target</code></strong>表示在哪里显示超链接的内容。这个跟 <code>&lt;iframe&gt;</code>结合使用理解。</p>
-<blockquote>
-<p>①_blank //在空白页打开超链接<br>②_self //在当前页面打开<br>③_parent //在爸爸身上打开<br>④_top //在祖先身上打开<br>⑤name // <code>&lt;iframe&gt;</code>的name，在该<code>&lt;iframe&gt;</code>身上打开。</p>
-</blockquote>
-<p>③④的使用还是结合 <code>&lt;iframe&gt;</code>理解，在一个html页面嵌入了 <code>&lt;iframe&gt;</code>（假设叫a），则html页面是a的爸爸，类推，在a身上再嵌入一个新的 <code>&lt;iframe&gt;</code>（假设叫b），则html页面就是b的祖先。</p>
-<hr>
-<p><strong><code>download</code></strong>  建立一个下载的超链接。例如：<code>&lt;a href=&quot;#&quot; download=&quot;下载名字&quot;&gt;下载&lt;/a&gt;</code><br>另外还有一种下载方法，用http响应决定 ：content-Type:application/ocet-stream</p>
-<hr>
-<p><code>href</code> 表示a的超链接地址URL，他支持多种协议。以下是href的集中情况：</p>
-<p>①http协议或https协议。这个很容易理解：<br><code>&lt;a href=&quot;http://www.qq.com&quot;&gt;打开腾讯首页&lt;/a&gt;</code><br>所以呢，前面的”http://“不可以缺少！！！！</p>
-<p>②无协议相对地址。例如：<code>&lt;a href=&quot;//qq.com&quot;&gt;打不开腾讯首页&lt;/a&gt;</code>这种情况下是打不开腾讯首页的。因为此时他自动继承了当前页面的协议（一般是文件协议file://xxx），此时可以在当前目录搭建一个http-server，那么当前页面的协议会变成http协议，在这个环境下才可以打开腾讯首页。<br>所以！！使用这个路径的话，访问腾讯首页时，不能关闭了http-server。</p>
-<blockquote>
-<p>下载并打开http-server：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">sudo npm i -g http-server</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"><span class="built_in">cd</span>  xxxx(当前网页的目录)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">http-server -c-1</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">``</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>然后复制给出的路径，在浏览器中打开。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-e78cc971633c7d1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="123.png"></p>
-</blockquote>
-<p>③特殊字符路径<br> <code>&lt;a href=&quot;?name=qqq&quot;&gt;qq&lt;/a&gt;</code> 这种情况在点击之后会在当前页面发起?name=qqq的请求<br><code>&lt;a href=&quot;#xxx&quot;&gt;qq&lt;/a&gt;</code>这个点击之后不会发起请求，锚点在当前页面进行跳转<br><code>&lt;a href=&quot;/xxx.html &quot;&gt;link&lt;/a&gt;</code>  点击后会浏览器会发起GET / HTTP/1.1的请求，路径还是/，因为/已经是根目录，无法再往上走一个。</p>
-<p>④伪协议<br>使用伪协议可以满足一种需求：点击了<code>&lt;a&gt;</code>标签不会发生任何跳转。<br><code>&lt;a href=&quot;javascript:;&quot;&gt;我就不动&lt;/a&gt;</code></p>
-<hr>
-<h6 id="3-lt-form-gt-标签"><a href="#3-lt-form-gt-标签" class="headerlink" title="3. &lt;form&gt;标签"></a>3. <code>&lt;form&gt;</code>标签</h6><p><code>&lt;form&gt;</code>和<code>&lt;a&gt;</code>的区别是，<code>&lt;form&gt;</code>发起的HTTP请求是 POST （file协议不支持POST请求），而<code>&lt;a&gt;</code>发起的是一个HTTP GET请求。<br>关于GET请求与POST请求的区别有一点：</p>
-<ul>
-<li>GET请求会将参数放在查询参数里面，也就是说当用户输入了参数之后，网页得到响应后，所有参数值都会显示在URL上。//GET是获取内容的请求。</li>
-<li>POST请求会默认将参数放在请求的第四部分。//POST是上传内容的请求。</li>
-</ul>
-<p>关于请求修改，可以使用属性<code>method</code>。而action属性指定了参数POST传送的地方。<br><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"users?name=xxx"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">label</span>&gt;用户名&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;&lt;/<span class="keyword">label</span>&gt; </span><br><span class="line">    &lt;<span class="keyword">label</span>&gt;密码&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"password"</span> name=<span class="string">"password"</span>&gt;&lt;/<span class="keyword">label</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"提交"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<p><code>&lt;form&gt;</code>标签的子标签有交互式控件，接受来自用户的数据。有<code>&lt;input&gt;</code>标签、<code>&lt;textarea&gt;</code>标签、<code>&lt;button&gt;</code>标签等<br>注意！！，<code>&lt;form&gt;</code>标签内一定要有提交按钮。</p>
-<h6 id="4-lt-input-gt-标签"><a href="#4-lt-input-gt-标签" class="headerlink" title="4. &lt;input&gt;标签"></a>4. <code>&lt;input&gt;</code>标签</h6><p><code>&lt;input&gt;</code>的<code>type</code>属性：如果不指定<code>type</code>属性，则默认为 text 。<br>①text：表文本。//password：表密码。<br><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="comment">//建立一个用户登录的界面</span></span><br><span class="line">&lt;<span class="keyword">form</span>&gt;</span><br><span class="line">   &lt;<span class="keyword">label</span>&gt;&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"username"</span> &gt;username&lt;/<span class="keyword">label</span>&gt;</span><br><span class="line">   &lt;<span class="keyword">br</span>&gt;<span class="comment">//换行</span></span><br><span class="line">   &lt;<span class="keyword">label</span>&gt;&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"password"</span> name=<span class="string">"password"</span> &gt;password&lt;/<span class="keyword">label</span>&gt;</span><br><span class="line">   &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"提交"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<p><strong><code>&lt;label&gt;</code>标签可以将文本信息跟交互控件关联在一起。如下图，是以上代码显示出来的。点击username焦点会自动到输入框中。</strong><br><img src="https://upload-images.jianshu.io/upload_images/9929263-e8c11aa1f63ab86a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>② button：表示普通按钮。//submit：表示提交按钮。<br><em>ps 有一个标签是<code>&lt;button&gt;</code>，它也有<code>type</code>属性，不同的是，这个标签如果不指定<code>type</code>属性，则它会默认为提交按钮。</em> 注意<code>&lt;button&gt;</code>不是空元素。</p>
-<p>③ checkbox：表复选框。//radio：表单选框</p>
-<p>在实际场景，通常会有某一个命题，需要用户做选择。此时单选框的name属性需一致，这样同一组的单选按钮才可以起到单选的作用。而value为提交数据到服务器的值。如下面，可以设置一致的value，以便后端区分。<br><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"save.php"</span> method=<span class="string">"post"</span> &gt;</span><br><span class="line">    &lt;<span class="keyword">label</span>&gt;性别:&lt;/<span class="keyword">label</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">label</span>&gt;男</span><br><span class="line">    &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"radio"</span> value=<span class="string">"man"</span>  name=<span class="string">"gender"</span> &gt;&lt;/<span class="keyword">label</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">label</span>&gt;女</span><br><span class="line">    &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"radio"</span> value=<span class="string">"woman"</span>  name=<span class="string">"gender"</span> &gt;&lt;/<span class="keyword">label</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"提交"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<h6 id="5-lt-select-gt-标签与-lt-option-gt-标签。"><a href="#5-lt-select-gt-标签与-lt-option-gt-标签。" class="headerlink" title="5. &lt;select&gt;标签与&lt;option&gt;标签。"></a>5. <code>&lt;select&gt;</code>标签与<code>&lt;option&gt;</code>标签。</h6><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"#"</span> <span class="attr">method</span>=<span class="string">"post"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pl</span>&gt;</span>爱好:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"reading"</span>&gt;</span>看书<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"travel"</span>&gt;</span>旅游<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"sport"</span>&gt;</span>运动<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"shopping"</span>&gt;</span>购物<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>另外，<code>&lt;option&gt;</code>标签属性中，<code>disable</code>表示不可选，<code>selected</code>表示默认选项。<br>在<code>&lt;select&gt;</code>中加入<code>multiple</code>属性可以进行多选，进行多选时按下<kbd>Ctrl</kbd>同时进行单击。</p>
-<h6 id="6-lt-textarea-gt-标签"><a href="#6-lt-textarea-gt-标签" class="headerlink" title="6. &lt;textarea&gt;标签"></a>6. <code>&lt;textarea&gt;</code>标签</h6><p><code>&lt;textarea&gt;</code>标签默认样式大小是可以经用户在浏览器上自行调整的，这样带来的坑是 页面布局会受到影响，要用CSS 来固定宽高样式。</p>
-
-          
+<li><code>frameborder</code>, <code>&lt;iframe&gt;</code>标签默认在浏览器表现出的样式会有一个边框，使用这个属性可以消除这个丑丑的边框：<code>frameborder=&quot;0&quot;</code>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/14/关于html标签的一些总结2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1879,33 +1614,14 @@
 
       
         
-          
-            <p>以写简历为目的，开始了第一次写网页的实战。之前虽然有看过关于css和html的相关文档，但是纸上得来终觉浅。写的时候关于标签的语义或css的属性还是不懂。写完还是有必要总结一下目前认识的标签。</p>
-<h4 id="1-什么是标签"><a href="#1-什么是标签" class="headerlink" title="1. 什么是标签"></a>1. 什么是标签</h4><hr>
-<p>在总结前，我们要理清楚一个概念：html只管内容，也就是说不同标签的内容呈现出来的样式都不关html的事，管这个事情的另有他人，也就是CSS。那么我们，可以大胆地认为，html的标签没有块级元素或内联元素之分，因为这个是可以用属性<code>display</code>来修改的。</p>
-<p>标签，也就是元素。它是<a href="https://zh.wikipedia.org/wiki/HTML" title="HTML" target="_blank" rel="noopener">HTML</a>文件的基本组成单位。不同的标签代表着不同的含义，我们需要根据场景/内容选用适当的标签。</p>
-<h4 id="2-目前接触到的标签"><a href="#2-目前接触到的标签" class="headerlink" title="2. 目前接触到的标签"></a>2. 目前接触到的标签</h4><hr>
-<ul>
-<li>html大纲标签<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span> //规定文档相关的通用信息（元数据），包括文档的标题，文档的样式和脚本的链接（定义）等</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span> //表示的是HTML文档的主体内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>可以出现在 <code>&lt;head&gt;</code> 标签内的元素有：<br><code>meta</code>, <code>link</code>, <code>title</code>, <code>style</code>, <code>script</code>, <code>noscript</code>, <code>base</code>.<br><code>&lt;meta&gt;</code>标签用于表示以上标签<strong>不能表示</strong>的任何元数据信息.<br><code>&lt;noscript&gt;</code>标签的作用是：如果浏览器不支持script，则会显示<code>&lt;noscript&gt;</code>的内容</p>
-<ul>
-<li><p>内容分区标签（为页面内容创建明确的大纲）<br>( 1.)<strong><code>&lt;nav&gt;</code></strong>用于html导航栏，含有一个或多个超链接（<code>&lt;a&gt;</code>）的区域.<br>( 2.)<strong><code>&lt;main&gt;</code></strong>呈现了文档<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/body" title="HTML 主体元素 (&lt;body&gt;) 表示的是HTML文档的主体内容，任何一个HTML文档，只允许存在一个 &lt;body&gt; 元素。" target="_blank" rel="noopener"><code>&lt;body&gt;</code></a>或应用的主体部分。注意<code>&lt;main&gt;</code> 标签<strong>不能</strong> 是以下元素的继承<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/article" title="&lt;article&gt;元素表示文档、页面、应用或网站中的独立结构，其意在成为可独立分配的或可复用的结构，如在发布中，它可能是论坛帖子、杂志或新闻文章、博客、用户提交的评论、交互式组件，或者其他独立的内容项目。" target="_blank" rel="noopener"><code>&lt;article&gt;</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/aside" title="&lt;aside&gt; 元素表示一个和其余页面内容几乎无关的部分，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常表现为侧边栏或者嵌入内容。他们通常包含在工具条，例如来自词汇表的定义。也可能有其他类型的信息，例如相关的广告、笔者的传记、web 应用程序、个人资料信息，或在博客上的相关链接。" target="_blank" rel="noopener"><code>&lt;aside&gt;</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/footer" title="HTML &lt;footer&gt; 元素表示最近一个章节内容或者根节点（sectioning root ）元素的页脚。一个页脚通常包含该章节作者、版权数据或者与文档相关的链接等信息。" target="_blank" rel="noopener"><code>&lt;footer&gt;</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/header" title="&lt;header&gt;元素表示一组引导性的帮助，可能包含标题元素，也可以包含其他元素，像logo、分节头部、搜索表单等。" target="_blank" rel="noopener"><code>&lt;header&gt;</code></a>, 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/nav" title="HTML导航栏 (&lt;nav&gt;) 描绘一个含有多个超链接的区域，这个区域包含转到其他页面，或者页面内部其他部分的链接列表." target="_blank" rel="noopener"><code>&lt;nav&gt;</code></a>。个人理解这几个元素都是并列结构，只可以做兄弟姐妹的那种。<br>( 3.)<strong><code>&lt;section&gt;</code></strong> 表示文档中的一个区域（或节），比如，内容中的一个专题组，通常都有一个标题。<strong>一般通过是否包含一个标题 (<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/h1" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>&lt;h1&gt;</code></a>-<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/h6" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>&lt;h6&gt;</code></a> element) 作为子节点 来 辨识每一个<section>。</section></strong><br>( 4.) <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/footer" title="HTML &lt;footer&gt; 元素表示最近一个章节内容或者根节点（sectioning root ）元素的页脚。一个页脚通常包含该章节作者、版权数据或者与文档相关的链接等信息。" target="_blank" rel="noopener"><strong><code>&lt;footer&gt;</code></strong></a>页脚。<strong>一个页脚通常包含该章节作者、版权数据或者与文档相关的链接等信息。</strong><br>( 5.)<strong><code>&lt;h1&gt;</code>~<code>&lt;h6&gt;</code></strong> 标题<br>( 6.)<strong><code>&lt;p&gt;</code></strong> 段落</p>
-</li>
-<li><p>文本内容（标识内容的宗旨或结构）</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="comment">//描述列表元素</span></span><br><span class="line"><span class="params">&lt;dl&gt;</span></span><br><span class="line"><span class="params">&lt;dd&gt;</span><span class="params">&lt;/dd&gt;</span>内容标题</span><br><span class="line"><span class="params">&lt;dt&gt;</span><span class="params">&lt;/dt&gt;</span>内容描述</span><br><span class="line"><span class="params">&lt;/dl&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="comment">//有序列表</span></span><br><span class="line"><span class="params">&lt;ol&gt;</span></span><br><span class="line"><span class="params">&lt;li&gt;</span><span class="params">&lt;/li&gt;</span></span><br><span class="line"><span class="params">&lt;/ol&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="comment">//无序列表</span></span><br><span class="line"><span class="params">&lt;ul&gt;</span></span><br><span class="line"><span class="params">&lt;li&gt;</span><span class="params">&lt;/li&gt;</span></span><br><span class="line"><span class="params">&lt;/ul&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="comment">//表格元素</span></span><br><span class="line">&lt;<span class="keyword">table</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;/<span class="keyword">table</span>&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>容器<br>这两个标签没有任何语义。<br><code>&lt;div&gt;</code> 一般用来充当流内容容器。他默认是块级元素。<br><code>&lt;span&gt;</code>一般用来充当行内容器。默认内联元素。</li>
-</ul>
-<p>另外，关于空元素、可替换元素 在另一篇博客<a href="https://lynchuh.github.io/2018/03/10/%E5%85%B3%E4%BA%8Ehtml%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/" target="_blank" rel="noopener">&lt;关于html的一些事&gt;</a>有提及。</p>
-
-          
+          <p>以写简历为目的，开始了第一次写网页的实战。之前虽然有看过关于css和html的相关文档，但是纸上得来终觉浅。写的时候关于标签的语义或css的属性还是不懂。写完还是有必要总结一下目前认识的标签。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/13/关于html标签的一些总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2044,48 +1760,19 @@
 
       
         
-          
-            <p>首先明确一点，为什么要学习编程基础？</p>
+          <p>首先明确一点，为什么要学习编程基础？</p>
 <blockquote>
 <p>操作系统运行于 <strong>硬件</strong> 之上<br>浏览器运行于 <strong>操作系统</strong> 之上<br>html/css/JS运行于 <strong>浏览器</strong> 之上<br>html/css/JS和 <strong>数据</strong> 都来自于 <strong>服务器</strong></p>
 </blockquote>
 <p>硬件与软件：计算机的运行原理，推荐阅读 <a href="https://book.douban.com/subject/4822685/" target="_blank" rel="noopener">编码</a></p>
 <p>学习编程基础可以把我们的知识面扩大，防止自己成为井底之蛙。</p>
-<hr>
-<p>在计算机内部，只能存储存储与读取0和1，所有信息都是用二进制数串的形式表示的。</p>
-<p>####第一步：（内存）如何存储0和1？<img src="https://upload-images.jianshu.io/upload_images/9929263-73c24a32905e159a.gif?imageMogr2/auto-orient/strip" alt="计算机存储原理"></p>
-<ul>
-<li>存储/读取<br>1—-高电平<br>0—-低电平</li>
-</ul>
-<p>####第二步：如何存储数字<br>计算机所有信息都是以二进制数串的形式存储。因此数字1 2 3 4 5 6 7 8 9 0都是经转化为二进制存储在计算机内。<br>   负数会以 <a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%A3%9C%E6%95%B8" target="_blank" rel="noopener"><strong>补码</strong></a> 的形式存储。<br>   小数会以 <a href="https://zh.wikipedia.org/wiki/%E6%B5%AE%E7%82%B9%E6%95%B0" target="_blank" rel="noopener"><strong>浮点数</strong></a> 的形式存储</p>
-<p>####第三步：如何存储字符<br>为每个字符编号，使用<strong>ASCII美国信息交换标准代码</strong>。<br>如果你想存储 <code>a</code>，那么就存储 <code>97</code> 对应的二进制：<code>a -&gt; 0110 0001</code><br><img src="https://upload-images.jianshu.io/upload_images/9929263-ea46f532b68a9486.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ASCII美国信息交换标准代码.png"></p>
-<p>####第四步：如何存储中文<br>在<strong>ASCII美国信息交换标准代码</strong>中只有数字与字母的字符，并没有中文。因此，我们国家推出了<a href="https://zh.wikipedia.org/wiki/GB_2312" target="_blank" rel="noopener"><strong>GB2312中国国家标准简体中文字符集</strong></a>。</p>
-<p><strong>GB2312</strong>共收录 <strong>6763</strong> 个汉字，同时收录了包括拉丁字母，希腊字母，日文平假名及片假名字母，俄语西里尔字母在内的 <strong>682</strong> 个字符。</p>
-<p>但在计算机的快速发展下，GB2312收录的字符已经不满足日常需要了，因此微软推出了 <a href="https://zh.wikipedia.org/wiki/%E6%B1%89%E5%AD%97%E5%86%85%E7%A0%81%E6%89%A9%E5%B1%95%E8%A7%84%E8%8C%83" target="_blank" rel="noopener"><strong>GBK 字符集</strong></a></p>
-<p>####第五步：存储所有字符<br><a href="https://zh.wikipedia.org/wiki/Unicode" target="_blank" rel="noopener"><strong>Unicode 字符集</strong></a> 将全球字符编号都收录了，包括中日韩文字、藏文、盲文、楔形文字、 <a href="https://zh.wikipedia.org/wiki/%E8%A1%A8%E6%83%85%E7%AC%A6%E8%99%9F%E5%88%97%E8%A1%A8#ref_U1F600_as_of_Unicode_version" target="_blank" rel="noopener">颜文字</a><code>:-)</code>、 绘文字😂<br>2016年6月时，Unicode 总共有 128237 个字符。在存储这么多字符的情况下，因此Unicode 使用了 4 个字节（32位）来存储一个字符。<br>如此一来，电脑的负荷就变大了，为了选取一种高性价比的方式来存储数据，于是出现了 <a href="https://zh.wikipedia.org/wiki/UTF-8#UTF-8.E7.9A.84.E7.B7.A8.E7.A2.BC.E6.96.B9.E5.BC.8F" target="_blank" rel="noopener"><strong>UTF-8</strong></a></p>
-<blockquote>
-<p>同一个字符  <strong><code>a</code></strong>在普通unicode的方式下，它的转换如下：<br><code>a -&gt; 00000000 00000000 00000000 011000012 = 006116</code><br>而经过UTF-8算法转化后：<br><code>a -&gt; 01100001</code></p>
-</blockquote>
-<p>####总结：</p>
-<ul>
-<li>计算机只能存储0 和1 ，其他所有信息都是以二进制数串的形式存储。</li>
-<li>目前计算机字符集有 <strong>ASCII美国信息交换标准代码</strong> 、<strong>GB2312</strong> 、<strong>GBK 字符集</strong> 、<strong>Unicode</strong>。</li>
-<li><strong>UTF-8</strong> 是一种编码方式，不是字符集！</li>
-<li><strong>字符集历史</strong></li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/9929263-542bc55a15514267.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="字符集历史.png"></p>
-<ul>
-<li><strong>历史问题</strong><br>JavaScript 使用了 Unicode 字符集，但是没有使用 UTF-8 编码<blockquote>
-<p>JavaScript 用了 UCS-2 编码！<br>因为 1995 年 UTF-16 还没被发明出来， JavaScript 也不想使用 UTF-32。<br><a href="http://www.ruanyifeng.com/blog/2014/12/unicode.html" target="_blank" rel="noopener">具体看这里</a></p>
-</blockquote>
-</li>
-</ul>
-<p>后果</p>
-<blockquote>
-<p>ES5 无法表示 \uFFFF 之后的字符（如 \u1D306），某些情况下会出 bug</p>
-</blockquote>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/12/计算机基础-计算机是如何存储数据的/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2278,15 +1965,7 @@
 </div>
 
 
-
-
-
-
   <span class="post-meta-divider">|</span>
-
-
-
-  
 
 
 

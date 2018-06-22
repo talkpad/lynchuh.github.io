@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Lyn&#39;s Blog">
 <meta property="og:description" content="回想了以下，刚对前端这个行业有所了解应该是在17年的10月份，那时是公司的程序猿小哥提到的，后来在知乎里查了一下，才逐渐有所了解。刚开始的自学是在freecodecamp里边闯关边查资料。但是到后面挑战越来越难，才知道自己的知识面真的很窄，仅靠html、css和js这点知识不足以充当一名合格的前端程序员。-&amp;gt;来到饥人谷，才发现，程序员的世界很广阔，额。前路漫漫.. 以下，这是一个全新手的从零">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-22T07:40:12.712Z">
+<meta property="og:updated_time" content="2018-06-22T09:10:14.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始搭建简单的hexo博客">
 <meta name="twitter:description" content="回想了以下，刚对前端这个行业有所了解应该是在17年的10月份，那时是公司的程序猿小哥提到的，后来在知乎里查了一下，才逐渐有所了解。刚开始的自学是在freecodecamp里边闯关边查资料。但是到后面挑战越来越难，才知道自己的知识面真的很窄，仅靠html、css和js这点知识不足以充当一名合格的前端程序员。-&amp;gt;来到饥人谷，才发现，程序员的世界很广阔，额。前路漫漫.. 以下，这是一个全新手的从零">
@@ -354,6 +354,7 @@
       
         <p>回想了以下，刚对前端这个行业有所了解应该是在17年的10月份，那时是公司的程序猿小哥提到的，后来在知乎里查了一下，才逐渐有所了解。刚开始的自学是在freecodecamp里边闯关边查资料。但是到后面挑战越来越难，才知道自己的知识面真的很窄，仅靠html、css和js这点知识不足以充当一名合格的前端程序员。-&gt;<br>来到饥人谷，才发现，程序员的世界很广阔，额。前路漫漫..</p>
 <p>以下，这是一个全新手的从零开始搭建hexo博客的总结。新手小白可参考，如有不对的地方，烦请大佬交流指正，谢谢！</p>
+<a id="more"></a>
 <h2 id="搭建博客需要的背景知识"><a href="#搭建博客需要的背景知识" class="headerlink" title="搭建博客需要的背景知识"></a>搭建博客需要的背景知识</h2><h3 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h3><p>我是在windows环境下使用git bash的，首先需区分git bash与git的区别：<br>Git bash是一个给我们提供虚拟的linux环境的软件，而git只是其中的一个命令。一般git bash已内置了git命令，无需另外安装下载，但是在使用git命令前需配置。<br>配置命令<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$ git<span class="built_in"> config </span>--global user.name xxx </span><br><span class="line">$ git<span class="built_in"> config </span>--global user.email yyy </span><br><span class="line">$ git<span class="built_in"> config </span>--global push.default<span class="built_in"> simple </span></span><br><span class="line">$ git<span class="built_in"> config </span>--global core.quotepath <span class="literal">false</span></span><br><span class="line">$ git<span class="built_in"> config </span>--global core.editor <span class="string">"vim"</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>基本的命令行操作</strong></p>
 <h4 id="创建命令"><a href="#创建命令" class="headerlink" title="创建命令"></a>创建命令</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir xxx //新建目录</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mkdir -p  //新建目录路径</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> touch xxx.xxx  //新建文件（若文件已存在，使用可改变文件更新时间）</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"内容"</span>&gt;文件路径   //新建文件</span></span><br></pre></td></tr></table></figure>
@@ -645,15 +646,7 @@
 </div>
 
 
-
-
-
-
   <span class="post-meta-divider">|</span>
-
-
-
-  
 
 
 

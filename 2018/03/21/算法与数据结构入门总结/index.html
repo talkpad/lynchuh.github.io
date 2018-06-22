@@ -79,23 +79,23 @@
 
 
 
-<meta name="description" content="算法 算法的特征 可以没有输入量 必须有输出量 有限时间 明确性，算法描述无歧义 有效性，可行的  几个简单的排序算法  关于数组，数组也是一种数据结构。 关于数组的一些运算，要注意：length≠’length’ 。length是一个容器，而’length’是一个字符串，容器可以容纳字符串，容器、字符串可以赋值。 假设，length=0，此时a[length]=a[‘length’]，因为 to">
+<meta name="description" content="算法 算法的特征 可以没有输入量 必须有输出量 有限时间 明确性，算法描述无歧义 有效性，可行的">
 <meta name="keywords" content="基础,入门,算法&#x2F;数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法与数据结构入门总结">
 <meta property="og:url" content="http://yoursite.com/2018/03/21/算法与数据结构入门总结/index.html">
 <meta property="og:site_name" content="Lyn&#39;s Blog">
-<meta property="og:description" content="算法 算法的特征 可以没有输入量 必须有输出量 有限时间 明确性，算法描述无歧义 有效性，可行的  几个简单的排序算法  关于数组，数组也是一种数据结构。 关于数组的一些运算，要注意：length≠’length’ 。length是一个容器，而’length’是一个字符串，容器可以容纳字符串，容器、字符串可以赋值。 假设，length=0，此时a[length]=a[‘length’]，因为 to">
+<meta property="og:description" content="算法 算法的特征 可以没有输入量 必须有输出量 有限时间 明确性，算法描述无歧义 有效性，可行的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-2593c95b0eb1b575.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-f4b07d5a0410c2f9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-285e934d12b7a0da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-ce4f1772446c0433.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-837c804a8571b23d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-22T07:42:02.042Z">
+<meta property="og:updated_time" content="2018-06-22T09:10:44.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法与数据结构入门总结">
-<meta name="twitter:description" content="算法 算法的特征 可以没有输入量 必须有输出量 有限时间 明确性，算法描述无歧义 有效性，可行的  几个简单的排序算法  关于数组，数组也是一种数据结构。 关于数组的一些运算，要注意：length≠’length’ 。length是一个容器，而’length’是一个字符串，容器可以容纳字符串，容器、字符串可以赋值。 假设，length=0，此时a[length]=a[‘length’]，因为 to">
+<meta name="twitter:description" content="算法 算法的特征 可以没有输入量 必须有输出量 有限时间 明确性，算法描述无歧义 有效性，可行的">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9929263-2593c95b0eb1b575.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -364,11 +364,12 @@
 <li>必须有输出量</li>
 <li>有限时间</li>
 <li>明确性，算法描述无歧义</li>
-<li>有效性，可行的</li>
-</ul>
+<li>有效性，可行的<a id="more"></a>
 <h3 id="几个简单的排序算法"><a href="#几个简单的排序算法" class="headerlink" title="几个简单的排序算法"></a>几个简单的排序算法</h3><blockquote>
 <p> 关于数组，数组也是一种数据结构。<br> 关于数组的一些运算，要注意：length≠’length’ 。length是一个容器，而’length’是一个字符串，容器可以容纳字符串，容器、字符串可以赋值。<br> 假设，length=0，此时a[length]=a[‘length’]，因为 toString(n) 可以把数字转换为字符串，如 toString(0) 结果为 ‘0’</p>
 </blockquote>
+</li>
+</ul>
 <h4 id="冒泡排序（Bubble-Sort）"><a href="#冒泡排序（Bubble-Sort）" class="headerlink" title="冒泡排序（Bubble Sort）"></a>冒泡排序（Bubble Sort）</h4><p>每次循环里相邻两个数值两两对比，按大小排序，大的继续与下一位数值进相对比。每一次循环可以确定一个最大值。</p>
 <h4 id="选择排序（Selection-sort）"><a href="#选择排序（Selection-sort）" class="headerlink" title="选择排序（Selection sort）"></a>选择排序（Selection sort）</h4><p>每次循环选定一个数值a与其他数值进行对比，若大于a，则继续对比，若小于a，则交换位置，假设这个数值为b，拿b与剩下的数值进行对比。每一次循环可以确认最小值。</p>
 <h4 id="插入排序（Insertion-Sort）"><a href="#插入排序（Insertion-Sort）" class="headerlink" title="插入排序（Insertion Sort）"></a>插入排序（Insertion Sort）</h4><p>每次循环新的数值与循环内的每个数值进行对比排序，插入循环内。每次循环结束，循环内的数值已排序好。</p>
@@ -659,15 +660,7 @@
 </div>
 
 
-
-
-
-
   <span class="post-meta-divider">|</span>
-
-
-
-  
 
 
 
