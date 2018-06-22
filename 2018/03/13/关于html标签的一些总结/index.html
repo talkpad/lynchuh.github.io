@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="基础,入门,HTML," />
 
 
 
@@ -80,12 +80,14 @@
 
 
 <meta name="description" content="以写简历为目的，开始了第一次写网页的实战。之前虽然有看过关于css和html的相关文档，但是纸上得来终觉浅。写的时候关于标签的语义或css的属性还是不懂。写完还是有必要总结一下目前认识的标签。 1. 什么是标签 在总结前，我们要理清楚一个概念：html只管内容，也就是说不同标签的内容呈现出来的样式都不关html的事，管这个事情的另有他人，也就是CSS。那么我们，可以大胆地认为，html的标签没有块">
+<meta name="keywords" content="基础,入门,HTML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于html标签的一些总结">
 <meta property="og:url" content="http://yoursite.com/2018/03/13/关于html标签的一些总结/index.html">
 <meta property="og:site_name" content="Lyn&#39;s Blog">
 <meta property="og:description" content="以写简历为目的，开始了第一次写网页的实战。之前虽然有看过关于css和html的相关文档，但是纸上得来终觉浅。写的时候关于标签的语义或css的属性还是不懂。写完还是有必要总结一下目前认识的标签。 1. 什么是标签 在总结前，我们要理清楚一个概念：html只管内容，也就是说不同标签的内容呈现出来的样式都不关html的事，管这个事情的另有他人，也就是CSS。那么我们，可以大胆地认为，html的标签没有块">
-<meta property="og:updated_time" content="2018-03-14T01:20:30.678Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-22T07:41:27.196Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于html标签的一些总结">
 <meta name="twitter:description" content="以写简历为目的，开始了第一次写网页的实战。之前虽然有看过关于css和html的相关文档，但是纸上得来终觉浅。写的时候关于标签的语义或css的属性还是不懂。写完还是有必要总结一下目前认识的标签。 1. 什么是标签 在总结前，我们要理清楚一个概念：html只管内容，也就是说不同标签的内容呈现出来的样式都不关html的事，管这个事情的另有他人，也就是CSS。那么我们，可以大胆地认为，html的标签没有块">
@@ -96,15 +98,15 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","sidebar":"always","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -136,7 +138,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -159,7 +161,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">如果你GET不到我的萌点，那用POST试试</p>
       
   </div>
 
@@ -184,7 +186,37 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-lynchuh"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-javaScript"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-入门"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -194,7 +226,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -258,9 +290,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-13T10:01:25+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T10:01:25+08:00">
                 2018-03-13
               </time>
             
@@ -270,6 +302,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/入门/" itemprop="url" rel="index">
+                    <span itemprop="name">入门</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -304,7 +369,7 @@
 <p>标签，也就是元素。它是<a href="https://zh.wikipedia.org/wiki/HTML" title="HTML" target="_blank" rel="noopener">HTML</a>文件的基本组成单位。不同的标签代表着不同的含义，我们需要根据场景/内容选用适当的标签。</p>
 <h4 id="2-目前接触到的标签"><a href="#2-目前接触到的标签" class="headerlink" title="2. 目前接触到的标签"></a>2. 目前接触到的标签</h4><hr>
 <ul>
-<li>html大纲标签<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;&lt;/head&gt; //规定文档相关的通用信息（元数据），包括文档的标题，文档的样式和脚本的链接（定义）等</span><br><span class="line">&lt;body&gt;&lt;/body&gt; //表示的是HTML文档的主体内容</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<li>html大纲标签<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span> //规定文档相关的通用信息（元数据），包括文档的标题，文档的样式和脚本的链接（定义）等</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span> //表示的是HTML文档的主体内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>可以出现在 <code>&lt;head&gt;</code> 标签内的元素有：<br><code>meta</code>, <code>link</code>, <code>title</code>, <code>style</code>, <code>script</code>, <code>noscript</code>, <code>base</code>.<br><code>&lt;meta&gt;</code>标签用于表示以上标签<strong>不能表示</strong>的任何元数据信息.<br><code>&lt;noscript&gt;</code>标签的作用是：如果浏览器不支持script，则会显示<code>&lt;noscript&gt;</code>的内容</p>
@@ -312,12 +377,12 @@
 <li><p>内容分区标签（为页面内容创建明确的大纲）<br>( 1.)<strong><code>&lt;nav&gt;</code></strong>用于html导航栏，含有一个或多个超链接（<code>&lt;a&gt;</code>）的区域.<br>( 2.)<strong><code>&lt;main&gt;</code></strong>呈现了文档<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/body" title="HTML 主体元素 (&lt;body&gt;) 表示的是HTML文档的主体内容，任何一个HTML文档，只允许存在一个 &lt;body&gt; 元素。" target="_blank" rel="noopener"><code>&lt;body&gt;</code></a>或应用的主体部分。注意<code>&lt;main&gt;</code> 标签<strong>不能</strong> 是以下元素的继承<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/article" title="&lt;article&gt;元素表示文档、页面、应用或网站中的独立结构，其意在成为可独立分配的或可复用的结构，如在发布中，它可能是论坛帖子、杂志或新闻文章、博客、用户提交的评论、交互式组件，或者其他独立的内容项目。" target="_blank" rel="noopener"><code>&lt;article&gt;</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/aside" title="&lt;aside&gt; 元素表示一个和其余页面内容几乎无关的部分，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常表现为侧边栏或者嵌入内容。他们通常包含在工具条，例如来自词汇表的定义。也可能有其他类型的信息，例如相关的广告、笔者的传记、web 应用程序、个人资料信息，或在博客上的相关链接。" target="_blank" rel="noopener"><code>&lt;aside&gt;</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/footer" title="HTML &lt;footer&gt; 元素表示最近一个章节内容或者根节点（sectioning root ）元素的页脚。一个页脚通常包含该章节作者、版权数据或者与文档相关的链接等信息。" target="_blank" rel="noopener"><code>&lt;footer&gt;</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/header" title="&lt;header&gt;元素表示一组引导性的帮助，可能包含标题元素，也可以包含其他元素，像logo、分节头部、搜索表单等。" target="_blank" rel="noopener"><code>&lt;header&gt;</code></a>, 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/nav" title="HTML导航栏 (&lt;nav&gt;) 描绘一个含有多个超链接的区域，这个区域包含转到其他页面，或者页面内部其他部分的链接列表." target="_blank" rel="noopener"><code>&lt;nav&gt;</code></a>。个人理解这几个元素都是并列结构，只可以做兄弟姐妹的那种。<br>( 3.)<strong><code>&lt;section&gt;</code></strong> 表示文档中的一个区域（或节），比如，内容中的一个专题组，通常都有一个标题。<strong>一般通过是否包含一个标题 (<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/h1" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>&lt;h1&gt;</code></a>-<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/h6" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>&lt;h6&gt;</code></a> element) 作为子节点 来 辨识每一个<section>。</section></strong><br>( 4.) <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/footer" title="HTML &lt;footer&gt; 元素表示最近一个章节内容或者根节点（sectioning root ）元素的页脚。一个页脚通常包含该章节作者、版权数据或者与文档相关的链接等信息。" target="_blank" rel="noopener"><strong><code>&lt;footer&gt;</code></strong></a>页脚。<strong>一个页脚通常包含该章节作者、版权数据或者与文档相关的链接等信息。</strong><br>( 5.)<strong><code>&lt;h1&gt;</code>~<code>&lt;h6&gt;</code></strong> 标题<br>( 6.)<strong><code>&lt;p&gt;</code></strong> 段落</p>
 </li>
 <li><p>文本内容（标识内容的宗旨或结构）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//描述列表元素</span><br><span class="line">&lt;dl&gt;</span><br><span class="line">&lt;dd&gt;&lt;/dd&gt;内容标题</span><br><span class="line">&lt;dt&gt;&lt;/dt&gt;内容描述</span><br><span class="line">&lt;/dl&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="comment">//描述列表元素</span></span><br><span class="line"><span class="params">&lt;dl&gt;</span></span><br><span class="line"><span class="params">&lt;dd&gt;</span><span class="params">&lt;/dd&gt;</span>内容标题</span><br><span class="line"><span class="params">&lt;dt&gt;</span><span class="params">&lt;/dt&gt;</span>内容描述</span><br><span class="line"><span class="params">&lt;/dl&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//有序列表</span><br><span class="line">&lt;ol&gt;</span><br><span class="line">&lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//无序列表</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">&lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//表格元素</span><br><span class="line">&lt;table&gt;</span><br><span class="line"></span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="comment">//有序列表</span></span><br><span class="line"><span class="params">&lt;ol&gt;</span></span><br><span class="line"><span class="params">&lt;li&gt;</span><span class="params">&lt;/li&gt;</span></span><br><span class="line"><span class="params">&lt;/ol&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="comment">//无序列表</span></span><br><span class="line"><span class="params">&lt;ul&gt;</span></span><br><span class="line"><span class="params">&lt;li&gt;</span><span class="params">&lt;/li&gt;</span></span><br><span class="line"><span class="params">&lt;/ul&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="comment">//表格元素</span></span><br><span class="line">&lt;<span class="keyword">table</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;/<span class="keyword">table</span>&gt;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>容器<br>这两个标签没有任何语义。<br><code>&lt;div&gt;</code> 一般用来充当流内容容器。他默认是块级元素。<br><code>&lt;span&gt;</code>一般用来充当行内容器。默认内联元素。</li>
 </ul>
@@ -336,6 +401,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+            <a href="/tags/入门/" rel="tag"># 入门</a>
+          
+            <a href="/tags/HTML/" rel="tag"># HTML</a>
+          
+        </div>
       
 
       
@@ -412,10 +487,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -425,7 +500,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Lynchuh</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">一台电脑，一只猫，足矣。</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -436,11 +511,20 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
             
 
             
@@ -448,8 +532,8 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
                 
               </div>
             
@@ -464,6 +548,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/lynchuh" title="gitHub" target="_blank">gitHub</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
@@ -511,7 +609,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -519,7 +617,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 

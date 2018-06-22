@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="基础,CSS,入门," />
 
 
 
@@ -80,15 +80,17 @@
 
 
 <meta name="description" content="#什么是盒模型在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。  一个元素的width默认是content-width。 但是一个盒子的width一般是content-width+padding-width+border-width 当box-sizing:border-box时，一个元素的width则是content+padding+border  在写页面的时候，遇到比较多的问题就是，">
+<meta name="keywords" content="基础,CSS,入门">
 <meta property="og:type" content="article">
 <meta property="og:title" content="入门css总结1">
 <meta property="og:url" content="http://yoursite.com/2018/03/18/入门css总结1/index.html">
 <meta property="og:site_name" content="Lyn&#39;s Blog">
 <meta property="og:description" content="#什么是盒模型在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。  一个元素的width默认是content-width。 但是一个盒子的width一般是content-width+padding-width+border-width 当box-sizing:border-box时，一个元素的width则是content+padding+border  在写页面的时候，遇到比较多的问题就是，">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-e783e4c4cb1b205e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-24a1ba0adf4db60c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-18T06:24:12.171Z">
+<meta property="og:updated_time" content="2018-06-22T07:40:59.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入门css总结1">
 <meta name="twitter:description" content="#什么是盒模型在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。  一个元素的width默认是content-width。 但是一个盒子的width一般是content-width+padding-width+border-width 当box-sizing:border-box时，一个元素的width则是content+padding+border  在写页面的时候，遇到比较多的问题就是，">
@@ -100,15 +102,15 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","sidebar":"always","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -140,7 +142,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -163,7 +165,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">如果你GET不到我的萌点，那用POST试试</p>
       
   </div>
 
@@ -188,7 +190,37 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-lynchuh"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-javaScript"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-入门"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -198,7 +230,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -262,9 +294,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-18T14:22:45+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T14:22:45+08:00">
                 2018-03-18
               </time>
             
@@ -274,6 +306,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/入门/" itemprop="url" rel="index">
+                    <span itemprop="name">入门</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -309,7 +374,7 @@
 <li>当<code>box-sizing:border-box</code>时，一个元素的width则是<strong>content+padding+border</strong></li>
 </ul>
 <p>在写页面的时候，遇到比较多的问题就是，什么时候使用margin，什么时候使用padding。<br>margin定义为外边距，即是盒子与盒子的距离。padding为内边距，它是盒子与盒子里的内容的距离。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">div.text1&#123;</span><br><span class="line">width:200px;</span><br><span class="line">padding:50px; &#125;</span><br><span class="line">//盒子宽度是200px+50px*2</span><br><span class="line"></span><br><span class="line">div.text2&#123;</span><br><span class="line">width:200px;</span><br><span class="line">margin:50px;&#125;</span><br><span class="line">盒子宽度是200px</span><br></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-class">.text1</span>&#123;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line"><span class="attribute">padding</span>:<span class="number">50px</span>; &#125;</span><br><span class="line"><span class="comment">//盒子宽度是200px+50px*2</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.text2</span>&#123;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line"><span class="attribute">margin</span>:<span class="number">50px</span>;&#125;</span><br><span class="line">盒子宽度是200px</span><br></pre></td></tr></table></figure>
 <p><strong>当盒子使用margin时，盒子是往内压，使用padding时，是往外推。</strong>使用margin最明显的一点是，可以保证元素与元素之间互不干扰。</p>
 <h2 id="块级元素与内联元素"><a href="#块级元素与内联元素" class="headerlink" title="#块级元素与内联元素"></a>#块级元素与内联元素</h2><p>##1. 块级元素(block)</p>
 <ul>
@@ -337,9 +402,9 @@
 <ul>
 <li>什么是line-box?<br><img src="https://upload-images.jianshu.io/upload_images/9929263-e783e4c4cb1b205e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>① 一个内联元素的高度由line-height（行内框高度）决定。而line-height跟文字内容区（font-size）也有一定的距离。<br>②内联元素的文字位置以基线为中心对齐。因此一般内联元素文字没有垂直居中，可以使用<code>vertical-align:center</code>消除这个bug<br>##3. 内联块级元素(inline-block)<br>inline-block元素既含有block的宽度高度特性又具有inline的同行特性。<br>在这次练习的一个例子：</li>
 <li><p>html代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;JS Bin&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"> &lt;section&gt;</span><br><span class="line">   &lt;div class=&quot;prouduction&quot;&gt;</span><br><span class="line">	 &lt;h2&gt;作品集&lt;/h2&gt;</span><br><span class="line">	   &lt;nav&gt; </span><br><span class="line">	     &lt;ol &gt;</span><br><span class="line">		   &lt;li i&gt;所有&lt;/li&gt;</span><br><span class="line">		   &lt;li &gt;框架&lt;/li&gt;</span><br><span class="line">		   &lt;li &gt;原生JS&amp;amp;CSS&lt;/li&gt;</span><br><span class="line">    	    &lt;/ol&gt;</span><br><span class="line">            &lt;div id=&quot;bar&quot; class=&quot;bar status-1&quot;&gt;</span><br><span class="line">		 &lt;div class=&quot;bar-inner&quot;&gt;&lt;/div&gt;</span><br><span class="line">	    &lt;/div&gt;		</span><br><span class="line">   	  &lt;/nav&gt;</span><br><span class="line"> &lt;/section&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS Bin<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"prouduction"</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">h2</span>&gt;</span>作品集<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	   <span class="tag">&lt;<span class="name">nav</span>&gt;</span> </span><br><span class="line">	     <span class="tag">&lt;<span class="name">ol</span> &gt;</span></span><br><span class="line">		   <span class="tag">&lt;<span class="name">li</span> <span class="attr">i</span>&gt;</span>所有<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		   <span class="tag">&lt;<span class="name">li</span> &gt;</span>框架<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		   <span class="tag">&lt;<span class="name">li</span> &gt;</span>原生JS&amp;amp;CSS<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    	    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"bar"</span> <span class="attr">class</span>=<span class="string">"bar status-1"</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bar-inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>		</span><br><span class="line">   	  <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>CSS代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">section .prouduction&#123;</span><br><span class="line">    margin-top: 30px;</span><br><span class="line">    margin-bottom: 50px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    margin-left: auto;</span><br><span class="line">    margin-right: auto;</span><br><span class="line">    max-width: 400px;</span><br><span class="line">    border: 1px solid;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">section .prouduction nav&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    margin-top: 10px;</span><br><span class="line">    border: 1px solid;</span><br><span class="line">&#125;</span><br><span class="line">section .prouduction ol&#123;</span><br><span class="line">    margin: 0;//&lt;ol&gt;-&lt;li&gt;结构会有默认的padding和margin样式</span><br><span class="line">    padding: 0;</span><br><span class="line">    list-style: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">section .prouduction li&#123;</span><br><span class="line">    display: inline;</span><br><span class="line">    vertical-align: top;</span><br><span class="line">    margin-left: 40px;</span><br><span class="line">    border: 1px solid;</span><br><span class="line">&#125;</span><br><span class="line">section .prouduction li:first-child&#123;</span><br><span class="line">    margin-left: 0px;</span><br><span class="line">    border: 1px solid;</span><br><span class="line">&#125;</span><br><span class="line">section .prouduction .bar&#123;</span><br><span class="line">    background: #FAE1E1; </span><br><span class="line">    border-radius: 2px;</span><br><span class="line">    height: 5px;</span><br><span class="line">    margin: 5px 0 </span><br><span class="line">&#125;</span><br><span class="line">section .prouduction .bar-inner&#123;</span><br><span class="line">    height: 100%;</span><br><span class="line">    background: #E6686A;</span><br><span class="line">    border-radius: 2px;</span><br><span class="line">  width: 15%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>CSS代码<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">section</span> .prouduction&#123;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">margin-left</span>: auto;</span><br><span class="line">    <span class="attribute">margin-right</span>: auto;</span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-class">.prouduction</span> nav&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-class">.prouduction</span> ol&#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;<span class="comment">//&lt;ol&gt;-&lt;li&gt;结构会有默认的padding和margin样式</span></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-class">.prouduction</span> li&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline;</span><br><span class="line">    <span class="attribute">vertical-align</span>: top;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-class">.prouduction</span> <span class="selector-tag">li</span>:first-child&#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-class">.prouduction</span> .bar&#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#FAE1E1</span>; </span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">2px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">5px</span> <span class="number">0</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span> <span class="selector-class">.prouduction</span> .bar-inner&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#E6686A</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">2px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">15%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -363,6 +428,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/tags/入门/" rel="tag"># 入门</a>
+          
+        </div>
       
 
       
@@ -439,10 +514,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -452,7 +527,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Lynchuh</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">一台电脑，一只猫，足矣。</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -463,11 +538,20 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
             
 
             
@@ -475,8 +559,8 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
                 
               </div>
             
@@ -491,6 +575,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/lynchuh" title="gitHub" target="_blank">gitHub</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
@@ -538,7 +636,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -546,7 +644,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 

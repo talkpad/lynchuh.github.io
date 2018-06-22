@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Wlecome" />
 
 
 
@@ -79,12 +79,16 @@
 
 
 
+<meta name="description" content="一台电脑，一只猫，足矣。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Lyn&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Lyn&#39;s Blog">
+<meta property="og:description" content="一台电脑，一只猫，足矣。">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lyn&#39;s Blog">
+<meta name="twitter:description" content="一台电脑，一只猫，足矣。">
 
 
 
@@ -92,15 +96,15 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","sidebar":"always","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -132,7 +136,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -156,7 +160,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">如果你GET不到我的萌点，那用POST试试</p>
       
   </div>
 
@@ -181,7 +185,37 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-lynchuh"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-javaScript"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-入门"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -191,7 +225,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -257,9 +291,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-10T13:35:27+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T13:35:27+08:00">
                 2018-03-10
               </time>
             
@@ -269,6 +303,39 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/入门/" itemprop="url" rel="index">
+                    <span itemprop="name">入门</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -312,7 +379,7 @@
 <ul>
 <li>最基本的HTML代码</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">   &lt;meta&gt;</span><br><span class="line">   &lt;title&gt;标题出现在浏览器头部&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">       &lt;!--  css外部样式  --&gt; </span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">   &lt;h&gt;######&lt;/h&gt;</span><br><span class="line">   &lt;p&gt;#####&lt;a href=&quot;#&quot; &gt;#&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">   &lt;img href=&quot;#&quot;&gt;</span><br><span class="line">   &lt;ul&gt;</span><br><span class="line">     &lt;li&gt;#####&lt;/li&gt;</span><br><span class="line">     &lt;li&gt;#####&lt;/li&gt;</span><br><span class="line">   &lt;/ul&gt;</span><br><span class="line">   &lt;ol&gt;</span><br><span class="line">     &lt;li&gt;#####&lt;/li&gt;</span><br><span class="line">   &lt;/ol&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">meta</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">title</span>&gt;</span>标题出现在浏览器头部<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">       <span class="comment">&lt;!--  css外部样式  --&gt;</span> </span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">h</span>&gt;</span>######<span class="tag">&lt;/<span class="name">h</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span>#####<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> &gt;</span>#<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">img</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span>#####<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span>#####<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span>#####<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>关于html的元素（标签）</li>
 </ul>
@@ -425,9 +492,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-04T18:23:40+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-04T18:23:40+08:00">
                 2018-03-04
               </time>
             
@@ -437,6 +504,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/杂/" itemprop="url" rel="index">
+                    <span itemprop="name">杂</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -469,55 +558,55 @@
           
             <p>回想了以下，刚对前端这个行业有所了解应该是在17年的10月份，那时是公司的程序猿小哥提到的，后来在知乎里查了一下，才逐渐有所了解。刚开始的自学是在freecodecamp里边闯关边查资料。但是到后面挑战越来越难，才知道自己的知识面真的很窄，仅靠html、css和js这点知识不足以充当一名合格的前端程序员。-&gt;<br>来到饥人谷，才发现，程序员的世界很广阔，额。前路漫漫..</p>
 <p>以下，这是一个全新手的从零开始搭建hexo博客的总结。新手小白可参考，如有不对的地方，烦请大佬交流指正，谢谢！</p>
-<h2 id="搭建博客需要的背景知识"><a href="#搭建博客需要的背景知识" class="headerlink" title="搭建博客需要的背景知识"></a>搭建博客需要的背景知识</h2><h3 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h3><p>我是在windows环境下使用git bash的，首先需区分git bash与git的区别：<br>Git bash是一个给我们提供虚拟的linux环境的软件，而git只是其中的一个命令。一般git bash已内置了git命令，无需另外安装下载，但是在使用git命令前需配置。<br>配置命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name xxx </span><br><span class="line">$ git config --global user.email yyy </span><br><span class="line">$ git config --global push.default simple </span><br><span class="line">$ git config --global core.quotepath false</span><br><span class="line">$ git config --global core.editor &quot;vim&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="搭建博客需要的背景知识"><a href="#搭建博客需要的背景知识" class="headerlink" title="搭建博客需要的背景知识"></a>搭建博客需要的背景知识</h2><h3 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h3><p>我是在windows环境下使用git bash的，首先需区分git bash与git的区别：<br>Git bash是一个给我们提供虚拟的linux环境的软件，而git只是其中的一个命令。一般git bash已内置了git命令，无需另外安装下载，但是在使用git命令前需配置。<br>配置命令<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$ git<span class="built_in"> config </span>--global user.name xxx </span><br><span class="line">$ git<span class="built_in"> config </span>--global user.email yyy </span><br><span class="line">$ git<span class="built_in"> config </span>--global push.default<span class="built_in"> simple </span></span><br><span class="line">$ git<span class="built_in"> config </span>--global core.quotepath <span class="literal">false</span></span><br><span class="line">$ git<span class="built_in"> config </span>--global core.editor <span class="string">"vim"</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>基本的命令行操作</strong></p>
-<h4 id="创建命令"><a href="#创建命令" class="headerlink" title="创建命令"></a>创建命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir xxx //新建目录</span><br><span class="line">$ mkdir -p  //新建目录路径</span><br><span class="line">$ touch xxx.xxx  //新建文件（若文件已存在，使用可改变文件更新时间）</span><br><span class="line">$ echo &quot;内容&quot;&gt;文件路径   //新建文件</span><br></pre></td></tr></table></figure>
-<p>延伸<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;内容&quot;&gt;!文件路径  //强制创建文件（将原文件的内容全部更改）</span><br><span class="line">$ echo &quot;内容 &quot;&gt;&gt;文件路径 //追加文件内容</span><br></pre></td></tr></table></figure></p>
-<h4 id="进入-打开命令"><a href="#进入-打开命令" class="headerlink" title="进入/打开命令"></a>进入/打开命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd 文件路径  //进入某个目录</span><br><span class="line">$ start 文件路径 //打开某个文件</span><br><span class="line">$ vim 文件路径 //使用编辑器vim打开某个文件</span><br></pre></td></tr></table></figure>
-<h4 id="复制命令"><a href="#复制命令" class="headerlink" title="复制命令"></a>复制命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cp 源路径 目标路径  //复制文件</span><br><span class="line">$ cp -p  源路径 目标路径  //复制目录</span><br></pre></td></tr></table></figure>
-<h4 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf  文件路径/目录路径 //-r 递归地删除 -f 无需经过同意删除文件</span><br></pre></td></tr></table></figure>
-<h4 id="查看信息"><a href="#查看信息" class="headerlink" title="查看信息"></a>查看信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ pwd   //显示当前目录</span><br><span class="line">$ whoami  //查看用户名</span><br><span class="line">$ ls (-al)  路径  //查看路径 （-a：所有文件，包括隐藏文件 -l：使用列表展示文件信息）</span><br><span class="line">$ tree  //查看目录结构</span><br></pre></td></tr></table></figure>
+<h4 id="创建命令"><a href="#创建命令" class="headerlink" title="创建命令"></a>创建命令</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir xxx //新建目录</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mkdir -p  //新建目录路径</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> touch xxx.xxx  //新建文件（若文件已存在，使用可改变文件更新时间）</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"内容"</span>&gt;文件路径   //新建文件</span></span><br></pre></td></tr></table></figure>
+<p>延伸<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"内容"</span>&gt;!文件路径  //强制创建文件（将原文件的内容全部更改）</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"内容 "</span>&gt;&gt;文件路径 //追加文件内容</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="进入-打开命令"><a href="#进入-打开命令" class="headerlink" title="进入/打开命令"></a>进入/打开命令</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> 文件路径  //进入某个目录</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> start 文件路径 //打开某个文件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> vim 文件路径 //使用编辑器vim打开某个文件</span></span><br></pre></td></tr></table></figure>
+<h4 id="复制命令"><a href="#复制命令" class="headerlink" title="复制命令"></a>复制命令</h4><figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="symbol">$</span> cp 源路径 目标路径  <span class="comment">//复制文件</span></span><br><span class="line"><span class="symbol">$</span> cp -p  源路径 目标路径  <span class="comment">//复制目录</span></span><br></pre></td></tr></table></figure>
+<h4 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h4><figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="symbol">$</span> rm -rf  文件路径/目录路径 <span class="comment">//-r 递归地删除 -f 无需经过同意删除文件</span></span><br></pre></td></tr></table></figure>
+<h4 id="查看信息"><a href="#查看信息" class="headerlink" title="查看信息"></a>查看信息</h4><figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="symbol">$</span> pwd   <span class="comment">//显示当前目录</span></span><br><span class="line"><span class="symbol">$</span> whoami  <span class="comment">//查看用户名</span></span><br><span class="line"><span class="symbol">$</span> ls (-al)  路径  <span class="comment">//查看路径 （-a：所有文件，包括隐藏文件 -l：使用列表展示文件信息）</span></span><br><span class="line"><span class="symbol">$</span> tree  <span class="comment">//查看目录结构</span></span><br></pre></td></tr></table></figure>
 <h3 id="GitHub的基础使用"><a href="#GitHub的基础使用" class="headerlink" title="GitHub的基础使用"></a>GitHub的基础使用</h3><p>使用github前最好先翻下下下墙，在墙内github的反应真的贼慢。</p>
 <p>如何在本地使用命令行操作github：</p>
 <h4 id="配置GitHub，添加SSH钥匙"><a href="#配置GitHub，添加SSH钥匙" class="headerlink" title="配置GitHub，添加SSH钥匙"></a>配置GitHub，添加SSH钥匙</h4><p>Step 1<br>  打开Git Bash，运行命令<code>$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code>,记得填写自己的邮箱地址。<br>Step 2<br>  依次按回车3次。<br>Step 3<br>  获取公钥：运行命令<code>cat ~/.ssh/id_rsa.pub</code>.此处不要忘记后缀.pub，有后缀才是公钥文件。<br>Step 4<br>  在GitHub上添加钥匙，路径：Settingss→SSH and GPG keys→New SSH key。填写title和key（将step3获取的信息copy下来）。</p>
 <h4 id="关联远程仓库和本地仓库"><a href="#关联远程仓库和本地仓库" class="headerlink" title="关联远程仓库和本地仓库"></a>关联远程仓库和本地仓库</h4><p>在github上新建一个空的仓库后，<strong>地址选取SSH</strong>。接下来在本地操作。-&gt;<br>新建目录后，在该目录下运行Git Bash</p>
 <ul>
 <li><p>本地为空仓库<br> 复制空仓库下..or create a new repository on the command line 下的命令。<br> eg：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;# xxx&quot; &gt;&gt; README.md</span><br><span class="line">$ git init</span><br><span class="line">$ git add README.md</span><br><span class="line">$ git commit -m &quot;first commit&quot;</span><br><span class="line">$ git remote add origin git@github.com:用户名/xxx.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"# xxx"</span> &gt;&gt; README.md</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git add README.md</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit -m <span class="string">"first commit"</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git remote add origin git@github.com:用户名/xxx.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git push -u origin master</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>本地仓库已有文件<br> 复制空仓库下 ..or push an existing repository from the command line 下的命令<br>  eg：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:用户名/xxx.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git remote add origin git@github.com:用户名/xxx.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git push -u origin master</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="本地文件变动后上传更新到GitHub"><a href="#本地文件变动后上传更新到GitHub" class="headerlink" title="本地文件变动后上传更新到GitHub"></a>本地文件变动后上传更新到GitHub</h4><p>在本地仓库运行git bash ，某些文件进行编辑后，信息已变动，若要上传github，则在该目录下运行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git add . //将当前目录所有文件添加到暂存区</span><br><span class="line">$ git commit -m &quot;信息&quot; //将暂存区的文件正式提交到本地仓库（.git）</span><br><span class="line">$ git pull </span><br><span class="line">$ git push</span><br></pre></td></tr></table></figure></p>
+<h4 id="本地文件变动后上传更新到GitHub"><a href="#本地文件变动后上传更新到GitHub" class="headerlink" title="本地文件变动后上传更新到GitHub"></a>本地文件变动后上传更新到GitHub</h4><p>在本地仓库运行git bash ，某些文件进行编辑后，信息已变动，若要上传github，则在该目录下运行以下命令：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git add . //将当前目录所有文件添加到暂存区</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit -m <span class="string">"信息"</span> //将暂存区的文件正式提交到本地仓库（.git）</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git pull </span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git push</span></span><br></pre></td></tr></table></figure></p>
 <hr>
 <p>在这里，关于git的使用，个人理解在本地应该有三个区-&gt;<br>本地目录：你新建的文件都在这个目录里。-&gt;<br>暂存区：本地目录的文件改动后需要add到暂存区。-&gt;<br>本地仓库：将暂存区的文件提交到仓库需commit。只有本地仓库的内容才可以push到远程仓库。</p>
 <hr>
-<p>另外：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git status -sb  //显示当前所有文件的状态</span><br><span class="line">$ git log  //查看变更历史</span><br></pre></td></tr></table></figure></p>
+<p>另外：<br><figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="symbol">$</span> git status -sb  <span class="comment">//显示当前所有文件的状态</span></span><br><span class="line"><span class="symbol">$</span> git <span class="built-in">log</span>  <span class="comment">//查看变更历史</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="下载github上的仓库到本地"><a href="#下载github上的仓库到本地" class="headerlink" title="下载github上的仓库到本地"></a>下载github上的仓库到本地</h4><p>打开要下载的仓库，复制该仓库的SSH地址，在需要下载的目录内运行以下命令：<code>$ git clone  仓库的SSH地址</code></p>
 <h4 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h4><p>之前我并没有接触过markdown书法，因此我是先搭建好了博客，然后google了解了基本语法后再写文章的。</p>
 <h2 id="搭建博客的环境准备"><a href="#搭建博客的环境准备" class="headerlink" title="搭建博客的环境准备"></a>搭建博客的环境准备</h2><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p>有了git命令才可以将博客部署到github上。 记得部署git，步骤查看1.1</p>
 <h3 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h3><p>hexo基于node.js，下载hexo前需安装Node.js.安装结束后直接在Git Bash中配置npm(不要打开node.js)</p>
 <h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>hexo是我们个人博客网站的框架，安装hexo框架需与博客放在同一个文件夹内。（安装命令在3.2）</p>
 <h2 id="使用hexo-github搭建一个个人博客"><a href="#使用hexo-github搭建一个个人博客" class="headerlink" title="使用hexo+github搭建一个个人博客"></a>使用hexo+github搭建一个个人博客</h2><h3 id="建立远程仓库"><a href="#建立远程仓库" class="headerlink" title="建立远程仓库"></a>建立远程仓库</h3><p>打开github，新建一个空的仓库（repository），名字为【用户名.github.io】,<em>注：用户名是github上的username</em></p>
-<h3 id="建立本地仓库目录，安装博客框架"><a href="#建立本地仓库目录，安装博客框架" class="headerlink" title="建立本地仓库目录，安装博客框架"></a>建立本地仓库目录，安装博客框架</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd 路径 //不要选取系统根目录为本地仓库目录 </span><br><span class="line">$ npm install -g hexo-cli   //安装hexo</span><br><span class="line">$ Hexo init  blog  //初始化博客</span><br><span class="line">$ npm i    //我也不懂</span><br></pre></td></tr></table></figure>
+<h3 id="建立本地仓库目录，安装博客框架"><a href="#建立本地仓库目录，安装博客框架" class="headerlink" title="建立本地仓库目录，安装博客框架"></a>建立本地仓库目录，安装博客框架</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> 路径 //不要选取系统根目录为本地仓库目录 </span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm install -g hexo-cli   //安装hexo</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> Hexo init  blog  //初始化博客</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> npm i    //我也不懂</span></span><br></pre></td></tr></table></figure>
 <h3 id="本地修改博客配置"><a href="#本地修改博客配置" class="headerlink" title="本地修改博客配置"></a>本地修改博客配置</h3><p>在blog的根目录有一个文件_config.yml，这是站点配置文件。运行命令<code>start _config.yml</code>打开文件，修改配置：</p>
 <ul>
 <li>title —- 网站标题</li>
 <li>subtitle —- 网站副标题</li>
 <li>description —- 网站描述</li>
 <li>author —- 网站作者</li>
-<li>Repo —- 远程仓库地址（复制3.1里建立的远程仓库的SSH地址后粘贴）<br><strong>需要注意的是 在配置的时候需要在冒号后面加一个英文空格</strong><h3 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save //安装git部署插件</span><br><span class="line">$ hexo deploy //部署到GitHub</span><br></pre></td></tr></table></figure>
+<li>Repo —- 远程仓库地址（复制3.1里建立的远程仓库的SSH地址后粘贴）<br><strong>需要注意的是 在配置的时候需要在冒号后面加一个英文空格</strong><h3 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h3><figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="symbol">$</span> npm install hexo-deployer-git --save <span class="comment">//安装git部署插件</span></span><br><span class="line"><span class="symbol">$</span> hexo deploy <span class="comment">//部署到GitHub</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>到此博客已经基本部署完成。打开github上的远程仓库【用户名.github.io】的setting上 Github  pages，可以查看到博客预览链接。</strong></p>
 <h3 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h3><p>小白想自己做一个主题还是别妄想了，在github上有<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">hexo主题的合集</a></p>
 <ul>
 <li>找到合适的主题后，进入该主题的github仓库，复制它的SSH地址</li>
-<li>下载该主题仓库到本地：<br>  进入到blog的themes目录，运行命令<code>git clone 主题SSH地址</code>,下载喜欢的主题库到本地。-&gt;运行命令<code>cd ..</code>返回blog目录，再运行<code>start _config.yml</code>打开站点配置文件，修改配置内的themes属性。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ theme（第75行）：主题名字 //不知道的可以打开文件目录的themes里查看</span><br><span class="line">$ hexo  generate //生成静态文件</span><br><span class="line">$ hexo  deploy    //部署到github</span><br></pre></td></tr></table></figure>
+<li>下载该主题仓库到本地：<br>  进入到blog的themes目录，运行命令<code>git clone 主题SSH地址</code>,下载喜欢的主题库到本地。-&gt;运行命令<code>cd ..</code>返回blog目录，再运行<code>start _config.yml</code>打开站点配置文件，修改配置内的themes属性。<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">$ theme（第<span class="number">75</span>行）：主题名字 <span class="comment">//不知道的可以打开文件目录的themes里查看</span></span><br><span class="line">$ hexo  <span class="keyword">generate</span> <span class="comment">//生成静态文件</span></span><br><span class="line">$ hexo  deploy    <span class="comment">//部署到github</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="发表博客文章"><a href="#发表博客文章" class="headerlink" title="发表博客文章"></a>发表博客文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new  博客题目</span><br><span class="line">$ start  文件路径 //打开文件后使用markdown语法编辑内容。</span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="发表博客文章"><a href="#发表博客文章" class="headerlink" title="发表博客文章"></a>发表博客文章</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo new  博客题目</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> start  文件路径 //打开文件后使用markdown语法编辑内容。</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo generate</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo deploy</span></span><br></pre></td></tr></table></figure>
 <p>我的文件路径是：myblog/source/_posts/xxx.md</p>
 <h2 id="上传博客源码到github仓库上"><a href="#上传博客源码到github仓库上" class="headerlink" title="上传博客源码到github仓库上"></a>上传博客源码到github仓库上</h2><p>在3.1中建立的仓库【用户名.github.io】保存的只是博客，并没有保存博客的源代码，再建立一个仓库【blog-generator】用于保存源代码可防止因为巫山blog而丢失所有数据。-&gt;<br>注意，每次部署（hexo deploy）完后记得更新源码仓库(add→commit→pull→push)-&gt;<br>具体步骤查看1.2</p>
 
@@ -595,7 +684,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Lynchuh</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">一台电脑，一只猫，足矣。</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -606,11 +695,20 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
             
 
             
@@ -618,8 +716,8 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
                 
               </div>
             
@@ -634,6 +732,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/lynchuh" title="gitHub" target="_blank">gitHub</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
@@ -665,7 +777,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -673,7 +785,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
