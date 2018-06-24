@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="#什么是盒模型在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。">
+<meta name="description" content="什么是盒模型 在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。">
 <meta name="keywords" content="CSS,入门,盒模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="入门css总结1">
 <meta property="og:url" content="http://yoursite.com/2018/03/18/入门css总结1/index.html">
 <meta property="og:site_name" content="Lyn&#39;s Blog">
-<meta property="og:description" content="#什么是盒模型在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。">
+<meta property="og:description" content="什么是盒模型 在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-e783e4c4cb1b205e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-24a1ba0adf4db60c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-22T10:50:24.631Z">
+<meta property="og:updated_time" content="2018-06-22T11:50:51.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入门css总结1">
-<meta name="twitter:description" content="#什么是盒模型在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。">
+<meta name="twitter:description" content="什么是盒模型 在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -356,7 +356,8 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h2 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="#什么是盒模型"></a>#什么是盒模型</h2><p>在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CSS盒模型科普.jpg"><br><a id="more"></a></p>
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="什么是盒模型"></a>什么是盒模型</h2><hr>
+<p>在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CSS盒模型科普.jpg"><br><a id="more"></a></p>
 <ul>
 <li>一个元素的width默认是content-width。</li>
 <li>但是一个盒子的width一般是<strong>content-width</strong>+<strong>padding-width</strong>+<strong>border-width</strong></li>
@@ -365,8 +366,8 @@
 <p>在写页面的时候，遇到比较多的问题就是，什么时候使用margin，什么时候使用padding。<br>margin定义为外边距，即是盒子与盒子的距离。padding为内边距，它是盒子与盒子里的内容的距离。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-class">.text1</span>&#123;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line"><span class="attribute">padding</span>:<span class="number">50px</span>; &#125;</span><br><span class="line"><span class="comment">//盒子宽度是200px+50px*2</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.text2</span>&#123;</span><br><span class="line"><span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line"><span class="attribute">margin</span>:<span class="number">50px</span>;&#125;</span><br><span class="line">盒子宽度是200px</span><br></pre></td></tr></table></figure>
 <p><strong>当盒子使用margin时，盒子是往内压，使用padding时，是往外推。</strong>使用margin最明显的一点是，可以保证元素与元素之间互不干扰。</p>
-<h2 id="块级元素与内联元素"><a href="#块级元素与内联元素" class="headerlink" title="#块级元素与内联元素"></a>#块级元素与内联元素</h2><p>##1. 块级元素(block)</p>
-<ul>
+<h2 id="块级元素与内联元素"><a href="#块级元素与内联元素" class="headerlink" title="块级元素与内联元素"></a>块级元素与内联元素</h2><hr>
+<h2 id="1-块级元素-block"><a href="#1-块级元素-block" class="headerlink" title="1. 块级元素(block)"></a>1. 块级元素(block)</h2><ul>
 <li><p>高度(height)：块级元素高度由其内部文档流元素的高度总和决定。</p>
 <blockquote>
 <p>文档流：文档内元素的流动方向</p>
@@ -382,14 +383,13 @@
 </li>
 </ul>
 <p>块级元素可以设置width和height。但是，一般不建议使用这两个属性，因为一旦使用这两个属性，会出现很多bug！</p>
-<p>##2. 内联元素(inline)</p>
-<ul>
+<h2 id="2-内联元素-inline"><a href="#2-内联元素-inline" class="headerlink" title="2. 内联元素(inline)"></a>2. 内联元素(inline)</h2><ul>
 <li>高度(height)：内联元素高度由<code>line-height</code>（字体建议行高）确定。而这个是由字体设计师 确定。</li>
 <li>宽度(width)：内联元素的宽度由内容决定。<br>有一个特点：英文字母无论多长都会在一行，不会换行。可以使用<code>word-break</code>属性。中文：<code>word-break:break-all</code>，英文：<code>word-break:break-word</code></li>
 </ul>
 <p><strong>内联元素不接受设置宽高。还有，内联元素的上下margin和padding都设定无效</strong></p>
 <ul>
-<li>什么是line-box?<br><img src="https://upload-images.jianshu.io/upload_images/9929263-e783e4c4cb1b205e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>① 一个内联元素的高度由line-height（行内框高度）决定。而line-height跟文字内容区（font-size）也有一定的距离。<br>②内联元素的文字位置以基线为中心对齐。因此一般内联元素文字没有垂直居中，可以使用<code>vertical-align:center</code>消除这个bug<br>##3. 内联块级元素(inline-block)<br>inline-block元素既含有block的宽度高度特性又具有inline的同行特性。<br>在这次练习的一个例子：</li>
+<li>什么是line-box?<br><img src="https://upload-images.jianshu.io/upload_images/9929263-e783e4c4cb1b205e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>① 一个内联元素的高度由line-height（行内框高度）决定。而line-height跟文字内容区（font-size）也有一定的距离。<br>②内联元素的文字位置以基线为中心对齐。因此一般内联元素文字没有垂直居中，可以使用<code>vertical-align:center</code>消除这个bug<h2 id="3-内联块级元素-inline-block"><a href="#3-内联块级元素-inline-block" class="headerlink" title="3. 内联块级元素(inline-block)"></a>3. 内联块级元素(inline-block)</h2>inline-block元素既含有block的宽度高度特性又具有inline的同行特性。<br>在这次练习的一个例子：</li>
 <li><p>html代码</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS Bin<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"prouduction"</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">h2</span>&gt;</span>作品集<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">	   <span class="tag">&lt;<span class="name">nav</span>&gt;</span> </span><br><span class="line">	     <span class="tag">&lt;<span class="name">ol</span> &gt;</span></span><br><span class="line">		   <span class="tag">&lt;<span class="name">li</span> <span class="attr">i</span>&gt;</span>所有<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		   <span class="tag">&lt;<span class="name">li</span> &gt;</span>框架<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		   <span class="tag">&lt;<span class="name">li</span> &gt;</span>原生JS&amp;amp;CSS<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    	    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"bar"</span> <span class="attr">class</span>=<span class="string">"bar status-1"</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bar-inner"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>		</span><br><span class="line">   	  <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -530,7 +530,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -552,7 +552,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -621,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是盒模型"><span class="nav-number">1.</span> <span class="nav-text">#什么是盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级元素与内联元素"><span class="nav-number">2.</span> <span class="nav-text">#块级元素与内联元素</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是盒模型"><span class="nav-number">1.</span> <span class="nav-text">什么是盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级元素与内联元素"><span class="nav-number">2.</span> <span class="nav-text">块级元素与内联元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-块级元素-block"><span class="nav-number">3.</span> <span class="nav-text">1. 块级元素(block)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-内联元素-inline"><span class="nav-number">4.</span> <span class="nav-text">2. 内联元素(inline)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-内联块级元素-inline-block"><span class="nav-number">5.</span> <span class="nav-text">3. 内联块级元素(inline-block)</span></a></li></ol></div>
             
 
           </div>

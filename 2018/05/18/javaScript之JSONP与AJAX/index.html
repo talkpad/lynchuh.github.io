@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="入门,HTML,meta," />
+  <meta name="keywords" content="javaScript,Ajax/JSONP," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="以写简历为目的，开始了第一次写网页的实战。之前虽然有看过关于css和html的相关文档，但是纸上得来终觉浅。写的时候关于标签的语义或css的属性还是不懂。写完还是有必要总结一下目前认识的标签。">
-<meta name="keywords" content="入门,HTML,meta">
+<meta name="description" content="最近在面试的时候，被问到一个题目，undefined/null/和空字符串的区别是什么。这么基础的问题,真的问倒我了。很长一段时间我被老师洗脑记住了五个falsy值：undefined、unll、0、NaN、&amp;#39;&amp;#39;以及判断时一定要使用严格等于===，所以一直把数据转换/不严格相等操作符==抛之脑后（其实也是因为懒..），所以还是用文字巩固一下知识才是王道..  if语句与 ==i">
+<meta name="keywords" content="javaScript,Ajax&#x2F;JSONP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于html标签的一些总结">
-<meta property="og:url" content="http://yoursite.com/2018/03/13/关于html标签的一些总结/index.html">
+<meta property="og:title" content="javaScript之猜不透的 ==">
+<meta property="og:url" content="http://yoursite.com/2018/05/18/javaScript之JSONP与AJAX/index.html">
 <meta property="og:site_name" content="Lyn&#39;s Blog">
-<meta property="og:description" content="以写简历为目的，开始了第一次写网页的实战。之前虽然有看过关于css和html的相关文档，但是纸上得来终觉浅。写的时候关于标签的语义或css的属性还是不懂。写完还是有必要总结一下目前认识的标签。">
+<meta property="og:description" content="最近在面试的时候，被问到一个题目，undefined/null/和空字符串的区别是什么。这么基础的问题,真的问倒我了。很长一段时间我被老师洗脑记住了五个falsy值：undefined、unll、0、NaN、&amp;#39;&amp;#39;以及判断时一定要使用严格等于===，所以一直把数据转换/不严格相等操作符==抛之脑后（其实也是因为懒..），所以还是用文字巩固一下知识才是王道..  if语句与 ==i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-22T10:51:24.387Z">
+<meta property="og:updated_time" content="2018-06-24T05:38:28.942Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于html标签的一些总结">
-<meta name="twitter:description" content="以写简历为目的，开始了第一次写网页的实战。之前虽然有看过关于css和html的相关文档，但是纸上得来终觉浅。写的时候关于标签的语义或css的属性还是不懂。写完还是有必要总结一下目前认识的标签。">
+<meta name="twitter:title" content="javaScript之猜不透的 ==">
+<meta name="twitter:description" content="最近在面试的时候，被问到一个题目，undefined/null/和空字符串的区别是什么。这么基础的问题,真的问倒我了。很长一段时间我被老师洗脑记住了五个falsy值：undefined、unll、0、NaN、&amp;#39;&amp;#39;以及判断时一定要使用严格等于===，所以一直把数据转换/不严格相等操作符==抛之脑后（其实也是因为懒..），所以还是用文字巩固一下知识才是王道..  if语句与 ==i">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/13/关于html标签的一些总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/18/javaScript之JSONP与AJAX/"/>
 
 
 
 
 
-  <title>关于html标签的一些总结 | Lyn's Blog</title>
+  <title>javaScript之猜不透的 == | Lyn's Blog</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/关于html标签的一些总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/18/javaScript之JSONP与AJAX/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lynchuh">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于html标签的一些总结</h1>
+          <h1 class="post-title" itemprop="name headline">javaScript之猜不透的 ==</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T10:01:25+08:00">
-                2018-03-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-18T18:54:11+08:00">
+                2018-05-18
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML</span>
+                  <a href="/categories/javaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">javaScript</span>
                   </a>
                 </span>
 
@@ -352,30 +352,39 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><p>以写简历为目的，开始了第一次写网页的实战。之前虽然有看过关于css和html的相关文档，但是纸上得来终觉浅。写的时候关于标签的语义或css的属性还是不懂。写完还是有必要总结一下目前认识的标签。<br><a id="more"></a></p>
-<h4 id="1-什么是标签"><a href="#1-什么是标签" class="headerlink" title="1. 什么是标签"></a>1. 什么是标签</h4><hr>
-<p>在总结前，我们要理清楚一个概念：html只管内容，也就是说不同标签的内容呈现出来的样式都不关html的事，管这个事情的另有他人，也就是CSS。那么我们，可以大胆地认为，html的标签没有块级元素或内联元素之分，因为这个是可以用属性<code>display</code>来修改的。</p>
-<p>标签，也就是元素。它是<a href="https://zh.wikipedia.org/wiki/HTML" title="HTML" target="_blank" rel="noopener">HTML</a>文件的基本组成单位。不同的标签代表着不同的含义，我们需要根据场景/内容选用适当的标签。</p>
-<h4 id="2-目前接触到的标签"><a href="#2-目前接触到的标签" class="headerlink" title="2. 目前接触到的标签"></a>2. 目前接触到的标签</h4><hr>
+        <script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p>最近在面试的时候，被问到一个题目，undefined/null/和空字符串的区别是什么。这么基础的问题,真的问倒我了。很长一段时间我被老师洗脑记住了五个falsy值：<code>undefined</code>、<code>unll</code>、<code>0</code>、<code>NaN</code>、<code>&#39;&#39;</code>以及判断时一定要使用严格等于<code>===</code>，所以一直把数据转换/不严格相等操作符==抛之脑后（其实也是因为懒..），所以还是用文字巩固一下知识才是王道..</p>
+</blockquote>
+<h2 id="if语句与"><a href="#if语句与" class="headerlink" title="if语句与 =="></a>if语句与 ==</h2><figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="string">'怪阿姨'</span>)&#123;</span><br><span class="line">    console,<span class="built_in">log</span>(<span class="string">'怪阿姨'</span>== <span class="literal">true</span>)//<span class="literal">false</span></span><br><span class="line">    console.<span class="built_in">log</span>(<span class="string">'怪阿姨'</span>== <span class="literal">false</span>)//<span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有趣了，明明’怪啊姨’进去了if循环里面，却跟<code>true</code>、<code>false</code>扯不上关系。翻书找原因。终于有点头绪了。<br>这里其实<code>if</code>的数据转换和<code>==</code>的数据转换原则不一样</p>
+<h3 id="if语句的数据转换原则"><a href="#if语句的数据转换原则" class="headerlink" title="if语句的数据转换原则"></a>if语句的数据转换原则</h3><p>if语句比较简单，都是将数据类型转换为boolean值的，再判断是否为<code>true</code>，是则进入循环。这里只要记住五大flasy值：</p>
 <ul>
-<li>html大纲标签<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span> //规定文档相关的通用信息（元数据），包括文档的标题，文档的样式和脚本的链接（定义）等</span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span> //表示的是HTML文档的主体内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><code>undefined</code>、</li>
+<li><code>unll</code>、</li>
+<li><code>0</code>、</li>
+<li><code>NaN</code>、</li>
+<li><code>&#39;&#39;</code></li>
+</ul>
+<h3 id="不严格相等的转换原则"><a href="#不严格相等的转换原则" class="headerlink" title="不严格相等的转换原则"></a>不严格相等的转换原则</h3><p>这里有个分水岭，我们将 <code>undefined</code>/<code>null</code> 与其他数据类型分开说明。</p>
+<h4 id="undefined-与-null"><a href="#undefined-与-null" class="headerlink" title="undefined 与 null"></a>undefined 与 null</h4><ul>
+<li>在不严格相等的情况下： <code>undefined == null</code><br>这里我翻了一下《高级程序设计》这本书，里面提到：<blockquote>
+<p>从逻辑角度来看，null值表示一个空对象指针。（怪不得<code>typeof(null)</code>得到的是object）<br>实际上，undefined值是派生自null值的，因此ECMA-262规定对他们的相等行测试要返回true。</p>
+</blockquote>
+</li>
+<li>严格相等下，<code>undefined !== null</code></li>
+</ul>
+<h4 id="其他数据类型"><a href="#其他数据类型" class="headerlink" title="其他数据类型"></a>其他数据类型</h4><p>记住两个核心点：</p>
+<ul>
+<li>NaN跟任何值都不想等，包括NaN本身</li>
+<li>一般都先将其转换为数字值，再进行相等比较（调用<code>Number()</code>）<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line"><span class="comment">//string</span></span><br><span class="line"><span class="string">"apple"</span> == <span class="number">5</span> <span class="comment">//false apple应该被转换成NaN</span></span><br><span class="line"><span class="string">"123apple"</span> == <span class="number">123</span> <span class="comment">//false 这里证实肯定不是调用parseInt()</span></span><br><span class="line"><span class="string">"123"</span> ==<span class="number">123</span> <span class="comment">//true </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//boolean</span></span><br><span class="line">false == <span class="number">0</span></span><br><span class="line">true == <span class="number">1</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>可以出现在 <code>&lt;head&gt;</code> 标签内的元素有：<br><code>meta</code>, <code>link</code>, <code>title</code>, <code>style</code>, <code>script</code>, <code>noscript</code>, <code>base</code>.<br><code>&lt;meta&gt;</code>标签用于表示以上标签<strong>不能表示</strong>的任何元数据信息.<br><code>&lt;noscript&gt;</code>标签的作用是：如果浏览器不支持script，则会显示<code>&lt;noscript&gt;</code>的内容</p>
+<p>由于对象比较特殊，我另外再说明</p>
 <ul>
-<li><p>内容分区标签（为页面内容创建明确的大纲）<br>( 1.)<strong><code>&lt;nav&gt;</code></strong>用于html导航栏，含有一个或多个超链接（<code>&lt;a&gt;</code>）的区域.<br>( 2.)<strong><code>&lt;main&gt;</code></strong>呈现了文档<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/body" title="HTML 主体元素 (&lt;body&gt;) 表示的是HTML文档的主体内容，任何一个HTML文档，只允许存在一个 &lt;body&gt; 元素。" target="_blank" rel="noopener"><code>&lt;body&gt;</code></a>或应用的主体部分。注意<code>&lt;main&gt;</code> 标签<strong>不能</strong> 是以下元素的继承<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/article" title="&lt;article&gt;元素表示文档、页面、应用或网站中的独立结构，其意在成为可独立分配的或可复用的结构，如在发布中，它可能是论坛帖子、杂志或新闻文章、博客、用户提交的评论、交互式组件，或者其他独立的内容项目。" target="_blank" rel="noopener"><code>&lt;article&gt;</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/aside" title="&lt;aside&gt; 元素表示一个和其余页面内容几乎无关的部分，被认为是独立于该内容的一部分并且可以被单独的拆分出来而不会使整体受影响。其通常表现为侧边栏或者嵌入内容。他们通常包含在工具条，例如来自词汇表的定义。也可能有其他类型的信息，例如相关的广告、笔者的传记、web 应用程序、个人资料信息，或在博客上的相关链接。" target="_blank" rel="noopener"><code>&lt;aside&gt;</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/footer" title="HTML &lt;footer&gt; 元素表示最近一个章节内容或者根节点（sectioning root ）元素的页脚。一个页脚通常包含该章节作者、版权数据或者与文档相关的链接等信息。" target="_blank" rel="noopener"><code>&lt;footer&gt;</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/header" title="&lt;header&gt;元素表示一组引导性的帮助，可能包含标题元素，也可以包含其他元素，像logo、分节头部、搜索表单等。" target="_blank" rel="noopener"><code>&lt;header&gt;</code></a>, 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/nav" title="HTML导航栏 (&lt;nav&gt;) 描绘一个含有多个超链接的区域，这个区域包含转到其他页面，或者页面内部其他部分的链接列表." target="_blank" rel="noopener"><code>&lt;nav&gt;</code></a>。个人理解这几个元素都是并列结构，只可以做兄弟姐妹的那种。<br>( 3.)<strong><code>&lt;section&gt;</code></strong> 表示文档中的一个区域（或节），比如，内容中的一个专题组，通常都有一个标题。<strong>一般通过是否包含一个标题 (<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/h1" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>&lt;h1&gt;</code></a>-<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/h6" title="此页面仍未被本地化, 期待您的翻译!" target="_blank" rel="noopener"><code>&lt;h6&gt;</code></a> element) 作为子节点 来 辨识每一个<section>。</section></strong><br>( 4.) <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/footer" title="HTML &lt;footer&gt; 元素表示最近一个章节内容或者根节点（sectioning root ）元素的页脚。一个页脚通常包含该章节作者、版权数据或者与文档相关的链接等信息。" target="_blank" rel="noopener"><strong><code>&lt;footer&gt;</code></strong></a>页脚。<strong>一个页脚通常包含该章节作者、版权数据或者与文档相关的链接等信息。</strong><br>( 5.)<strong><code>&lt;h1&gt;</code>~<code>&lt;h6&gt;</code></strong> 标题<br>( 6.)<strong><code>&lt;p&gt;</code></strong> 段落</p>
-</li>
-<li><p>文本内容（标识内容的宗旨或结构）</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="comment">//描述列表元素</span></span><br><span class="line"><span class="params">&lt;dl&gt;</span></span><br><span class="line"><span class="params">&lt;dd&gt;</span><span class="params">&lt;/dd&gt;</span>内容标题</span><br><span class="line"><span class="params">&lt;dt&gt;</span><span class="params">&lt;/dt&gt;</span>内容描述</span><br><span class="line"><span class="params">&lt;/dl&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>对象与对象之间的 == 比较，其实是比较两者的引用，如果引用的是同一个内存指针，则返回true。</li>
+<li>对象与其他类型的比较：首先调用<code>valueof()</code>,在调用<code>toString()</code>得到一个基本数据类型的值，然后调用<code>Number()</code>转为数字值再进行比较。</li>
 </ul>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="comment">//有序列表</span></span><br><span class="line"><span class="params">&lt;ol&gt;</span></span><br><span class="line"><span class="params">&lt;li&gt;</span><span class="params">&lt;/li&gt;</span></span><br><span class="line"><span class="params">&lt;/ol&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="comment">//无序列表</span></span><br><span class="line"><span class="params">&lt;ul&gt;</span></span><br><span class="line"><span class="params">&lt;li&gt;</span><span class="params">&lt;/li&gt;</span></span><br><span class="line"><span class="params">&lt;/ul&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="comment">//表格元素</span></span><br><span class="line">&lt;<span class="keyword">table</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;/<span class="keyword">table</span>&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>容器<br>这两个标签没有任何语义。<br><code>&lt;div&gt;</code> 一般用来充当流内容容器。他默认是块级元素。<br><code>&lt;span&gt;</code>一般用来充当行内容器。默认内联元素。</li>
-</ul>
-<p>另外，关于空元素、可替换元素 在另一篇博客<a href="https://lynchuh.github.io/2018/03/10/%E5%85%B3%E4%BA%8Ehtml%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B/" target="_blank" rel="noopener">&lt;关于html的一些事&gt;</a>有提及。</p>
+<p>以上，完/</p>
 
       
     </div>
@@ -393,11 +402,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/入门/" rel="tag"><i class="fa fa-tag"></i> 入门</a>
+            <a href="/tags/javaScript/" rel="tag"><i class="fa fa-tag"></i> javaScript</a>
           
-            <a href="/tags/HTML/" rel="tag"><i class="fa fa-tag"></i> HTML</a>
-          
-            <a href="/tags/meta/" rel="tag"><i class="fa fa-tag"></i> meta</a>
+            <a href="/tags/Ajax-JSONP/" rel="tag"><i class="fa fa-tag"></i> Ajax/JSONP</a>
           
         </div>
       
@@ -410,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/12/计算机基础-计算机是如何存储数据的/" rel="next" title="计算机基础---计算机是如何存储数据的">
-                <i class="fa fa-chevron-left"></i> 计算机基础---计算机是如何存储数据的
+              <a href="/2018/05/08/javaScript之初遇立即执行函数/" rel="next" title="javaScript之初遇立即执行函数">
+                <i class="fa fa-chevron-left"></i> javaScript之初遇立即执行函数
               </a>
             
           </div>
@@ -420,8 +427,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/14/关于html标签的一些总结2/" rel="prev" title="关于html标签的一些总结2">
-                关于html标签的一些总结2 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/19/DOM事件，捕获与冒泡总结/" rel="prev" title="DOM事件模型">
+                DOM事件模型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -594,7 +601,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-什么是标签"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-目前接触到的标签"><span class="nav-number">2.</span> <span class="nav-text">2. 目前接触到的标签</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#if语句与"><span class="nav-number">1.</span> <span class="nav-text">if语句与 ==</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if语句的数据转换原则"><span class="nav-number">1.1.</span> <span class="nav-text">if语句的数据转换原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不严格相等的转换原则"><span class="nav-number">1.2.</span> <span class="nav-text">不严格相等的转换原则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined-与-null"><span class="nav-number">1.2.1.</span> <span class="nav-text">undefined 与 null</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他数据类型"><span class="nav-number">1.2.2.</span> <span class="nav-text">其他数据类型</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -559,6 +559,180 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/18/javaScript之JSONP与AJAX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lynchuh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/123.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lyn's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/18/javaScript之JSONP与AJAX/" itemprop="url">javaScript之猜不透的 ==</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-18T18:54:11+08:00">
+                2018-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              "<span class="post-meta-divider">|</span>"
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">javaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p>最近在面试的时候，被问到一个题目，undefined/null/和空字符串的区别是什么。这么基础的问题,真的问倒我了。很长一段时间我被老师洗脑记住了五个falsy值：<code>undefined</code>、<code>unll</code>、<code>0</code>、<code>NaN</code>、<code>&#39;&#39;</code>以及判断时一定要使用严格等于<code>===</code>，所以一直把数据转换/不严格相等操作符==抛之脑后（其实也是因为懒..），所以还是用文字巩固一下知识才是王道..</p>
+</blockquote>
+<h2 id="if语句与"><a href="#if语句与" class="headerlink" title="if语句与 =="></a>if语句与 ==</h2><figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="string">'怪阿姨'</span>)&#123;</span><br><span class="line">    console,<span class="built_in">log</span>(<span class="string">'怪阿姨'</span>== <span class="literal">true</span>)//<span class="literal">false</span></span><br><span class="line">    console.<span class="built_in">log</span>(<span class="string">'怪阿姨'</span>== <span class="literal">false</span>)//<span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有趣了，明明’怪啊姨’进去了if循环里面，却跟<code>true</code>、<code>false</code>扯不上关系。翻书找原因。终于有点头绪了。<br>这里其实<code>if</code>的数据转换和<code>==</code>的数据转换原则不一样</p>
+<h3 id="if语句的数据转换原则"><a href="#if语句的数据转换原则" class="headerlink" title="if语句的数据转换原则"></a>if语句的数据转换原则</h3><p>if语句比较简单，都是将数据类型转换为boolean值的，再判断是否为<code>true</code>，是则进入循环。这里只要记住五大flasy值：</p>
+<ul>
+<li><code>undefined</code>、</li>
+<li><code>unll</code>、</li>
+<li><code>0</code>、</li>
+<li><code>NaN</code>、</li>
+<li><code>&#39;&#39;</code></li>
+</ul>
+<h3 id="不严格相等的转换原则"><a href="#不严格相等的转换原则" class="headerlink" title="不严格相等的转换原则"></a>不严格相等的转换原则</h3><p>这里有个分水岭，我们将 <code>undefined</code>/<code>null</code> 与其他数据类型分开说明。</p>
+<h4 id="undefined-与-null"><a href="#undefined-与-null" class="headerlink" title="undefined 与 null"></a>undefined 与 null</h4><ul>
+<li>在不严格相等的情况下： <code>undefined == null</code><br>这里我翻了一下《高级程序设计》这本书，里面提到：<blockquote>
+<p>从逻辑角度来看，null值表示一个空对象指针。（怪不得<code>typeof(null)</code>得到的是object）<br>实际上，undefined值是派生自null值的，因此ECMA-262规定对他们的相等行测试要返回true。</p>
+</blockquote>
+</li>
+<li>严格相等下，<code>undefined !== null</code></li>
+</ul>
+<h4 id="其他数据类型"><a href="#其他数据类型" class="headerlink" title="其他数据类型"></a>其他数据类型</h4><p>记住两个核心点：</p>
+<ul>
+<li>NaN跟任何值都不想等，包括NaN本身</li>
+<li>一般都先将其转换为数字值，再进行相等比较（调用<code>Number()</code>）<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line"><span class="comment">//string</span></span><br><span class="line"><span class="string">"apple"</span> == <span class="number">5</span> <span class="comment">//false apple应该被转换成NaN</span></span><br><span class="line"><span class="string">"123apple"</span> == <span class="number">123</span> <span class="comment">//false 这里证实肯定不是调用parseInt()</span></span><br><span class="line"><span class="string">"123"</span> ==<span class="number">123</span> <span class="comment">//true </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//boolean</span></span><br><span class="line">false == <span class="number">0</span></span><br><span class="line">true == <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>由于对象比较特殊，我另外再说明</p>
+<ul>
+<li>对象与对象之间的 == 比较，其实是比较两者的引用，如果引用的是同一个内存指针，则返回true。</li>
+<li>对象与其他类型的比较：首先调用<code>valueof()</code>,在调用<code>toString()</code>得到一个基本数据类型的值，然后调用<code>Number()</code>转为数字值再进行比较。</li>
+</ul>
+<p>以上，完/</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/javaScript之初遇立即执行函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1241,8 +1415,7 @@
 
       
         
-          <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><hr>
-<h3 id="算法的特征"><a href="#算法的特征" class="headerlink" title="算法的特征"></a>算法的特征</h3><ul>
+          <h3 id="算法的特征"><a href="#算法的特征" class="headerlink" title="算法的特征"></a>算法的特征</h3><ul>
 <li>可以没有输入量</li>
 <li>必须有输出量</li>
 <li>有限时间</li>
@@ -1393,7 +1566,8 @@
 
       
         
-          <h2 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="#什么是盒模型"></a>#什么是盒模型</h2><p>在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CSS盒模型科普.jpg"><br></p>
+          <h2 id="什么是盒模型"><a href="#什么是盒模型" class="headerlink" title="什么是盒模型"></a>什么是盒模型</h2><hr>
+<p>在页面里，每一个元素都可以看作是一个盒子，这就是盒模型。<br><img src="https://upload-images.jianshu.io/upload_images/9929263-b06e2321095efe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CSS盒模型科普.jpg"><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/18/入门css总结1/#more" rel="contents">
@@ -1585,152 +1759,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/关于html标签的一些总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lynchuh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/123.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lyn's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/13/关于html标签的一些总结/" itemprop="url">关于html标签的一些总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T10:01:25+08:00">
-                2018-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              "<span class="post-meta-divider">|</span>"
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>以写简历为目的，开始了第一次写网页的实战。之前虽然有看过关于css和html的相关文档，但是纸上得来终觉浅。写的时候关于标签的语义或css的属性还是不懂。写完还是有必要总结一下目前认识的标签。<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/13/关于html标签的一些总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1785,7 +1813,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1807,7 +1835,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
