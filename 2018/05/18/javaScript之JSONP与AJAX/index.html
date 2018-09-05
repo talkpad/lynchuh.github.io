@@ -355,7 +355,7 @@
         <script src="/assets/js/APlayer.min.js"> </script><blockquote>
 <p>最近在面试的时候，被问到一个题目，undefined/null/和空字符串的区别是什么。这么基础的问题,真的问倒我了。很长一段时间我被老师洗脑记住了五个falsy值：<code>undefined</code>、<code>unll</code>、<code>0</code>、<code>NaN</code>、<code>&#39;&#39;</code>以及判断时一定要使用严格等于<code>===</code>，所以一直把数据转换/不严格相等操作符==抛之脑后（其实也是因为懒..），所以还是用文字巩固一下知识才是王道..<br><a id="more"></a></p>
 </blockquote>
-<h2 id="if语句与"><a href="#if语句与" class="headerlink" title="if语句与 =="></a>if语句与 ==</h2><figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="string">'怪阿姨'</span>)&#123;</span><br><span class="line">    console,<span class="built_in">log</span>(<span class="string">'怪阿姨'</span>== <span class="literal">true</span>)//<span class="literal">false</span></span><br><span class="line">    console.<span class="built_in">log</span>(<span class="string">'怪阿姨'</span>== <span class="literal">false</span>)//<span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="if语句与"><a href="#if语句与" class="headerlink" title="if语句与 =="></a>if语句与 ==</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="string">'怪阿姨'</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>,log(<span class="string">'怪阿姨'</span>== <span class="literal">true</span>)<span class="comment">//false</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'怪阿姨'</span>== <span class="literal">false</span>)<span class="comment">//false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>有趣了，明明’怪啊姨’进去了if循环里面，却跟<code>true</code>、<code>false</code>扯不上关系。翻书找原因。终于有点头绪了。<br>这里其实<code>if</code>的数据转换和<code>==</code>的数据转换原则不一样</p>
 <h3 id="if语句的数据转换原则"><a href="#if语句的数据转换原则" class="headerlink" title="if语句的数据转换原则"></a>if语句的数据转换原则</h3><p>if语句比较简单，都是将数据类型转换为boolean值的，再判断是否为<code>true</code>，是则进入循环。这里只要记住五大flasy值：</p>
 <ul>
@@ -417,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/10/DOM事件，捕获与冒泡总结/" rel="next" title="DOM事件模型">
-                <i class="fa fa-chevron-left"></i> DOM事件模型
+              <a href="/2018/05/10/DOM事件实例/" rel="next" title="javaScript基础-DOM事件实例">
+                <i class="fa fa-chevron-left"></i> javaScript基础-DOM事件实例
               </a>
             
           </div>
@@ -427,7 +427,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/24/DOM/" rel="prev" title=" React 学习笔记（一）[从JSX到Virtual DOM]">
+              <a href="/2018/08/24/React 学习笔记（一）[从JSX到Virtual DOM]/" rel="prev" title=" React 学习笔记（一）[从JSX到Virtual DOM]">
                  React 学习笔记（一）[从JSX到Virtual DOM] <i class="fa fa-chevron-right"></i>
               </a>
             

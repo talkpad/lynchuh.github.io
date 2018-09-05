@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javaScript,jQuery,基础," />
+  <meta name="keywords" content="javaScript,基础,jQuery," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="自己做一个jQuery的思路 封装两个函数 → 添加命名空间 → 扩展Node原型/无侵入设置 &amp;lt;!--html代码--&amp;gt;&amp;lt;body&amp;gt;  &amp;lt;h1&amp;gt;text&amp;lt;/h1&amp;gt;  &amp;lt;ul&amp;gt;    &amp;lt;li id=&quot;item1&quot;&amp;gt;选项1&amp;lt;/li&amp;gt;    &amp;lt;li id=&quot;item2&quot;&amp;gt;选项2&amp;lt;/li&amp;gt;">
-<meta name="keywords" content="javaScript,jQuery,基础">
+<meta name="keywords" content="javaScript,基础,jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自己做一个jQuery的思路">
 <meta property="og:url" content="http://yoursite.com/2018/05/04/自己做一个jQuery的思路/index.html">
@@ -365,7 +365,7 @@
 <ul>
 <li>给目标元素添加class</li>
 </ul>
-<figure class="highlight cs"><table><tr><td class="code"><pre><span class="line"><span class="comment">//javaScript代码</span></span><br><span class="line"><span class="function">function <span class="title">addClass</span>(<span class="params">node,classes</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> classes)&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">value</span> = classes[key]</span><br><span class="line">    <span class="keyword">var</span> methodName = <span class="keyword">value</span>? <span class="string">' add '</span> : <span class="string">' remove '</span> </span><br><span class="line">    node.classList[methodName](key)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用addClass()</span></span><br><span class="line">addClass(item1,&#123; a:ture , b:<span class="literal">false</span>&#125; )</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//javaScript代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClass</span>(<span class="params">node,classes</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> classes)&#123;</span><br><span class="line">    <span class="keyword">var</span> value = classes[key]</span><br><span class="line">    <span class="keyword">var</span> methodName = value? <span class="string">' add '</span> : <span class="string">' remove '</span> </span><br><span class="line">    node.classList[methodName](key)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用addClass()</span></span><br><span class="line">addClass(item1,&#123; <span class="attr">a</span>:ture , <span class="attr">b</span>:<span class="literal">false</span>&#125; )</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>//语法基础<br>classList[methodName === classList.methodName</p>
 </blockquote>
@@ -435,9 +435,9 @@
           
             <a href="/tags/javaScript/" rel="tag"><i class="fa fa-tag"></i> javaScript</a>
           
-            <a href="/tags/jQuery/" rel="tag"><i class="fa fa-tag"></i> jQuery</a>
-          
             <a href="/tags/基础/" rel="tag"><i class="fa fa-tag"></i> 基础</a>
+          
+            <a href="/tags/jQuery/" rel="tag"><i class="fa fa-tag"></i> jQuery</a>
           
         </div>
       
