@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javaScript,闭包/作用域," />
+  <meta name="keywords" content="javaScript,React," />
 
 
 
@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="闭包根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而闭包指的是函数与函数外的变量组成的一个词法环境。  闭包可以隐藏一个变量。">
-<meta name="keywords" content="javaScript,闭包&#x2F;作用域">
+<meta name="description" content="最近尝试使用React做一个小项目（todolist），现在虽然做完了，但其实代码的实现实在是烂透了，比如leancloud的数据获取、另外由于组件划分设计得有点怪，而且页面的交互细节太依赖数据，数据的传递及管理并不如人意，很多时候要经过中间层，这让我感觉很别扭，以至于萌生加入redux来优化这个项目的念头。  这次会先充分了解react及redux的机制，再来完成项目。  react 与 JS">
+<meta name="keywords" content="javaScript,React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javaScript函数基础总结（2）闭包">
-<meta property="og:url" content="http://yoursite.com/2018/04/20/javaScript函数基础总结（2）闭包/index.html">
+<meta property="og:title" content=" React 学习笔记（一）[从JSX到Virtual DOM]">
+<meta property="og:url" content="http://yoursite.com/2018/08/24/DOM/index.html">
 <meta property="og:site_name" content="Lyn&#39;s Blog">
-<meta property="og:description" content="闭包根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而闭包指的是函数与函数外的变量组成的一个词法环境。  闭包可以隐藏一个变量。">
+<meta property="og:description" content="最近尝试使用React做一个小项目（todolist），现在虽然做完了，但其实代码的实现实在是烂透了，比如leancloud的数据获取、另外由于组件划分设计得有点怪，而且页面的交互细节太依赖数据，数据的传递及管理并不如人意，很多时候要经过中间层，这让我感觉很别扭，以至于萌生加入redux来优化这个项目的念头。  这次会先充分了解react及redux的机制，再来完成项目。  react 与 JS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-685c6fae801b2ff5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/411">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9929263-e6d5b57c160da3de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/409">
-<meta property="og:updated_time" content="2018-06-22T10:49:55.649Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9929263-a7dde0b00df0a9ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9929263-55d101b3ff87e701.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-05T13:46:39.116Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javaScript函数基础总结（2）闭包">
-<meta name="twitter:description" content="闭包根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而闭包指的是函数与函数外的变量组成的一个词法环境。  闭包可以隐藏一个变量。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9929263-685c6fae801b2ff5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/411">
+<meta name="twitter:title" content=" React 学习笔记（一）[从JSX到Virtual DOM]">
+<meta name="twitter:description" content="最近尝试使用React做一个小项目（todolist），现在虽然做完了，但其实代码的实现实在是烂透了，比如leancloud的数据获取、另外由于组件划分设计得有点怪，而且页面的交互细节太依赖数据，数据的传递及管理并不如人意，很多时候要经过中间层，这让我感觉很别扭，以至于萌生加入redux来优化这个项目的念头。  这次会先充分了解react及redux的机制，再来完成项目。  react 与 JS">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/9929263-a7dde0b00df0a9ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/20/javaScript函数基础总结（2）闭包/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/24/DOM/"/>
 
 
 
 
 
-  <title>javaScript函数基础总结（2）闭包 | Lyn's Blog</title>
+  <title> React 学习笔记（一）[从JSX到Virtual DOM] | Lyn's Blog</title>
   
 
 
@@ -266,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/20/javaScript函数基础总结（2）闭包/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/DOM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lynchuh">
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">javaScript函数基础总结（2）闭包</h1>
+          <h1 class="post-title" itemprop="name headline"> React 学习笔记（一）[从JSX到Virtual DOM]</h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-20T09:19:58+08:00">
-                2018-04-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T21:06:13+08:00">
+                2018-08-24
               </time>
             
 
@@ -318,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">javaScript</span>
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
                   </a>
                 </span>
 
@@ -355,40 +355,36 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>根据作用域的说话，函数中的使用的变量首先在函数体内寻找，如没有，则往上一级寻找，以此类推。而<strong>闭包指的是函数与函数外的变量组成的一个词法环境。</strong></p>
+        <script src="/assets/js/APlayer.min.js"> </script><blockquote>
+<p>最近尝试使用React做一个小项目（todolist），现在虽然做完了，但其实代码的实现实在是烂透了，比如leancloud的数据获取、另外由于组件划分设计得有点怪，而且页面的交互细节太依赖数据，数据的传递及管理并不如人意，很多时候要经过中间层，这让我感觉很别扭，以至于萌生加入redux来优化这个项目的念头。<br>  这次会先充分了解react及redux的机制，再来完成项目。</p>
+</blockquote>
+<h2 id="react-与-JSX"><a href="#react-与-JSX" class="headerlink" title="react 与 JSX"></a>react 与 JSX</h2><blockquote>
+<p>在我刚使用react的时候，最鲜明的特征应该就是可以在js里写“HTML”了，这其实就是JSX,而且这写看似HTML的字符串也并不是HTML</p>
+</blockquote>
 <ul>
-<li><p>闭包可以隐藏一个变量。</p>
+<li><h3 id="什么是JSX"><a href="#什么是JSX" class="headerlink" title="什么是JSX"></a>什么是JSX</h3><p>JSX是一种类XML语言，全称是JavaScript XML，它是对javaScript的一种扩展。<br>在react里，我们可以用JSX直观地定义出一个UI组件的结构，当然其实我们也可以不用JSX来写，因为最终JSX也会经过转义，<strong>成为一个描述DOM结构的对象</strong>。</p>
 <a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> a = <span class="string">'我只是测试'</span></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(a)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> fn2</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> result=fn1()</span><br><span class="line">  result()</span><br></pre></td></tr></table></figure>
-<p>这里在fn1的函数体内变量a与函数fn2组成了一个闭包，而变量a被隐藏在函数fn1内，只能局部访问。</p>
+<p>但 react作者 还是强烈建议我们使用JSX，原因上面也有说—直观。简明的代码结构更利于开发和维护，JSX的特点能让我们在构建复杂的树形结构时比函数调用和对象字面量更易读。</p>
+<p><a href="https://babeljs.io/repl/" target="_blank" rel="noopener">点这里体验JSX</a></p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="comment">//使用JSX</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sayhi</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;h1&gt;hello <span class="type">World</span>&lt;/h1&gt;</span><br><span class="line">          &lt;p&gt; <span class="type">I</span> am description&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">     &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">ReactDom</span>.render(&lt;<span class="type">Sayhi</span>/&gt;,document.getElementById(<span class="symbol">'roo</span>t'))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用JSX</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sayhi</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">      <span class="type">React</span>.createElement(</span><br><span class="line">      <span class="string">"div"</span>,</span><br><span class="line">      <span class="literal">null</span>,</span><br><span class="line">        <span class="type">React</span>.createElement(</span><br><span class="line">          <span class="string">"div"</span>,</span><br><span class="line">          <span class="literal">null</span>,</span><br><span class="line">          <span class="type">React</span>.createElement(</span><br><span class="line">            <span class="string">"h1"</span>,</span><br><span class="line">            <span class="literal">null</span>,</span><br><span class="line">            <span class="string">"hello World"</span></span><br><span class="line">          ),</span><br><span class="line">          <span class="type">React</span>.createElement(</span><br><span class="line">            <span class="string">"p"</span>,</span><br><span class="line">            <span class="literal">null</span>,</span><br><span class="line">            <span class="string">" I am description"</span></span><br><span class="line">          ) </span><br><span class="line">        )</span><br><span class="line">      )</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">ReactDom</span>.render(&lt;<span class="type">Sayhi</span>/&gt;,document.getElementById(<span class="symbol">'roo</span>t'))</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
-<li><p>在只有一个方法，却需要多个数据的情况下，也可以使用闭包。闭包可以很好地封装数据。<br><a href="http://js.jirengu.com/xahanepali/1/edit?html,js,output" target="_blank" rel="noopener">例子看这里</a><br><a href="http://js.jirengu.com/puwejuliga/1/edit" target="_blank" rel="noopener">例子看这里</a> 例子里，counter1和counter2共用一个闭包，却不会影响到各自的值。</p>
+<li><h3 id="JSX使用要记"><a href="#JSX使用要记" class="headerlink" title="JSX使用要记"></a>JSX使用要记</h3><p>1.所有的标签都需要闭合。</p>
+<p>2.自定义组件的声明变量采用首字母大写</p>
+<p>3.JSX内表达式需用<code>{}</code>包起来</p>
+<p>4.比较特殊的属性如<code>class</code>在JSX里需写成<code>className</code></p>
+<p>5.每段JSX里的XML只能有一个根元素</p>
 </li>
-<li><p>柯里化函数<br>每次只传一个参数分多次调用.<br>栗子看这里：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">var</span> add = function(x)&#123;</span><br><span class="line"> return function(y)&#123;</span><br><span class="line">     return x+y</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> addTen = add(<span class="number">10</span>)</span><br><span class="line"><span class="selector-tag">var</span> add7 = add(<span class="number">7</span>)</span><br><span class="line"><span class="function"><span class="title">add7</span><span class="params">(<span class="number">1</span>)</span></span>    <span class="comment">//8</span></span><br><span class="line"><span class="function"><span class="title">addTen</span><span class="params">(<span class="number">1</span>)</span></span>     <span class="comment">//11</span></span><br></pre></td></tr></table></figure>
-</li>
 </ul>
-<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>在刚接触函数的时候，了解到每个函数都有return语句，return的作用很好理解，但是我不清楚return的返回值 有什么作用，或者说，返回值在什么样的场景被利用。<br>下面总结一下返回值的细节。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9929263-685c6fae801b2ff5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/411" alt="img"></p>
-<ul>
-<li>返回值是函数经调用之后返回的值。</li>
-<li>obj本质上也是一个变量，不过这个变量赋的值是一个函数（对象）。</li>
-<li>我将obj和调用后的obj（即obj()）分别赋值给变量result和text，可以看到result的值是函数obj的整个函数体，但text的值是return的值age，即是7。</li>
-</ul>
-<p>再次升级：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9929263-e6d5b57c160da3de.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/409" alt="img"></p>
-<ul>
-<li>我将函数的返回值设为一个匿名函数，而这个匿名函数也有一个返回值。</li>
-<li>赋值obj()给变量newAge，得到的结果是返回值–匿名函数的函数体，想要最终的结果需要再次调用变量newAge。</li>
-</ul>
-<p><strong>上面闭包的柯里化函数就是返回值和闭包的一个简单运用</strong></p>
-<h3 id="闭包和返回值的场景应用"><a href="#闭包和返回值的场景应用" class="headerlink" title="闭包和返回值的场景应用"></a>闭包和返回值的场景应用</h3><p>很多项目的开展，需要按功能将js模块化。为了不要将每个模块的变量都暴露在全局作用域内，一般我们会将每个模块都封装在一个匿名函数内再立即调用（立即执行函数）。<br>那么问题是 当有两个模块需要共享一个变量时，我们如何满足这个需求，答案是闭包。下面是简单的栗子：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//model-1.js</span></span><br><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person =&#123;</span><br><span class="line">    name: <span class="string">'lyn'</span>,</span><br><span class="line">    age: <span class="number">7</span>,</span><br><span class="line">    hobby: <span class="string">'handsome man'</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">window</span>.newAge= <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="keyword">return</span> person.newAge += <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//model-2.js</span></span><br><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(newAge())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面例子里，model-1里将变量person封装在一个匿名函数里面，然后再使用闭包来改变变量person的某一个属性，这样可以更好的保护数据，而且在另一个模块model-2里也可以操作变量，但是不能够直接访问变量。</p>
-<p><strong>再改变一下model-1：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//model-1.js</span></span><br><span class="line"><span class="keyword">var</span> accessor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person =&#123;</span><br><span class="line">  name: <span class="string">'lyn'</span>,</span><br><span class="line">    age: <span class="number">7</span>,</span><br><span class="line">    hobby: <span class="string">'handsome man'</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> person.newAge += <span class="number">10</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> growUp = accessor.call()</span><br><span class="line"></span><br><span class="line"><span class="comment">//model-2.js</span></span><br><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(accessor.call())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="JSX与-Virtual-DOM"><a href="#JSX与-Virtual-DOM" class="headerlink" title="JSX与 Virtual DOM"></a>JSX与 Virtual DOM</h2><p>上面讲到JSX最终会被编译为一个描述DOM结构的对象，这里就引出了一个React的重要思想—-Virtual DOM。</p>
+<p>我们都知道真实的DOM并不是JavaScript的内置对象，而是浏览器提供给我们的接口。而React中的Virtual DOM是存在于内存的，显而易见，让JavaScript操作内存比操作DOM节点快得多。react就是利用Virtual DOM来减少对实际DOM的操作从而提升性能。</p>
+<p>react通过diff算法，对比虚拟DOM变化前后的变化，来进行局部更新。比较特殊的是：传统的diff算法时间复杂度为O(n^3),而React的时间复杂度是O(n)，这样的设置提高了React的性能，但是不可避免地会带来一定的代价。<br>举一个栗子<br><img src="http://upload-images.jianshu.io/upload_images/9929263-a7dde0b00df0a9ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"><img src="http://upload-images.jianshu.io/upload_images/9929263-55d101b3ff87e701.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>上面两个树行结构的DOM是变化前后的结构，其中A从father的子元素变为B的子元素，在react的diff算法中，它是无法辨认这种变化的，它会认为A从页面结构中卸载了，而新的DOM结构内的A是新的组件元素。<br>因此日常开发中，我们动态生成元素的时候，需要给每个元素带上一个key，这也是为了给每个元素带上一个<strong>唯一的</strong>标记，便于react识别。<br>而我们动态生成元素大多数都是通过map一个数组，这里就很喜欢给每个元素的key标记为他们的index，其实这样是不对的做法，我们不能保证这个数组不会临时增加或者减少一个节点，这个时候每个元素的key也会发生变化，那么我们建立这个key的意义将不存在了，所以，<strong>key还要是稳定的</strong></p>
+<blockquote>
+<p>最后，本人才疏学浅，所记录的笔记仅仅是为了巩固记忆，加深印象，难免有点肤浅，望见谅。</p>
+</blockquote>
+<p>参考资料<br><a href="http://www.infoq.com/cn/articles/react-jsx-and-component" target="_blank" rel="noopener">react深入浅出之JSX与组件</a><br><a href="https://zhuanlan.zhihu.com/p/20346379" target="_blank" rel="noopener">react的diff运算</a><br><a href="https://zhuanlan.zhihu.com/advancing-react" target="_blank" rel="noopener">Morgan大神–进击的React专栏</a></p>
 
       
     </div>
@@ -408,7 +404,7 @@
           
             <a href="/tags/javaScript/" rel="tag"><i class="fa fa-tag"></i> javaScript</a>
           
-            <a href="/tags/闭包-作用域/" rel="tag"><i class="fa fa-tag"></i> 闭包/作用域</a>
+            <a href="/tags/React/" rel="tag"><i class="fa fa-tag"></i> React</a>
           
         </div>
       
@@ -421,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/18/javaScript函数基础总结（1）声明、调用与this/" rel="next" title="javaScript函数基础总结（1）声明/调用/this">
-                <i class="fa fa-chevron-left"></i> javaScript函数基础总结（1）声明/调用/this
+              <a href="/2018/05/18/javaScript之JSONP与AJAX/" rel="next" title="javaScript之猜不透的 ==">
+                <i class="fa fa-chevron-left"></i> javaScript之猜不透的 ==
               </a>
             
           </div>
@@ -430,10 +426,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/04/自己做一个jQuery的思路/" rel="prev" title="自己做一个jQuery的思路">
-                自己做一个jQuery的思路 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -605,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回值"><span class="nav-number">2.</span> <span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包和返回值的场景应用"><span class="nav-number">3.</span> <span class="nav-text">闭包和返回值的场景应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#react-与-JSX"><span class="nav-number">1.</span> <span class="nav-text">react 与 JSX</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是JSX"><span class="nav-number">1.1.</span> <span class="nav-text">什么是JSX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSX使用要记"><span class="nav-number">1.2.</span> <span class="nav-text">JSX使用要记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX与-Virtual-DOM"><span class="nav-number">2.</span> <span class="nav-text">JSX与 Virtual DOM</span></a></li></ol></div>
             
 
           </div>
